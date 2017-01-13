@@ -14,6 +14,10 @@ class LoginServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/Views', 'login');
 
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->publishes([
+            __DIR__.'/views' => resource_path('views/vendor/laravel-issue-tracker/login'),
+        ], 'login');
     }
 
     /**

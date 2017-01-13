@@ -39,7 +39,7 @@
                         <a class="btn btn-link-1 btn-link-1-facebook" href="#">
                             <i class="fa fa-facebook"></i> Facebook
                         </a>
-                        <a class="btn btn-link-1 btn-link-1-github" href="#">
+                        <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
                             <i class="fa fa-github"></i> Github
                         </a>
                         <a class="btn btn-link-1 btn-link-1-twitter" href="#">
