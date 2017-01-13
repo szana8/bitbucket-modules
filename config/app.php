@@ -167,7 +167,7 @@ return [
          * Package Service Providers...
          */
 
-        //
+        JeroenG\Packager\PackagerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -177,6 +177,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        \LaravelIssueModules\Core\CoreServiceProvider::class,
+
+        \LaravelIssueModules\Login\LoginServiceProvider::class,
+        \LaravelIssueModules\Dashboard\DashboardServiceProvider::class,
 
     ],
 
