@@ -7,7 +7,8 @@
     "require": {
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
-        "jeroen-g/laravel-packager": "^1.5"
+        "jeroen-g/laravel-packager": "^1.5",
+        "laravelcollective/html": "5.3.*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -21,7 +22,6 @@
             "database"
         ],
         "psr-4": {
-            "LaravelIssueModules\\Core\\": "packages/laravel-issue-modules/core/src",
             "LaravelIssueModules\\Login\\": "packages/laravel-issue-modules/login/src",
             "LaravelIssueModules\\Dashboard\\": "packages/laravel-issue-modules/dashboard/src",
             "App\\": "app/"

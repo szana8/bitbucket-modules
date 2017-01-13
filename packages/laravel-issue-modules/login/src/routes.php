@@ -1,7 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: HUSzanaI
- * Date: 2017. 01. 13.
- * Time: 14:00
- */
+
+Route::group(array('module'=> 'Login', 'namespace' => 'LaravelIssueModules\Login\Controllers'), function () {
+
+    Route::get('login', 'LoginController@index');
+
+});

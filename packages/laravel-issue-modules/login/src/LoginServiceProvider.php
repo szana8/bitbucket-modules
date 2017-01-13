@@ -11,7 +11,9 @@ class LoginServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->loadViewsFrom(__DIR__.'/Views', 'login');
+
+        $this->loadRoutesFrom(__DIR__.'/routes.php');
     }
 
     /**

@@ -19,7 +19,8 @@
     </head>
 
     <body>
-        <h1>This is a test!</h1>
+        @section('content')
+        @show
     </body>
 
     <footer class="footer">
