@@ -1,0 +1,42 @@
+@import "../imports/ui-colours";
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-default {
+  background-color: @ui-color;
+  border-bottom-color: @ui-border-bottom;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: @ui-color-focus; /*Change rollover cell color here*/
+}
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+  box-sizing: border-box;
+  color: @ui-color-page; /*Sets the text hover color on navbar*/
+  background-color: @ui-color-focus;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active >
+a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: @ui-color-page; /*BACKGROUND color for active*/
+  background-color: @ui-color-focus;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: @ui-color-page; /*Change active text color here*/
+}
+
+.navbar-divider {
+  border-bottom: 1px solid @ui-border-color;
+  padding: 8px;
+  clear: both;
+  background-color: @ui-color-highlight-primary;
+}
+.nav-tabs li a:hover {
+  background-color: @ui-color-faint;
+}

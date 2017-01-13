@@ -1,0 +1,130 @@
+@import "../imports/ui-colours";
+
+html {
+  background-color: @ui-color-page;
+}
+
+body {
+  min-width: 990px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: @ui-color-page;
+  font-family: Arial,sans-serif;
+  font-size: 14px;
+  line-height: 1.42857142857143;
+}
+
+footer {
+  position: relative;
+  //margin-top: -150px; /* negative value of footer height */
+  height: 150px;
+  clear: both;
+  padding-top: 20px;
+  background-color: @ui-color-faint;
+  color: @ui-color-mid;
+  border-top: 1px solid @ui-border-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: @ui-color;
+}
+
+h2 {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+h1, h2, h3 {
+  font-family: "Circular Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-variant-ligatures: no-common-ligatures;
+  font-variant-ligatures: no-common-ligatures;
+}
+
+h2 {
+  color: @ui-color-text;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: 1.25;
+  text-transform: none;
+  margin: 30px 0 0 0;
+}
+
+a:focus, a:hover {
+  cursor: pointer;
+}
+
+table td, table td * {
+  vertical-align: middle;
+}
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: 0;
+  background: transparent;
+}
+
+ul {
+  margin: 10px 0 0 0;
+  display: block;
+  list-style-type: disc;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+  -webkit-padding-start: 40px;
+  font-size: 1em;
+}
+
+.ui-layout {
+  //padding-bottom: 200px; /* this needs to be bigger than footer height*/
+  height:100vh;
+}
+
+.navbar-nav > li > a.profile-image {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.special-img {
+  position: relative;
+  top: -5px;
+  float: left;
+  left: -5px;
+}
+
+.profile-image {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.page-header-content {
+  margin-bottom: 20px;
+}
+
+.ui-image {
+  position: relative;
+  margin-top: -10px;
+  height: 60px;
+}
+
+.control-label {
+  color: @ui-label-color;
+}
+
+.form-group.required .control-label:after {
+  content: "*";
+  color: #ac2925;
+}
+
+.dropzone {
+  border: 1px dashed @ui-border-color;
+}
+
+.twitter-typeahead, .tt-hint, .tt-input, .tt-menu { width: 100%; }

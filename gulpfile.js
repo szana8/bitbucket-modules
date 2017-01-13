@@ -20,7 +20,8 @@ elixir(function(mix) {
 
     mix.styles([
         bpath + 'bootstrap/dist/css/bootstrap.min.css',
-        bpath + 'font-awesome/css/font-awesome.css'
+        bpath + 'font-awesome/css/font-awesome.css',
+        assets + 'less/*.less',
     ], 'public/css/app.css');
 
     mix.copy( 'node_modules/font-awesome/fonts', 'public/fonts' );

@@ -2,7 +2,6 @@
 @extends('layouts.header')
 
 @section('content')
-    @include('login::layout.style');
 
     <div class="inner-bg">
         <div class="container">
