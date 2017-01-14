@@ -104,7 +104,6 @@ class Form {
      * @param {object} data
      */
     onSuccess(data) {
-        console.log(data);
         this.reset();
     }
 

@@ -11,7 +11,7 @@ new Vue({
     methods: {
         onSubmit() {
             this.form.post('api/v1/authentication/database/login')
-                .then(response => alert(response.status));
+                .then(response => alert('yeee'));
         }
     }
 });

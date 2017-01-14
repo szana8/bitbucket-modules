@@ -20,7 +20,8 @@ class LoginServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/views' => resource_path('views/vendor/laravel-issue-tracker/login'),
             __DIR__.'/views/assets/less' => resource_path('assets/laravel-issue-tracker/less'),
-            __DIR__.'/views/assets/js' => resource_path('assets/laravel-issue-tracker/js')
+            __DIR__.'/views/assets/js' => resource_path('assets/laravel-issue-tracker/js'),
+            __DIR__.'/views/assets/css' => resource_path('assets/laravel-issue-tracker/css')
         ], 'login');
     }
 

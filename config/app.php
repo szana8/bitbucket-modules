@@ -169,6 +169,12 @@ return [
 
         JeroenG\Packager\PackagerServiceProvider::class,
 
+        LaravelIssueTracker\User\UserServiceProvider::class,
+        \LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
+        LaravelIssueTracker\Core\CoreServiceProvider::class,
+        \LaravelIssueTracker\Metadata\MetadataServiceProvider::class,
+
+
         /*
          * Application Service Providers...
          */
