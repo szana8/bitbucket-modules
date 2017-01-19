@@ -10,8 +10,10 @@ new Vue({
 
     methods: {
         onSubmit() {
-            this.form.post('api/v1/authentication/database/login')
-                .then(response => alert('yeee'));
+            this.form.post('login')
+                .then(response => {
+                    console.log(response);
+                });
         }
     }
 });

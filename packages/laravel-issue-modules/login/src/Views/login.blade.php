@@ -20,7 +20,7 @@
                     </div>
                     <div class="form-bottom" id="login-form">
                         <form role="form" method="post" class="login-form" @submit.prevent="onSubmit" @keydown="form.errors.clear($event.target.name)">
-
+                        {!! csrf_field() !!}
                             <div class="form-group">
                                 <label class="sr-only" for="form-email">{{ trans('login::login.login-form-email-label') }}</label>
 
