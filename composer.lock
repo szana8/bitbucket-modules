@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3e5b738d8d5c5660580baf74666efe26",
-    "content-hash": "f961ba019f59f2d1e7494df87dc2ed15",
+    "hash": "ef91bac05eb908b4bd5fc6089fb0134d",
+    "content-hash": "aad6723062b647129ccd34463d09a862",
     "packages": [
         {
             "name": "alexsoft/laravel-socialite-bitbucket",
@@ -658,166 +658,6 @@
                 "packager"
             ],
             "time": "2016-11-03 07:53:20"
-        },
-        {
-            "name": "laravel-issue-tracker/core",
-            "version": "1.2.1",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-core.git",
-                "reference": "594dd40704584fdc6a1c165e15fa4dbf8660cd42"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-core/get/594dd40704584fdc6a1c165e15fa4dbf8660cd42.zip",
-                "reference": "594dd40704584fdc6a1c165e15fa4dbf8660cd42",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "~5.1",
-                "php": "~5.6|~7.0"
-            },
-            "require-dev": {
-                "barryvdh/laravel-ide-helper": "^2.2",
-                "phpunit/phpunit": "~4.0||~5.0",
-                "squizlabs/php_codesniffer": "^2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelIssueTracker\\Core\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Istvan Szana",
-                    "email": "szana8@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This is the core library for the Laravel Issue Tracker components. Contains the main interfaces, abstract classes and any other common classes.",
-            "homepage": "https://bitbucket.org/laravelissuetracker/laravel-issue-core",
-            "keywords": [
-                "LaravelIssueTracker",
-                "core",
-                "laravel-issue-tracker"
-            ],
-            "time": "2017-01-07 17:09:34"
-        },
-        {
-            "name": "laravel-issue-tracker/metadata",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-metadata.git",
-                "reference": "48272c5fed42ca3007b0edb8248e48fccb099446"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-metadata/get/48272c5fed42ca3007b0edb8248e48fccb099446.zip",
-                "reference": "48272c5fed42ca3007b0edb8248e48fccb099446",
-                "shasum": ""
-            },
-            "require": {
-                "fzaninotto/faker": "dev-master",
-                "illuminate/support": "~5.1",
-                "laravel-issue-tracker/core": "^1.2",
-                "laravel/framework": "5.3.*",
-                "php": "~5.6|~7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0||~5.0",
-                "squizlabs/php_codesniffer": "^2.3"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "LaravelIssueTracker\\Metadata\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Istvan Szana",
-                    "email": "szana8@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This package used for metadata management. The package contains only the API for the REST operations.",
-            "homepage": "https://github.com/laravel-issue-tracker/metadata",
-            "keywords": [
-                "laravel-issue-tracker",
-                "metadata"
-            ],
-            "time": "2016-12-28 09:15:49"
-        },
-        {
-            "name": "laravel-issue-tracker/user",
-            "version": "1.0.3",
-            "source": {
-                "type": "git",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-user.git",
-                "reference": "4d61658ed35fec599aae8226ad9004e2faab1e06"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://bitbucket.org/laravelissuetracker/laravel-issue-user/get/4d61658ed35fec599aae8226ad9004e2faab1e06.zip",
-                "reference": "4d61658ed35fec599aae8226ad9004e2faab1e06",
-                "shasum": ""
-            },
-            "require": {
-                "alexsoft/laravel-socialite-bitbucket": "^1.0",
-                "illuminate/support": "~5.1",
-                "laravel-issue-tracker/core": "1.*",
-                "laravel/socialite": "^2.0",
-                "php": "~5.6|~7.0"
-            },
-            "require-dev": {
-                "fzaninotto/faker": "dev-master",
-                "phpunit/phpunit": "~4.0||~5.0",
-                "squizlabs/php_codesniffer": "^2.3"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "LaravelIssueTracker\\User\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Istvan Szana",
-                    "email": "szana8@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This package can registrate a user and create a profile based on the OAuth servers results.",
-            "homepage": "https://github.com/laravel-issue-tracker/user",
-            "keywords": [
-                "laravel-issue-tracker",
-                "user"
-            ],
-            "time": "2017-01-07 19:45:42"
         },
         {
             "name": "laravel/framework",
@@ -4315,8 +4155,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fzaninotto/faker": 20,
-        "laravel-issue-tracker/metadata": 20
+        "fzaninotto/faker": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

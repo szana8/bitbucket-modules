@@ -169,12 +169,6 @@ return [
 
         JeroenG\Packager\PackagerServiceProvider::class,
 
-        LaravelIssueTracker\User\UserServiceProvider::class,
-        \LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
-        LaravelIssueTracker\Core\CoreServiceProvider::class,
-        \LaravelIssueTracker\Metadata\MetadataServiceProvider::class,
-
-
         /*
          * Application Service Providers...
          */
@@ -184,9 +178,22 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
+        /*
+         * Laravel Issue Modules...
+         */
         \LaravelIssueModules\Login\LoginServiceProvider::class,
         \LaravelIssueModules\Dashboard\DashboardServiceProvider::class,
 
+        /*
+         * Laravel Issue Packages...
+        */
+        \LaravelIssueTracker\Core\CoreServiceProvider::class,
+        \LaravelIssueTracker\Metadata\MetadataServiceProvider::class,
+        \LaravelIssueTracker\User\UserServiceProvider::class,
+        \LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
+        \LaravelIssueTracker\ListOfValues\ListOfValuesServiceProvider::class,
     ],
 
     /*

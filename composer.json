@@ -10,11 +10,9 @@
         "jeroen-g/laravel-packager": "^1.5",
         "laravelcollective/html": "5.3.*",
         "fzaninotto/faker": "dev-master",
-        "laravel-issue-tracker/metadata": "dev-master",
         "laravel/socialite": "^2.0",
         "illuminate/html": "5.*",
-        "alexsoft/laravel-socialite-bitbucket": "^1.0",
-        "laravel-issue-tracker/user": "1.*"
+        "alexsoft/laravel-socialite-bitbucket": "^1.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -32,6 +30,10 @@
             "LaravelIssueModules\\Login\\": "packages/laravel-issue-modules/login/src",
             "LaravelIssueModules\\Dashboard\\": "packages/laravel-issue-modules/dashboard/src",
             "LaravelIssueTracker\\Authentication\\": "packages/laravel-issue-tracker/authentication/src",
+            "LaravelIssueTracker\\Core\\": "packages/laravel-issue-tracker/core/src",
+            "LaravelIssueTracker\\Metadata\\": "packages/laravel-issue-tracker/metadata/src",
+            "LaravelIssueTracker\\User\\": "packages/laravel-issue-tracker/user/src",
+            "LaravelIssueTracker\\ListOfValues\\": "packages/laravel-issue-tracker/list-of-values/src",
             "App\\": "app/"
         }
     },

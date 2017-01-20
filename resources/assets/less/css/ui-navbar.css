@@ -1,0 +1,40 @@
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar-default {
+  background-color: #205081;
+  border-bottom-color: #2e3d54;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  text-decoration: none;
+  background-color: #3b73af;
+  /*Change rollover cell color here*/
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  box-sizing: border-box;
+  color: #fff;
+  /*Sets the text hover color on navbar*/
+  background-color: #3b73af;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #fff;
+  /*BACKGROUND color for active*/
+  background-color: #3b73af;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  /*Change active text color here*/
+}
+.navbar-divider {
+  border-bottom: 1px solid #ccc;
+  padding: 8px;
+  clear: both;
+  background-color: #f5f5f5;
+}
+.nav-tabs li a:hover {
+  background-color: #f5f5f5;
+}

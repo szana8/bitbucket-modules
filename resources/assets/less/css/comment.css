@@ -1,0 +1,36 @@
+.container {
+  margin-top: 60px;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.42857142857143;
+}
+.comments ul ul {
+  margin-top: 0;
+  margin-left: 60px;
+}
+.comments li {
+  margin-top: 0;
+}
+.comments .comment img {
+  margin-right: 20px;
+}
+.comments .comment {
+  padding: 6px;
+  padding-top: 10px;
+  border-left: 3px solid transparent;
+  border-bottom: 1px solid #ccc;
+}
+.comments .comment:hover {
+  padding-top: 10px;
+  background: #eee;
+  border-left: 3px solid #3572B0;
+}
+.comment-options {
+  display: none;
+}
+.comments .comment:hover .comment-options {
+  display: block;
+}
+.comment-edited {
+  color: #C72B4E;
+}

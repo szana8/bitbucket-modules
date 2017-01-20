@@ -1,13 +1,12 @@
-<?php
-
-namespace App;
+<?php namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use LaravelIssueTracker\User\Models\User as LaravelIssueUser;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, LaravelIssueUser;
 
     /**
      * The attributes that are mass assignable.
@@ -16,6 +15,13 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'email', 'password',
+    ];
+
+    /**
+     * @var array
+     */
+    protected $guarded = [
+        'api_token'
     ];
 
     /**

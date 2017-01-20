@@ -13,7 +13,7 @@ class DashboardServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/views', 'dashboard');
 
-        //$this->loadViewsFrom(resource_path('views/vendor/laravel-issue-tracker/dashboard'), 'dashboard');
+        $this->loadViewsFrom(resource_path('views/vendor/laravel-issue-tracker/dashboard'), 'dashboard');
 
         $this->loadRoutesFrom(__DIR__.'/routes.php');
 

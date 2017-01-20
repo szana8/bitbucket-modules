@@ -1,9 +1,8 @@
 <?php
 
-use App\dao\Role;
-use App\dao\User;
 use Faker\Factory;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -19,7 +18,7 @@ class UsersTableSeeder extends Seeder
 
         DB::table('users')->insert([
             'email'             => 'admin@localhost.com',
-            'password'          => \Hash::make('password'),
+            'password'          => Hash::make('password'),
             'api_token'         => 'test'
         ]);
     }

@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => LaravelIssueTracker\User\Models\User::class,
+            'model' => \App\User::class,
             'table' => 'users'
         ],
 
