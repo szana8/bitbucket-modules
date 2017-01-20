@@ -1,7 +1,6 @@
 <?php
 namespace LaravelIssueTracker\Metadata\Controllers;
 
-
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Core\Controller\ApiController;

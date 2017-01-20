@@ -1,7 +1,7 @@
 <?php namespace LaravelIssueTracker\User\Acme\Services;
 
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Acme\Validators\ProfileValidator;
 
 class ProfileCreatorService  {

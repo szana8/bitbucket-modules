@@ -42,8 +42,6 @@ elixir(function(mix) {
     mix.scripts([
         bpath + 'jquery/dist/jquery.min.js',
         bpath + 'bootstrap/dist/js/bootstrap.min.js',
-        bpath + 'axios/dist/axios.js',
-        bpath + 'vue/dist/vue.js'
     ], 'public/js/vendor.js');
 
     /**

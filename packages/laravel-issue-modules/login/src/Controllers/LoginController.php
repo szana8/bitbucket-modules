@@ -4,10 +4,27 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use LaravelIssueModules\Login\Acme\Services\LoginService;
 
 class LoginController {
 
     use ValidatesRequests, AuthenticatesUsers;
+    /**
+     * @var LoginService
+     */
+    protected $loginService;
+
+    /**
+     * LoginController constructor.
+     */
+    public function __construct(LoginService $loginService)
+    {
+        if (Auth::check() == 1)
+            return redirect()->to('/');
+
+        $this->loginService = $loginService;
+    }
+
 
     /**
      * Show the login form
@@ -15,35 +32,17 @@ class LoginController {
      */
     public function index()
     {
-        if (Auth::check() == 1) {
-            return redirect()->to('/');
-        }
-
         return view('login::login');
     }
 
     /**
      * Do the login process
+     * @param Request $request
      * @return array
      */
-    public function login(Request $request)
+    public function authenticate(Request $request)
     {
-        $this->validate(request(), [
-            'email' => 'required',
-            'password' => 'required'
-        ]);
-
-
-        if (Auth::check() == 1) {
-            $this->logout();
-        }
-
-        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            //return redirect()->to('/');
-            return ['message' => 'You are logged in!', 'success' => true];
-        } else {
-            return ['message' => 'Invalid email or password!', 'success' => false];
-        }
+        return $this->loginService->authenticate($request->toArray());
     }
 
     /**

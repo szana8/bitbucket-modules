@@ -40,7 +40,7 @@ class UserRepository {
      */
     public function findByEmail($userData)
     {
-        return User::where('email', $userData['email'])->exists();
+        return User::has('profiles', '=', $userData['profile']['type'])->where('email', $userData['email'])->exists();
     }
 
     /**

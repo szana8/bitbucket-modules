@@ -5,7 +5,7 @@ use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\User\Acme\Services\ProfileCreatorService;
 use LaravelIssueTracker\User\Acme\Services\UserCreatorService;
 use LaravelIssueTracker\User\Acme\Transformers\UserTransformer;
-use LaravelIssueTracker\User\Models\User;
+use App\User;
 
 class UserController extends ApiController {
 

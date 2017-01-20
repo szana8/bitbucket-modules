@@ -4,6 +4,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use LaravelIssueTracker\User\Models\User as LaravelIssueUser;
 
+/**
+ * App\User
+ *
+ */
 class User extends Authenticatable
 {
     use Notifiable, LaravelIssueUser;
@@ -14,14 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password',
-    ];
-
-    /**
-     * @var array
-     */
-    protected $guarded = [
-        'api_token'
+        'email', 'password', 'api_token',
     ];
 
     /**

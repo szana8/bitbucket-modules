@@ -1,7 +1,7 @@
 <?php namespace LaravelIssueTracker\User\Acme\Validators;
 
 use LaravelIssueTracker\Core\Acme\Validators\Validator;
-use LaravelIssueTracker\User\Models\User;
+use App\User;
 
 class UserValidator extends Validator {
 

@@ -1,16 +1,32 @@
 <?php namespace LaravelIssueTracker\User\Acme\Services;
 
+use Illuminate\Support\Facades\Hash;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Acme\Validators\UserValidator;
-use LaravelIssueTracker\User\Models\User;
+use App\User;
+use LaravelIssueTracker\User\Models\Profile;
 
 class UserCreatorService {
 
+    /**
+     * @var UserValidator
+     */
     protected $validator;
+
     /**
      * @var ProfileCreatorService
      */
-    private $profileCreatorService;
+    protected $profileCreatorService;
+
+    /**
+     * @var null
+     */
+    protected $password = null;
+
+    /**
+     * @var null
+     */
+    protected $api_token = null;
 
     /**
      * UserCreatorService constructor.
@@ -21,6 +37,9 @@ class UserCreatorService {
     {
         $this->validator = $validator;
         $this->profileCreatorService = $profileCreatorService;
+
+        $this->password = Hash::make(str_random(8));
+        $this->api_token = str_random(60);
     }
 
     /**
@@ -39,11 +58,13 @@ class UserCreatorService {
 
             return $user->first();
         }
+        else
+        {
+            $user = $this->makeWithProfile($attributes);
 
-        $user = $this->makeWithProfile($attributes);
-
-        event('UserWasCreated', $user);
-        return $user;
+            event('UserWasCreated', $user);
+            return $user;
+        }
     }
 
     /**
@@ -98,6 +119,9 @@ class UserCreatorService {
         if( $this->validator->isValid($attributes) )
         {
             $user = \DB::transaction(function ($attributes) use ($attributes) {
+                $attributes['password'] = $this->password;
+                $attributes['api_token'] = $this->api_token;
+
                 $user = User::create($attributes);
                 $attributes['profile']['user_id'] = $user->id;
                 $this->profileCreatorService->make($attributes['profile']);
