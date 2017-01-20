@@ -1,12 +1,14 @@
 <?php namespace LaravelIssueModules\Login\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use LaravelIssueModules\Login\Acme\Services\LoginService;
 
-class LoginController {
+class LoginController extends Controller {
 
     use ValidatesRequests, AuthenticatesUsers;
     /**
@@ -42,7 +44,10 @@ class LoginController {
      */
     public function authenticate(Request $request)
     {
-        return $this->loginService->authenticate($request->toArray());
+        if( $this->loginService->authenticate($request->toArray()) )
+            return redirect()->to('/');
+
+        return redirect()->back()->withErrors('Invalid username or password!');
     }
 
     /**

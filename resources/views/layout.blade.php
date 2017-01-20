@@ -5,6 +5,8 @@
     </head>
 
     <body>
+        @yield('navbar')
+
         @yield('content')
     </body>
 

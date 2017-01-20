@@ -28,9 +28,9 @@ class LoginService {
     {
         if( $this->loginValidator->isValid($request) )
         {
-            return \Response::json(Auth::attempt(['email' => $request['email'], 'password' => $request['password']]), 200);
+            return Auth::attempt(['email' => $request['email'], 'password' => $request['password']]);
         }
 
-        return \Response::json($this->loginValidator->getErrors(), 401);
+        return $this->loginValidator->getErrors();
     }
 }

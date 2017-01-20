@@ -19,7 +19,7 @@
                         </div>
                     </div>
                     <div class="form-bottom" id="login-form">
-                        <form role="form" method="post" class="login-form">
+                        <form role="form" method="post" class="login-form" action="{{ url('authenticate') }}">
                             {!! csrf_field() !!}
                             <input type="hidden" value="{{ url('/') }}" id="redirect" />
 
@@ -36,12 +36,16 @@
 
                                 <input type="password" name="password" placeholder="{{ trans('login::login.login-form-password-label') }}..." class="form-password form-control" id="password">
 
-
                             </div>
+
+                            @if($errors->any())
+                                <div class="alert alert-danger">{{ $errors->first() }}</div>
+                            @endif
 
                             <button type="submit" class="btn">{{ trans('login::login.login-form-sing-in-label') }}</button>
 
                         </form>
+
                     </div>
                 </div>
             </div>
