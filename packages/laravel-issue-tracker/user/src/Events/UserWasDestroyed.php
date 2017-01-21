@@ -1,5 +1,6 @@
 <?php namespace LaravelIssueTracker\User\Events;
 
+use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\User\Models\User;
 
 class UserWasDestroyed {

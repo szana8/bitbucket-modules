@@ -1,8 +1,8 @@
-<?php namespace LaravelIssueTracker\Metadata;
+<?php namespace LaravelIssueTracker\Project;
 
 use Illuminate\Support\ServiceProvider;
 
-class MetadataServiceProvider extends ServiceProvider
+class ProjectServiceProvider extends ServiceProvider
 {
     /**
      * Perform post-registration booting of services.

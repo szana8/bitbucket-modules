@@ -81,7 +81,7 @@ class MetadataController extends ApiController {
 
         if( ! $metadata )
         {
-            return $this->respondNotFound('Comment does not exist');
+            return $this->respondNotFound('Metadata does not exist');
         }
 
         return $this->respond([
@@ -92,7 +92,8 @@ class MetadataController extends ApiController {
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param Request $request
+     * @param  int $id
      * @return Response
      */
     public function update(Request $request, $id)
