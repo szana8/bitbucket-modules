@@ -1,9 +1,11 @@
 <?php namespace LaravelIssueTracker\Project\Controllers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\Project\Acme\Services\ProjectCreatorService;
 use LaravelIssueTracker\Project\Acme\Transformers\ProjectTransformer;
-use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Project\Models\Project;
 
 class ProjectController extends ApiController {
 

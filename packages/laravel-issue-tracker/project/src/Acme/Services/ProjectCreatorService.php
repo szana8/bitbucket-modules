@@ -1,6 +1,7 @@
 <?php namespace LaravelIssueTracker\Project\Acme\Services;
 
 use LaravelIssueTracker\Project\Acme\Validators\ProjectValidator;
+use LaravelIssueTracker\Project\Models\Project;
 use LaravelIssueTracker\User\Models\Profile;
 
 class ProjectCreatorService {
