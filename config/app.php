@@ -180,6 +180,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        laravel-issue-tracker\watcher\watcherServiceProvider::class,
+
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*

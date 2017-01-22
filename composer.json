@@ -28,6 +28,7 @@
             "database"
         ],
         "psr-4": {
+            "LaravelIssueTracker\\Watcher\\": "packages/laravel-issue-tracker/watcher/src",
             "LaravelIssueTracker\\Fileattachment\\": "packages/laravel-issue-tracker/fileattachment/src",
             "LaravelIssueTracker\\Issue\\": "packages/laravel-issue-tracker/issue/src",
             "LaravelIssueTracker\\Project\\": "packages/laravel-issue-tracker/project/src",
