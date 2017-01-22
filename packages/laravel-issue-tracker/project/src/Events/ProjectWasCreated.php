@@ -1,25 +1,25 @@
 <?php namespace LaravelIssueTracker\Project\Events;
 
 use Illuminate\Queue\SerializesModels;
-use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Project\Models\Project;
 
-class ProfileWasCreated {
+class ProjectWasCreated {
 
     use SerializesModels;
 
     /**
      * @var Profile
      */
-    protected $profile;
+    protected $project;
 
     /**
      * Create a new event instance.
      *
-     * @param Profile $profile
+     * @param Project $project
      */
-    public function __construct(Profile $profile)
+    public function __construct(Project $project)
     {
-        $this->profile = $profile;
+        $this->project = $project;
     }
 
 }

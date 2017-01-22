@@ -1,25 +1,25 @@
 <?php namespace LaravelIssueTracker\Project\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Symfony\Component\HttpKernel\Profiler\Profile;
+use LaravelIssueTracker\Project\Models\Project;
 
-class ProfileWasDestroyed {
+class ProjectWasDestroyed {
 
     use SerializesModels;
 
     /**
      * @var Profile
      */
-    protected $profile;
+    protected $project;
 
     /**
      * Create a new event instance.
      *
-     * @param Profile $profile
+     * @param Project $project
      */
-    public function __construct(Profile $profile)
+    public function __construct(Project $project)
     {
-        $this->profile = $profile;
+        $this->project = $project;
     }
 
 }
