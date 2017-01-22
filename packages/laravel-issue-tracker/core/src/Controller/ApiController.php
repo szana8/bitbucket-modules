@@ -11,6 +11,10 @@ class ApiController extends Controller {
      * @var int
      */
     protected $statusCode = IlluminateResponse::HTTP_OK;
+    /**
+     * @var int
+     */
+    protected $limit = 20;
 
 
     /**

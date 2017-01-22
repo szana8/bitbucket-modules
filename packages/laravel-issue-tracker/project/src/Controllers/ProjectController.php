@@ -9,7 +9,6 @@ use LaravelIssueTracker\Project\Models\Project;
 
 class ProjectController extends ApiController {
 
-
     /**
      * @var ProfileTransformer
      */
@@ -18,11 +17,6 @@ class ProjectController extends ApiController {
      * @var ProfileCreatorService
      */
     protected $projectCreatorService;
-
-    /**
-     * @var int
-     */
-    protected $limit = 20;
 
 
     /**

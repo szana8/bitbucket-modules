@@ -1,4 +1,4 @@
-<?php
+<?php namespace LaravelIssueTracker\Core\Tests\Helpers;
 
 /**
  * Git Link: $Id$

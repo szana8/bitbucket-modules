@@ -21,11 +21,6 @@ class MetadataController extends ApiController {
     protected $metadataCreator;
 
     /**
-     * @var int
-     */
-    protected $limit = 20;
-
-    /**
      * MetadataController constructor.
      * @param $metadataTransformer
      * @param $metadataCreator

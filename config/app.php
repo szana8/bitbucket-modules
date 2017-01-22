@@ -180,8 +180,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        LaravelIssueTracker\Project\ProjectServiceProvider::class,
-
         \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
 
         /*
@@ -198,6 +196,9 @@ return [
         \LaravelIssueTracker\User\UserServiceProvider::class,
         \LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
         \LaravelIssueTracker\ListOfValues\ListOfValuesServiceProvider::class,
+        \LaravelIssueTracker\Project\ProjectServiceProvider::class,
+        \LaravelIssueTracker\Issue\IssueServiceProvider::class,
+        \LaravelIssueTracker\Fileattachment\FileattachmentServiceProvider::class,
     ],
 
     /*

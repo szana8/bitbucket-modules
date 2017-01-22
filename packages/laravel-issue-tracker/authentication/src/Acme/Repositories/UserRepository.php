@@ -35,6 +35,8 @@ class UserRepository {
     }
 
     /**
+     * Check the email and the profile type is exists or not.
+     *
      * @param $userData
      * @return mixed
      */

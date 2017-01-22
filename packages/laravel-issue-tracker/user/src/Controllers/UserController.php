@@ -25,11 +25,6 @@ class UserController extends ApiController {
     protected $profileCreator;
 
     /**
-     * @var int
-     */
-    protected $limit = 20;
-
-    /**
      * UserController constructor.
      * @param $userTransformer
      * @param $userCreator

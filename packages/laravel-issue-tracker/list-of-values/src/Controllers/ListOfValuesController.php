@@ -10,11 +10,6 @@ use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 class ListOfValuesController extends ApiController {
 
     /**
-     * @var int
-     */
-    protected $limit = 15;
-
-    /**
      * @var ListOfValuesTransformer
      */
     protected $listOfValuesTransformer;

@@ -28,6 +28,8 @@
             "database"
         ],
         "psr-4": {
+            "LaravelIssueTracker\\Fileattachment\\": "packages/laravel-issue-tracker/fileattachment/src",
+            "LaravelIssueTracker\\Issue\\": "packages/laravel-issue-tracker/issue/src",
             "LaravelIssueTracker\\Project\\": "packages/laravel-issue-tracker/project/src",
             "LaravelIssueModules\\Login\\": "packages/laravel-issue-modules/login/src",
             "LaravelIssueModules\\Dashboard\\": "packages/laravel-issue-modules/dashboard/src",
