@@ -6,12 +6,11 @@
     <link rel="icon" href="{{ URL('/') }}/favicon.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-
-
     {{ Html::script('js/vendor.js') }}
     {{ Html::script('js/app.js') }}
 
     {!! Html::style('css/vendor.css') !!}
+    {!! Html::style('css/extension.css') !!}
 
     <script type="text/javascript">
         $.ajaxSetup({
