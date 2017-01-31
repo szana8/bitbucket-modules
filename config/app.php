@@ -172,11 +172,6 @@ return [
         Alexsoft\LaravelSocialiteBitbucket\Provider::class,
 
         /*
-         * Acacha AdminLTE template provider
-         */
-        Acacha\AdminLTETemplateLaravel\Providers\AdminLTETemplateServiceProvider::class,
-
-        /*
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
@@ -256,11 +251,6 @@ return [
         'Html' => Collective\Html\HtmlFacade::class,
 
         'Socialite' => \Laravel\Socialite\Facades\Socialite::class,
-
-        /*
-         * Acacha AdminLTE template alias
-         */
-        'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
     ],
 
 ];
