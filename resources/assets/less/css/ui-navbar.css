@@ -2,31 +2,31 @@
   margin-bottom: 0px;
 }
 .navbar-default {
-  background-color: #205081;
+  background-color: #2b3643;
   border-bottom-color: #2e3d54;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #3b73af;
+  background-color: #2b3643;
   /*Change rollover cell color here*/
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
   box-sizing: border-box;
-  color: #fff;
+  color: #ffffff;
   /*Sets the text hover color on navbar*/
-  background-color: #3b73af;
+  background-color: #2b3643;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-  color: #fff;
+  color: #ffffff;
   /*BACKGROUND color for active*/
-  background-color: #3b73af;
+  background-color: #2b3643;
 }
 .navbar-default .navbar-nav > li > a {
-  color: #fff;
+  color: #ffffff;
   /*Change active text color here*/
 }
 .navbar-divider {

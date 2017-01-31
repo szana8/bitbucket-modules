@@ -11,6 +11,6 @@
     </body>
 
     <footer class="footer">
-
+        @yield('footer')
     </footer>
 </html>

@@ -1,11 +1,11 @@
 html {
-  background-color: #fff;
+  background-color: #ffffff;
 }
 body {
   min-width: 990px;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: #ffffff;
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857142857143;
@@ -29,7 +29,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #205081;
+  color: #2b3643;
 }
 h2 {
   font-size: 24px;
