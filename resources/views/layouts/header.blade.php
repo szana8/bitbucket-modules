@@ -9,8 +9,10 @@
     {{ Html::script('js/vendor.js') }}
     {{ Html::script('js/app.js') }}
 
+    {!! Html::style('css/app.css') !!}
     {!! Html::style('css/vendor.css') !!}
-    {!! Html::style('css/extension.css') !!}
+
+    {{-- Html::style('css/extension.css') --}}
 
     <script type="text/javascript">
         $.ajaxSetup({

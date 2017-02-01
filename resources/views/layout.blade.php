@@ -7,10 +7,15 @@
     <body>
         @yield('navbar')
 
-        @yield('content')
+        <div class="container-fluid">
+            @yield('sidebar')
+
+            @yield('content')
+        </div>
+
     </body>
 
     <footer class="footer">
-        @yield('footer')
+        {{-- @yield('footer') --}}
     </footer>
 </html>

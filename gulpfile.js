@@ -14,21 +14,28 @@ const elixir = require('laravel-elixir');
 
 elixir(function(mix) {
 
-    var bpath = '../../../node_modules/';
-    var assets = '../../../resources/assets/';
+    var node_modules = '../../../node_modules/';
+    var laravel_assets = '../../../resources/assets/';
 
     /**
      * Mix the vendor css files to one.
      */
     mix.styles([
-        bpath + 'bootstrap/dist/css/bootstrap.min.css',
-        bpath + 'font-awesome/css/font-awesome.css'
+        node_modules + 'bootstrap/dist/css/bootstrap.min.css',
+        node_modules + 'font-awesome/css/font-awesome.css'
     ], 'public/css/vendor.css');
+
+    mix.less(laravel_assets + 'less/global.less', 'public/css/app.css');
 
     /**
      * Copy the font awsome to the public folder to access it.
      */
     mix.copy( 'node_modules/font-awesome/fonts', 'public/fonts' );
+
+    /**
+     * Copy the font bootstrap to the public folder to access it.
+     */
+    mix.copy( 'node_modules/bootstrap/fonts', 'public/fonts' );
 
     /**
      * Copy all of the css files, not mix these because
@@ -40,14 +47,14 @@ elixir(function(mix) {
      * Vendor javascript files, we have to mix these files
      */
     mix.scripts([
-        bpath + 'jquery/dist/jquery.min.js',
-        bpath + 'bootstrap/dist/js/bootstrap.min.js',
+        node_modules + 'jquery/dist/jquery.min.js',
+        node_modules + 'bootstrap/dist/js/bootstrap.min.js'
     ], 'public/js/vendor.js');
 
     /**
      * Core javascrpit files
      */
-    mix.browserify(assets + 'js/app.js', 'public/js/app.js');
+    mix.browserify(laravel_assets + 'js/app.js', 'public/js/app.js');
 
     /**
      * Bundle modules javascript files, we don't need to mix these files,

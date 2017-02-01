@@ -11,17 +11,18 @@ body {
   line-height: 1.42857142857143;
 }
 footer {
-  position: relative;
+  /*position: relative;
+  margin-top: -150px;
   height: 150px;
   clear: both;
   padding-top: 20px;
-  background-color: #f5f5f5;
-  color: #707070;
-  border-top: 1px solid #ccc;
+  background-color: @ui-color-faint;
+  color: @ui-color-mid;
+  border-top: 1px solid @ui-color-border-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  text-align: center;
+  text-align: center;*/
 }
 h1,
 h2,

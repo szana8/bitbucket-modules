@@ -34,7 +34,7 @@ class CreateFileattachmentTable extends Migration
      */
     public function down()
     {
-        Schema::table('issues', function($table) {
+        Schema::table('fileattachments', function($table) {
             $table->dropForeign('fileattachments_issue_id_foreign');
         });
 
