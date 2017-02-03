@@ -1,5 +1,5 @@
 .navbar {
-  margin-bottom: 0px;
+  margin-bottom: 00px;
 }
 .navbar-default {
   background-color: #2b3643;
@@ -8,7 +8,7 @@
 .nav > li > a:hover,
 .nav > li > a:focus {
   text-decoration: none;
-  background-color: #2b3643;
+  background-color: #4b637f;
   /*Change rollover cell color here*/
 }
 .navbar-default .navbar-nav > li > a:hover,
@@ -16,14 +16,14 @@
   box-sizing: border-box;
   color: #ffffff;
   /*Sets the text hover color on navbar*/
-  background-color: #2b3643;
+  background-color: #4b637f;
 }
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #ffffff;
   /*BACKGROUND color for active*/
-  background-color: #2b3643;
+  background-color: #4b637f;
 }
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;

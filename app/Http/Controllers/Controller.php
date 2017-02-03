@@ -11,13 +11,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function test()
-    {
-        $email['email'] = '';
-        $validator = (\Validator::make($email, [
-            'email' => 'required'
-        ]));
-
-        dd($validator->errors());
-    }
 }

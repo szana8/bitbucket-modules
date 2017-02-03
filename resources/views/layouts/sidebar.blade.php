@@ -1,49 +1,95 @@
 @section('sidebar')
-    <div class="wrapper">
-        <div class="row row-offcanvas row-offcanvas-left">
-            <!-- sidebar -->
-            <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
-                <ul class="nav" id="menu">
-                    <li><a href="#"><i class="fa fa-list-alt"></i> <span class="collapse in hidden-xs">Link 1</span></a></li>
-                    <li><a href="#"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Stories</span></a></li>
-                    <li><a href="#"><i class="fa fa-paperclip"></i> <span class="collapse in hidden-xs">Saved</span></a></li>
-                    <li><a href="#"><i class="fa fa-refresh"></i> <span class="collapse in hidden-xs">Refresh</span></a></li>
-                    <li>
-                        <a href="#" data-target="#item1" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                        <ul class="nav nav-stacked collapse left-submenu" id="item1">
-                            <li><a href="google.com">View One</a></li>
-                            <li><a href="gmail.com">View Two</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-target="#item2" data-toggle="collapse"><i class="fa fa-list"></i> <span class="collapse in hidden-xs">Menu <span class="caret"></span></span></a>
-                        <ul class="nav nav-stacked collapse" id="item2">
-                            <li><a href="#">View One</a></li>
-                            <li><a href="#">View Two</a></li>
-                            <li><a href="#">View Three</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><i class="glyphicon glyphicon-list-alt"></i> <span class="collapse in hidden-xs">Link</span></a></li>
-                </ul>
-            </div>
-            <!-- /sidebar -->
+        <!-- sidebar -->
+        <div class="sidebar-wrapper" aria-expanded="true">
+            <div class="sidebar-inner">
+                <div class="sidebar-body">
+                    <header class="page-header">
+                        <!-- put what you want here -->
 
-            <!-- main right col -->
-            <div class="column col-sm-9 col-xs-11" id="main">
-                <p><a href="#" data-toggle="offcanvas"><i class="fa fa-navicon fa-2x"></i></a></p>
-                <p>
-                    Main content...
-                </p>
+                    </header>
+                    <nav class="navgroup navgroup-vertical">
+                        <div class="navgroup-inner">
+                            @foreach($sidebars as $sidebar)
+                                @if(isset($sidebar['heading']))
+                                    <div class="nav-heading">
+                                        <strong>{{ $sidebar['heading'] }}</strong>
+                                    </div>
+                                @endif
+
+                                <!-- navigation links -->
+                                <ul class="nav" id="{{ $sidebar['id'] }}">
+                                    @foreach($sidebar['elements'] as $element)
+                                            <li>
+                                                <a href="{{ $element['url'] }}" id="{{ $element['id'] }}">
+                                                    <i class="{{ $element['class'] }}"></i>
+                                                    <span class="{{ $element['itemclass'] }}">{{ $element['item'] }}</span>
+                                                </a>
+                                            </li>
+                                    @endforeach
+                                </ul>
+                            @endforeach
+                        </div>
+                    </nav>
+                </div>
+                <div class="sidebar-footer">
+                    <a class="sidebar-toggle" id="toggle">
+                        <i class="fa fa-angle-double-left"></i>
+                    </a>
+                </div>
             </div>
-            <!-- /main -->
         </div>
+    <!-- /.sidebar-wrapper -->
+    <script>
+        // Work in progress...
 
+        //IIFE
+        (function ()
+        {
 
-        <script>
-            /* off-canvas sidebar toggle */
-            $('[data-toggle=offcanvas]').click(function() {
-                $('.row-offcanvas').toggleClass('active');
-                $('.collapse').toggleClass('in').toggleClass('hidden-xs').toggleClass('visible-xs');
-            });
-        </script>
+            // Toggle button
+            var toggle = document.getElementById("toggle"),
+                // Navbar element wrap
+                collapse = document.querySelector(".sidebar-wrapper");
+
+            // Add a click event
+            toggle.addEventListener("click", function ()
+            {
+
+                // get the aria-expanded value
+                var colValue = collapse.getAttribute("aria-expanded");
+
+                switch (colValue) {
+                    case "true":
+                        // turn expanded=false
+                        collapse.setAttribute("aria-expanded", "false");
+
+                        break;
+                    case "false":
+                        // turn expanded=true
+                        collapse.setAttribute("aria-expanded", "true");
+                        break;
+                }
+
+            }, false);
+        })();
+
+        //detect scroll event and add a class
+        window.onscroll = function ()
+        {
+            var nav = document.getElementById("navbar");
+            var navHeight = nav.offsetHeight;
+            var scrollVal = document.body.scrollTop;
+            var sidebar = document.querySelector(".sidebar-wrapper");
+
+            if (scrollVal === navHeight || scrollVal > navHeight) {
+                sidebar.className += " is-stacked";
+            } else {
+                if (scrollVal === 0) {
+                    sidebar.classList.remove("is-stacked");
+                }
+            }
+
+            console.log(scrollVal)
+        }
+    </script>
 @endsection

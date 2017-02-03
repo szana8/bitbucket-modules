@@ -30,7 +30,7 @@ class GoogleAuthService extends AuthenticationService implements AuthenticationI
      */
     public function getAuthorizationFirst()
     {
-        return $this->socialite->driver('google')->redirect();
+        return $this->socialite->driver('google')->stateless()->redirect();
     }
 
     /**
@@ -38,6 +38,6 @@ class GoogleAuthService extends AuthenticationService implements AuthenticationI
      */
     public function getSocialiteUser()
     {
-        return $this->googleAuthTransformer->transform($this->socialite->driver('google')->user());
+        return $this->googleAuthTransformer->transform($this->socialite->driver('google')->stateless()->user());
     }
 }

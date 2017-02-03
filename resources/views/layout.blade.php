@@ -7,15 +7,17 @@
     <body>
         @yield('navbar')
 
-        <div class="container-fluid">
-            @yield('sidebar')
+        <div id="wrap">
+            <div class="container-fluid clear-top ui-layout">
+                @yield('sidebar')
 
-            @yield('content')
+                @yield('content')
+            </div>
         </div>
 
     </body>
 
-    <footer class="footer">
-        {{-- @yield('footer') --}}
-    </footer>
+
+    @yield('footer')
+
 </html>

@@ -41,7 +41,7 @@ elixir(function(mix) {
      * Copy all of the css files, not mix these because
      * we don't need all of the files in every module.
      */
-    mix.copy('resources/assets/laravel-issue-tracker/css/', 'public/laravel-issue-tracker/css' );
+    mix.copy('resources/assets/css/login.css', 'public/css' );
 
     /**
      * Vendor javascript files, we have to mix these files
@@ -60,5 +60,5 @@ elixir(function(mix) {
      * Bundle modules javascript files, we don't need to mix these files,
      * because we don't want to use all javascript files in every module.
      */
-    mix.copy('resources/assets/laravel-issue-tracker/js/', 'public/laravel-issue-tracker/js');
+    mix.copy('resources/assets/js/login.js', 'public/js');
 });

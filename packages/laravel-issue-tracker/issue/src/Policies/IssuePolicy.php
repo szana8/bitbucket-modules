@@ -1,7 +1,7 @@
 <?php namespace LaravelIssueTracker\Issue\Policies;
 
 
-use App\User;
+use Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use LaravelIssueTracker\Issue\Models\Issue;
 

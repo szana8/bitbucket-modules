@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6a28196e722c00b22187dee5b0a2077b",
-    "content-hash": "9f26049664ff63e7fa80ffed7113244f",
+    "hash": "3adfb830f314385da863d1f3c6fc0950",
+    "content-hash": "a24b4eb85b44ca114a57b5997055ee19",
     "packages": [
         {
             "name": "alexsoft/laravel-socialite-bitbucket",
@@ -43,6 +43,57 @@
             ],
             "description": "Bitbucket OAuth2 Provider for Laravel Socialite",
             "time": "2016-09-29 19:37:17"
+        },
+        {
+            "name": "artem-schander/l5-modular",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Artem-Schander/L5Modular.git",
+                "reference": "3dd743a40417b19a982ac25eed1e325df731170d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Artem-Schander/L5Modular/zipball/3dd743a40417b19a982ac25eed1e325df731170d",
+                "reference": "3dd743a40417b19a982ac25eed1e325df731170d",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": ">=5.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ArtemSchander\\L5Modular\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Artem Schander",
+                    "email": "a.schander@vanameland.de"
+                }
+            ],
+            "description": "Modular pattern generator for Laravel 5",
+            "homepage": "https://github.com/Artem-Schander/L5Modular",
+            "keywords": [
+                "Artem",
+                "Schander",
+                "artisan",
+                "generator",
+                "l5modular",
+                "laravel",
+                "modular",
+                "module",
+                "modules",
+                "pattern",
+                "structure"
+            ],
+            "time": "2016-11-30 09:46:21"
         },
         {
             "name": "doctrine/inflector",
@@ -159,12 +210,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "03eb255d66bf1c11fccb4b4d1ed62fee70e3b6f4"
+                "reference": "a2dec96198bb146ffead806700074b0ec8d07f2f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/03eb255d66bf1c11fccb4b4d1ed62fee70e3b6f4",
-                "reference": "03eb255d66bf1c11fccb4b4d1ed62fee70e3b6f4",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/a2dec96198bb146ffead806700074b0ec8d07f2f",
+                "reference": "a2dec96198bb146ffead806700074b0ec8d07f2f",
                 "shasum": ""
             },
             "require": {
@@ -201,7 +252,7 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-01-05 16:44:55"
+            "time": "2017-02-01 09:18:35"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -471,16 +522,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v5.4.6",
+            "version": "v5.4.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5913b960656d7f978605ff9c1513ffbfd190c173"
+                "reference": "3e226e3481aabe835626739a1507c8af17b76082"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5913b960656d7f978605ff9c1513ffbfd190c173",
-                "reference": "5913b960656d7f978605ff9c1513ffbfd190c173",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/3e226e3481aabe835626739a1507c8af17b76082",
+                "reference": "3e226e3481aabe835626739a1507c8af17b76082",
                 "shasum": ""
             },
             "require": {
@@ -596,7 +647,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-01-27 19:27:15"
+            "time": "2017-02-01 14:45:01"
         },
         {
             "name": "laravel/socialite",
@@ -705,6 +756,48 @@
             "description": "HTML and Form Builders for the Laravel Framework",
             "homepage": "http://laravelcollective.com",
             "time": "2017-01-26 19:27:05"
+        },
+        {
+            "name": "lavary/laravel-menu",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lavary/laravel-menu.git",
+                "reference": "f53affea587e76836ed9e178d075f596b63af2ba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lavary/laravel-menu/zipball/f53affea587e76836ed9e178d075f596b63af2ba",
+                "reference": "f53affea587e76836ed9e178d075f596b63af2ba",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": ">=5.0",
+                "illuminate/view": ">=5.0",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Lavary\\Menu\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lavary",
+                    "email": "mrl.8081@gmail.com"
+                }
+            ],
+            "description": "A quick way to create menus in Laravel 5",
+            "homepage": "https://github.com/lavary/laravel-menu",
+            "keywords": [
+                "laravel"
+            ],
+            "time": "2016-11-11 10:16:37"
         },
         {
             "name": "league/flysystem",
@@ -4186,7 +4279,9 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "fzaninotto/faker": 20
+        "fzaninotto/faker": 20,
+        "lavary/laravel-menu": 20,
+        "artem-schander/l5-modular": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

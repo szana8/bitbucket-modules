@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Hash;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Acme\Validators\UserValidator;
-use App\User;
+use Models\User;
 use LaravelIssueTracker\User\Models\Profile;
 
 class UserCreatorService {

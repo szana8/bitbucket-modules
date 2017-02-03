@@ -30,7 +30,7 @@ class GithubAuthService extends AuthenticationService implements AuthenticationI
      */
     public function getAuthorizationFirst()
     {
-        return $this->socialite->driver('github')->redirect();
+        return $this->socialite->driver('github')->stateless()->redirect();
     }
 
     /**
@@ -38,7 +38,7 @@ class GithubAuthService extends AuthenticationService implements AuthenticationI
      */
     public function getSocialiteUser()
     {
-        return $this->githubAuthTransformer->transform($this->socialite->driver('github')->user());
+        return $this->githubAuthTransformer->transform($this->socialite->driver('github')->stateless()->user());
     }
 
 }

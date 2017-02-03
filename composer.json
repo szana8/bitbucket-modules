@@ -12,7 +12,9 @@
         "laravel/socialite": "^2.0",
         "illuminate/html": "5.*",
         "alexsoft/laravel-socialite-bitbucket": "^1.0",
-        "laravelcollective/html": "^5.4"
+        "laravelcollective/html": "^5.4",
+        "lavary/laravel-menu": "dev-master",
+        "artem-schander/l5-modular": "dev-master"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -32,8 +34,6 @@
             "LaravelIssueTracker\\Fileattachment\\": "packages/laravel-issue-tracker/fileattachment/src",
             "LaravelIssueTracker\\Issue\\": "packages/laravel-issue-tracker/issue/src",
             "LaravelIssueTracker\\Project\\": "packages/laravel-issue-tracker/project/src",
-            "LaravelIssueModules\\Login\\": "packages/laravel-issue-modules/login/src",
-            "LaravelIssueModules\\Dashboard\\": "packages/laravel-issue-modules/dashboard/src",
             "LaravelIssueTracker\\Authentication\\": "packages/laravel-issue-tracker/authentication/src",
             "LaravelIssueTracker\\Core\\": "packages/laravel-issue-tracker/core/src",
             "LaravelIssueTracker\\Metadata\\": "packages/laravel-issue-tracker/metadata/src",

@@ -2,10 +2,12 @@
 
 html {
   background-color: @ui-color-page;
+  height: 100%; /* important! */
 }
 
 body {
   min-width: 990px;
+  height: 100%; /* important! */
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: @ui-color-page;
@@ -15,18 +17,23 @@ body {
 }
 
 footer {
-  /*position: relative;
-  margin-top: -150px;
-  height: 150px;
+  position: relative;
+  margin-top: -200px; /* negative value of footer height */
+  height: 200px;
   clear: both;
-  padding-top: 20px;
+  padding-top: 10px;
   background-color: @ui-color-faint;
   color: @ui-color-mid;
   border-top: 1px solid @ui-color-border-color;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 10px;
   line-height: 1.42857143;
-  text-align: center;*/
+  text-align: center;
+}
+
+footer .container {
+  padding-left: 100px;
+  font-size: 12px;
 }
 
 h1, h2, h3, h4, h5, h6 {

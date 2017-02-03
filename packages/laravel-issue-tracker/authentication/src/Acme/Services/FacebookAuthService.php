@@ -30,7 +30,7 @@ class FacebookAuthService extends AuthenticationService implements Authenticatio
      */
     public function getAuthorizationFirst()
     {
-        return $this->socialite->driver('facebook')->redirect();
+        return $this->socialite->driver('facebook')->stateless()->redirect();
     }
 
     /**
@@ -38,7 +38,7 @@ class FacebookAuthService extends AuthenticationService implements Authenticatio
      */
     public function getSocialiteUser()
     {
-        return $this->facebookAuthTransformer->transform($this->socialite->driver('facebook')->user());
+        return $this->facebookAuthTransformer->transform($this->socialite->driver('facebook')->stateless()->user());
     }
 
 }

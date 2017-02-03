@@ -30,7 +30,7 @@ class BitbucketAuthService extends AuthenticationService implements Authenticati
      */
     public function getAuthorizationFirst()
     {
-        return $this->socialite->driver('bitbucket2')->redirect();
+        return $this->socialite->driver('bitbucket2')->stateless()->redirect();
     }
 
     /**
@@ -38,6 +38,6 @@ class BitbucketAuthService extends AuthenticationService implements Authenticati
      */
     public function getSocialiteUser()
     {
-        return $this->bitbucketAuthTransformer->transform($this->socialite->driver('bitbucket2')->user());
+        return $this->bitbucketAuthTransformer->transform($this->socialite->driver('bitbucket2')->stateless()->user());
     }
 }

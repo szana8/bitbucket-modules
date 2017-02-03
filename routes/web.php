@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'DashboardController@index');
+
+Route::group(['middleware' => ['web']], function () {
+
+    Route::get('login', 'LoginController@index');
+    Route::get('logout', 'LoginController@logout');
+
+    Route::post('authenticate', 'LoginController@authenticate');
+
 });
 
-Route::group(['middleware' => 'auth'], function () {
-    //    Route::get('/link1', function ()    {
-//        // Uses Auth Middleware
-//    });
+Route::group(['middleware' => ['web', 'auth']], function () {
 
-    //Please do not remove this if you want adminlte:route and adminlte:link commands to works correctly.
-    #adminlte_routes
+    Route::resource('user', 'UserController');
+
 });
