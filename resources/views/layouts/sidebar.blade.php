@@ -1,6 +1,6 @@
 @section('sidebar')
         <!-- sidebar -->
-        <div class="sidebar-wrapper" aria-expanded="true">
+        <div class="sidebar-wrapper" aria-expanded="false">
             <div class="sidebar-inner">
                 <div class="sidebar-body">
                     <header class="page-header">

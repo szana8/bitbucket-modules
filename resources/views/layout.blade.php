@@ -4,19 +4,20 @@
         @yield('header')
     </head>
 
+    @yield('navbar')
+
     <body>
-        @yield('navbar')
+        <main class="content">
+            @yield('sidebar')
 
-        <div id="wrap">
-            <div class="container-fluid clear-top ui-layout">
-                @yield('sidebar')
-
-                @yield('content')
+            <div class="content-wrapper">
+                <div class="content-inner">
+                    @yield('content')
+                </div>
             </div>
-        </div>
+        </main>
 
     </body>
-
 
     @yield('footer')
 

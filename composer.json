@@ -39,7 +39,8 @@
             "LaravelIssueTracker\\Metadata\\": "packages/laravel-issue-tracker/metadata/src",
             "LaravelIssueTracker\\User\\": "packages/laravel-issue-tracker/user/src",
             "LaravelIssueTracker\\ListOfValues\\": "packages/laravel-issue-tracker/list-of-values/src",
-            "App\\": "app/"
+            "App\\": "app/",
+            "Modules\\": "app/modules"
         }
     },
     "autoload-dev": {

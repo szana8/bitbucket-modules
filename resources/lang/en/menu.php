@@ -19,7 +19,7 @@ return [
     'APP.MENU.SYSTEM'                       => 'System',
     'APP.MENU.SERVER_MANAGEMENT'            => 'Server Management',
     'APP.MENU.DATABASE_MANAGEMENT'          => 'Database Management',
-    'APP.MENU.MANAGE_USER'                  => 'Manage User',
+    'APP.MENU.USER_MANAGEMENT'              => 'User Management',
     'APP.MENU.MANAGE_RESPONSIBILITY'        => 'Manage Responsibility',
     'APP.MENU.MANAGE_RESPONSIBILITY_LOOKUP' => 'Responsibility Lookups',
     'APP.MENU.MANAGE_METADATA'              => 'Metadata',

@@ -1,4 +1,4 @@
-<?php namespace App\Modules\ManageUser\Controllers;
+<?php namespace App\Modules\UserManagement\Controllers;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 
-class ManageUserController extends Controller {
+class UserManagementController extends Controller {
 
     protected $sidebar = [
         [
@@ -18,7 +18,41 @@ class ManageUserController extends Controller {
                     'id'        => '',
                     'class'     => 'nav-icon fa fa-user',
                     'itemclass' => 'nav-item-label',
-                    'item'      => 'Users'
+                    'item'      => 'Users',
+                ],
+                [
+                    'url'       => '',
+                    'id'        => '',
+                    'class'     => 'nav-icon fa fa-group',
+                    'itemclass' => 'nav-item-label',
+                    'item'      => 'Groups',
+                ],
+                [
+                    'url'       => '',
+                    'id'        => '',
+                    'class'     => 'nav-icon fa fa-user-secret',
+                    'itemclass' => 'nav-item-label',
+                    'item'      => 'Roles',
+                ],
+                [
+                    'url'       => '',
+                    'id'        => '',
+                    'class'     => 'nav-icon fa fa-key',
+                    'itemclass' => 'nav-item-label',
+                    'item'      => 'Permissions',
+                ],
+            ],
+        ],
+        [
+            'id'       => 'user_management',
+            'heading'  => '',
+            'elements' => [
+                [
+                    'url'       => '',
+                    'id'        => '',
+                    'class'     => 'nav-icon fa fa-globe',
+                    'itemclass' => 'nav-item-label',
+                    'item'      => 'Global Permissions',
                 ],
             ],
         ],
@@ -31,7 +65,7 @@ class ManageUserController extends Controller {
      */
     public function index()
     {
-        return view("ManageUser::index")->withSidebars($this->sidebar)->withUsers(User::all());
+        return view("UserManagement::index")->withSidebars($this->sidebar)->withUsers(User::with('profiles')->get());
     }
 
     /**

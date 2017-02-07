@@ -57,7 +57,7 @@ class MenusTableSeeder extends Seeder
         [
             "parent_id" => 2,
             "type"      => 2,
-            "name"      => "APP.MENU.MANAGE_USER",
+            "name"      => "APP.MENU.USER_MANAGEMENT",
             "sequence"  => 30,
             "enabled"   => "Y",
         ],

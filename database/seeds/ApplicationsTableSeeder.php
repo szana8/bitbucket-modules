@@ -1,6 +1,6 @@
 <?php
 
-use Models\Menu;
+use App\Models\Menu;
 use Illuminate\Database\Seeder;
 
 class ApplicationsTableSeeder extends Seeder
@@ -37,10 +37,10 @@ class ApplicationsTableSeeder extends Seeder
             "enabled"                => "Y"
         ],
         [
-            "menu_id"                => "APP.MENU.MANAGE_USER",
-            "application_name"       => "Manage User",
-            "application_short_name" => "manage_user",
-            "basepath"               => "ManageUser",
+            "menu_id"                => "APP.MENU.USER_MANAGEMENT",
+            "application_name"       => "User Management",
+            "application_short_name" => "user_management",
+            "basepath"               => "UserManagement",
             "need_authentication"    => "Y",
             "enabled"                => "Y"
         ],
