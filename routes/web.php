@@ -14,16 +14,7 @@
 Route::get('/', 'DashboardController@index');
 
 Route::group(['middleware' => ['web']], function () {
-
     Route::get('login', 'LoginController@index');
     Route::get('logout', 'LoginController@logout');
-
     Route::post('authenticate', 'LoginController@authenticate');
-
-});
-
-Route::group(['middleware' => ['web', 'auth']], function () {
-
-    Route::resource('user', 'UserController');
-
 });

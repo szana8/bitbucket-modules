@@ -111,10 +111,10 @@ class ListOfValuesService {
      */
     protected function makeWithLookups($attributes)
     {
-        $listOfValues = \DB::transaction(function($attributes) use ($attributes) {
-            $listOfValues = ListOfValues::create($attributes);
-            $attributes['lookups']['list_of_values_id'] = $listOfValues->id;
-            $this->listOfValuesLookupsService->make($attributes['lookups']);
+        $listOfValues = \DB::transaction(function($listOfValuesAttributes) use ($attributes) {
+            $listOfValues = ListOfValues::create($listOfValuesAttributes);
+            $listOfValuesAttributes['lookups']['list_of_values_id'] = $listOfValues->id;
+            $this->listOfValuesLookupsService->make($listOfValuesAttributes['lookups']);
         });
 
         return $listOfValues;

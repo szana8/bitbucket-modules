@@ -8,7 +8,7 @@
             </div>
             <div class="modal-body">
                 <form name="metadata-form" id="metadata-form-id" class="form-horizontal">
-                    {{ csrf_field() }}
+                    <input type="hidden" name="api_token" id="api_token_id" value="{{ Auth::user()->api_token }}" />
                     <input type="hidden" name="update_item" id="update_item_id"/>
                     <div class="form-group required">
                         <label class="col-sm-3 control-label">{{ trans('Metadata::lang.Label.Text.Type')}}</label>

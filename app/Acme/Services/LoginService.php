@@ -26,6 +26,7 @@ class LoginService {
      */
     public function authenticate($request)
     {
+
         if( $this->loginValidator->isValid($request) )
         {
             return Auth::attempt(['email' => $request['email'], 'password' => $request['password']]);

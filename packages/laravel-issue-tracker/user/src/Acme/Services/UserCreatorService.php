@@ -118,13 +118,13 @@ class UserCreatorService {
     {
         if( $this->validator->isValid($attributes) )
         {
-            $user = \DB::transaction(function ($attributes) use ($attributes) {
-                $attributes['password'] = $this->password;
-                $attributes['api_token'] = $this->api_token;
+            $user = \DB::transaction(function ($userAttributes) use ($attributes) {
+                $userAttributes['password'] = $this->password;
+                $userAttributes['api_token'] = $this->api_token;
 
-                $user = User::create($attributes);
-                $attributes['profile']['user_id'] = $user->id;
-                $this->profileCreatorService->make($attributes['profile']);
+                $user = User::create($userAttributes);
+                $userAttributes['profile']['user_id'] = $user->id;
+                $this->profileCreatorService->make($userAttributes['profile']);
 
                 return $user;
             });

@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'email'             => 'admin@localhost.com',
             'password'          => Hash::make('password'),
-            'api_token'         => 'test'
+            'api_token'         => str_random(60)
         ]);
     }
 }

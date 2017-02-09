@@ -1,6 +1,7 @@
 <?php
 namespace LaravelIssueTracker\Metadata\Controllers;
 
+use Illuminate\Support\Facades\Request;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Core\Controller\ApiController;
@@ -19,8 +20,6 @@ class MetadataController extends ApiController {
      * @var
      */
     protected $metadataCreator;
-
-    protected $limit = 3;
 
     /**
      * MetadataController constructor.
@@ -100,7 +99,7 @@ class MetadataController extends ApiController {
     public function update(Request $request, $id)
     {
         try {
-            $this->authorize('update', Metadata::find($id));
+            //$this->authorize('update', Metadata::find($id));
             $this->metadataCreator->update(Input::all(), $id);
             return $this->respondCreated('Metadata successfully updated!');
         }

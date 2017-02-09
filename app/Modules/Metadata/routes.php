@@ -1,7 +1,3 @@
 <?php
 
-Route::group(array('middleware' => ['web', 'auth'], 'module' => 'Metadata', 'namespace' => 'App\Modules\Metadata\Controllers'), function() {
-
-    Route::resource('Metadata', 'MetadataController');
-    
-});	
+Route::get('Metadata', 'App\Modules\Metadata\Controllers\MetadataController@index')->name('Metadata.index')->middleware(['web', 'auth']);

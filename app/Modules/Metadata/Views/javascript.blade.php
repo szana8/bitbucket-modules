@@ -15,11 +15,11 @@
 
         if ($("#update_item_id").val() != "") {
             var type = "PATCH";
-            var url = "{!! action('\App\Modules\Metadata\Controllers\MetadataController@index') !!}/" + $("#update_item_id").val();
+            var url = "{!! url('api/v1/metadata') !!}/" + $("#update_item_id").val();
         }
         else {
             var type = "POST";
-            var url = "{!! action('\App\Modules\Metadata\Controllers\MetadataController@index') !!}";
+            var url = "{!! url('api/v1/metadata') !!}";
         }
 
         $.ajax({
@@ -65,17 +65,16 @@
         $.ajax({
             type: "GET",
             async: false,
-            url: "{!! action('\App\Modules\Metadata\Controllers\MetadataController@index') !!}/" + id + "/edit",
+            url: "{!! url('api/v1/metadata') !!}/" + id,
             datatype: "json",
-            data: 'id=' + id,
+            data: {'api_token' : '{!! \Auth::user()->api_token !!}'},
             beforeSend: function (jqXHR, settings) {
             },
             complete: function (jqXHR, textStatus) {
             },
             success: function (data) {
                 $("#new-metadata-modal").modal("show");
-                console.log(data);
-                //var obj = jQuery.parseJSON(data);
+                var obj = data.data;
 
                 $("#update_item_id").val(obj.id);
                 $("#type-id").val(obj.type);
@@ -105,21 +104,15 @@
         $.ajax({
             type: "DELETE",
             async: false,
-            url: "{!! action('\App\Modules\Metadata\Controllers\MetadataController@index') !!}/" + id,
+            url: "{!! url('api/v1/metadata') !!}/" + id,
             datatype: "json",
-            data: 'id=' + id,
+            data: {'api_token' : '{!! \Auth::user()->api_token !!}'},
             beforeSend: function (jqXHR, settings) {
             },
             complete: function (jqXHR, textStatus) {
             },
             success: function (data, textStatus) {
                 console.log(data.status);
-                if (data.status == 201) {
-
-                }
-                else {
-
-                }
             },
             error: function (xhr, ajaxOptions, thrownError) {
                 $("#responsDiv").html('<div>' + xhr.responseText + '</div>');
