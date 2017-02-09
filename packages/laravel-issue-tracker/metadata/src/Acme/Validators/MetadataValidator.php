@@ -6,11 +6,11 @@ use LaravelIssueTracker\Core\Acme\Validators\Validator;
 class MetadataValidator extends Validator {
 
     protected static $rules = [
-        'type' => 'required',
-        'key' => 'required',
-        'value' => 'required',
+        'type'        => 'required',
+        'key'         => 'required',
+        'value'       => 'required',
         'description' => 'required',
-        'enabled' => 'required|in:Y,N'
+        'enabled'     => 'required|in:Y,N',
     ];
 
 }

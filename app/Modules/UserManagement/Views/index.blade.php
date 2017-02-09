@@ -7,7 +7,7 @@
 @section('content')
     <div class="col-md-12">
         <div class="row">
-            <h3>{{ trans('UserManagement::lang.Label.Text.UserManagement')}}</h3>
+            <h3>{{ trans('UserManagement::lang.Label.Text.Users')}}</h3>
 
             <div class="row">
                 <div class="col-md-12">
@@ -21,7 +21,6 @@
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-md-12">
                     <button class="btn btn-primary" id="create-user-btn">{{ trans('Core.Label.text.Create') }}</button>
-                    <button class="btn btn-default">{{ trans('Core.Label.text.WaitingForApproval') }}</button>
 
                     <div class="btn-group pull-right" role="group" aria-label="group1">
                         <button class="btn btn-default"><i

@@ -9,7 +9,7 @@
                     </header>
                     <nav class="navgroup navgroup-vertical">
                         <div class="navgroup-inner">
-                            @foreach($sidebars as $sidebar)
+                            @forelse($sidebars as $sidebar)
                                 @if(isset($sidebar['heading']))
                                     <div class="nav-heading">
                                         <strong>{{ $sidebar['heading'] }}</strong>
@@ -27,14 +27,18 @@
                                             </li>
                                     @endforeach
                                 </ul>
-                            @endforeach
+                            @empty
+
+                            @endforelse
                         </div>
                     </nav>
                 </div>
                 <div class="sidebar-footer">
-                    <a class="sidebar-toggle" id="toggle">
-                        <i class="fa fa-angle-double-left"></i>
-                    </a>
+                    @if( ! empty($sidebars) )
+                        <a class="sidebar-toggle" id="toggle">
+                            <i class="fa fa-angle-double-left"></i>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>

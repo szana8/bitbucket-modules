@@ -5,12 +5,13 @@ namespace LaravelIssueTracker\Core\Acme\Transformers;
 abstract class Transformer {
 
     /**
-     * @param $comments
+     * @param $items
      * @return array
      */
-    public function transformCollection($comments)
+    public function transformCollection($items)
     {
-        return array_map([$this, 'transform'], $comments);
+        //return $items->map([$this, 'transform']);
+        return array_map([$this, 'transform'], $items);
     }
 
     /**

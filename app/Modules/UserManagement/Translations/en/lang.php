@@ -1,8 +1,8 @@
 <?php
 
 return [
-    'Label.Text.UserManagement'            => 'Manage User',
-    'Info.Text.UserManagementDesc'         => 'You can manage the registrated users in here, or you can add a new User to the database.',
+    'Label.Text.Users'                 => 'Users',
+    'Info.Text.UserManagementDesc'     => 'You can manage the registrated users in here, or you can add a new User to the database.',
     'Label.Text.UserName'              => 'User Name',
     'Label.Text.FullName'              => 'Full Name',
     'Label.Text.Branch'                => 'Branch Name',

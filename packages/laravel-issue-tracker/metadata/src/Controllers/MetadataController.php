@@ -20,6 +20,8 @@ class MetadataController extends ApiController {
      */
     protected $metadataCreator;
 
+    protected $limit = 3;
+
     /**
      * MetadataController constructor.
      * @param $metadataTransformer
@@ -39,10 +41,14 @@ class MetadataController extends ApiController {
      */
     public function index()
     {
-        $metadata = Metadata::paginate($this->limit);
+        $metadata = Metadata::where('type', 'like', '%' . \Request::get('search') . '%')
+                            ->orWhere('key', 'like', '%' . \Request::get('search') . '%')
+                            ->orWhere('value', 'like', '%' . \Request::get('search') . '%')
+                            ->paginate($this->limit);
 
         return $this->respond([
-            'data' => $this->metadataTransformer->transformCollection($metadata->all())
+            'data' => $this->metadataTransformer->transformCollection($metadata->all()),
+            'pagination' => (string) $metadata->appends(\Request::only('search'))->links()
         ]);
 
     }
@@ -60,7 +66,7 @@ class MetadataController extends ApiController {
             return $this->respondCreated('Metadata successfully created!');
         }
         catch (ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
+            return $this->respondUnprocessable($e->getMessage() . ' because ' . $e->getErrors());
         }
     }
 
