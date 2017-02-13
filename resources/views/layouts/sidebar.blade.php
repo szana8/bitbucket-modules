@@ -56,32 +56,35 @@
                 collapse = document.querySelector(".sidebar-wrapper");
 
             // Add a click event
-            toggle.addEventListener("click", function ()
-            {
+            if(toggle) {
+                toggle.addEventListener("click", function () {
 
-                // get the aria-expanded value
-                var colValue = collapse.getAttribute("aria-expanded");
+                    // get the aria-expanded value
+                    var colValue = collapse.getAttribute("aria-expanded");
 
-                switch (colValue) {
-                    case "true":
-                        // turn expanded=false
-                        collapse.setAttribute("aria-expanded", "false");
+                    switch (colValue) {
+                        case "true":
+                            // turn expanded=false
+                            collapse.setAttribute("aria-expanded", "false");
 
-                        break;
-                    case "false":
-                        // turn expanded=true
-                        collapse.setAttribute("aria-expanded", "true");
-                        break;
-                }
+                            break;
+                        case "false":
+                            // turn expanded=true
+                            collapse.setAttribute("aria-expanded", "true");
+                            break;
+                    }
 
-            }, false);
+                }, false);
+            }
         })();
 
         //detect scroll event and add a class
         window.onscroll = function ()
         {
             var nav = document.getElementById("navbar");
-            var navHeight = nav.offsetHeight;
+            if(nav) {
+                var navHeight = nav.offsetHeight;
+            }
             var scrollVal = document.body.scrollTop;
             var sidebar = document.querySelector(".sidebar-wrapper");
 
@@ -92,8 +95,6 @@
                     sidebar.classList.remove("is-stacked");
                 }
             }
-
-            console.log(scrollVal)
         }
     </script>
 @endsection

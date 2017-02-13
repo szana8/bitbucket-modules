@@ -6,13 +6,12 @@
 
 @section('content')
 
-    <!-- Metadata form -->
-    @include('metadata.views.create')
+    <div class="col-md-12" id="metadata-main">
+        <!-- Metadata form -->
+        @include('metadata.views.modal')
 
-    <div class="col-md-12">
         <div class="row">
-            <h3><img style="position: relative;margin-top: -10px" src="{{ URL::to('/') }}/img/metadata.png"
-                     height="60px"> {{ trans('Metadata::lang.Label.Text.Metadata')}}</h3>
+            <h3><img style="position: relative;margin-top: -10px" src="{{ URL::to('/') }}/img/metadata.png" height="60px"> {{ trans('Metadata::lang.Label.Text.Metadata')}}</h3>
 
             <div class="row">
                 <div class="col-md-12">
@@ -25,15 +24,11 @@
 
             <div class="row" style="margin-bottom: 20px;">
                 <div class="col-md-12">
-                    <button class="btn btn-primary"
-                            id="create-metadata-btn">{{ trans('Core.Label.text.Create') }}</button>
+                    <button class="btn btn-primary" id="create-metadata-btn" data-toggle="modal" data-target="#new-metadata-modal">{{ trans('Core.Label.text.Create') }}</button>
 
                     <div class="btn-group pull-right" role="group" aria-label="group1">
-                        <button class="btn btn-default"><i
-                                    class="glyphicon glyphicon-import"></i> {{ trans('Core.Label.text.Import') }}
-                        </button>
-                        <button class="btn btn-default"><i
-                                    class="glyphicon glyphicon-export"></i> {{ trans('Core.Label.text.Export') }}
+                        <button class="btn btn-default"><i class="glyphicon glyphicon-import"></i> {{ trans('Core.Label.text.Import') }}</button>
+                        <button class="btn btn-default"><i class="glyphicon glyphicon-export"></i> {{ trans('Core.Label.text.Export') }}
                         </button>
                     </div>
                 </div>
@@ -45,8 +40,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">{{ trans('Core.Label.Text.Search')}}</label>
                             <div class="col-sm-9">
-                                <input type="text" name="search" id="search-id" value="{!! Request::get('search') !!}"
-                                       class="form-control" />
+                                <input type="text" name="search" id="search-id" value="{!! Request::get('search') !!}" class="form-control"/>
                             </div>
                         </div>
                     </form>
@@ -67,30 +61,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                            @foreach($metadatas->data as $metadata)
-                                <tr>
-                                    <td>{{$metadata->type}}</td>
-                                    <td>{{$metadata->key}}</td>
-                                    <td>{{$metadata->value}}</td>
-                                    <td>{{$metadata->description}}</td>
-                                    <td>{{$metadata->enabled}}</td>
-                                    <td>
-                                        <ul class="list-inline">
-                                            <li>
-                                                <a onclick='editMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Edit') }}</a>
-                                            </li>
-                                            <li>
-                                                <a onclick='deleteMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Delete') }}</a>
-                                            </li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            @endforeach
+                        @foreach($metadatas->data as $metadata)
+                            <tr>
+                                <td>{{$metadata->type}}</td>
+                                <td>{{$metadata->key}}</td>
+                                <td>{{$metadata->value}}</td>
+                                <td>{{$metadata->description}}</td>
+                                <td>{{$metadata->enabled}}</td>
+                                <td>
+                                    <ul class="list-inline">
+                                        <li>
+                                            <a onclick='editMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Edit') }}</a>
+                                        </li>
+                                        <li>
+                                            <a onclick='deleteMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Delete') }}</a>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
+                        @endforeach
                         </tbody>
                         <tfoot>
-                            <tr>
-                                <td colspan="8">{!! $metadatas->pagination !!}</td>
-                            </tr>
+                        <tr>
+                            <td colspan="8">{!! $metadatas->pagination !!}</td>
+                        </tr>
                         </tfoot>
                     </table>
                 </div>

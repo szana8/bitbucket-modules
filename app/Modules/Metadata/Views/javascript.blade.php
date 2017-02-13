@@ -1,14 +1,16 @@
 <script>
 
+    new Vue({
+        el: '#metadata-main',
 
+        data: {
+            api_token: ''
+        },
 
-    /**
-     * Modal button click function definition.
-     */
-    $("#create-metadata-btn").click(function () {
-        $("#new-metadata-modal").modal('show');
+        methods: {
+
+        }
     });
-
 
     /**
      * Save user button click function.

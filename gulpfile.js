@@ -53,6 +53,13 @@ elixir(function(mix) {
     ], 'public/js/vendor.js');
 
     /**
+     * Vue components
+     */
+    mix.scripts([
+        laravel_assets + 'js/components/'
+    ], 'public/js/components.js');
+
+    /**
      * Core javascrpit files
      */
     mix.browserify(laravel_assets + 'js/app.js', 'public/js/app.js');
