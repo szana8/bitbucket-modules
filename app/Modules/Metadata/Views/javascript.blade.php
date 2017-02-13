@@ -1,5 +1,7 @@
 <script>
 
+
+
     /**
      * Modal button click function definition.
      */

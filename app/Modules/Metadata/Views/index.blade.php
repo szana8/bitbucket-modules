@@ -67,32 +67,30 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                        @foreach($metadatas->data as $metadata)
-                            <tr>
-                                <td>{{$metadata->type}}</td>
-                                <td>{{$metadata->key}}</td>
-                                <td>{{$metadata->value}}</td>
-                                <td>{{$metadata->description}}</td>
-                                <td>{{$metadata->enabled}}</td>
-                                <td>
-                                    <ul class="list-inline">
-                                        <li>
-                                            <a onclick='editMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Edit') }}</a>
-                                        </li>
-                                        <li>
-                                            <a onclick='deleteMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Delete') }}</a>
-                                        </li>
-                                    </ul>
-                                </td>
-                            </tr>
+                            @foreach($metadatas->data as $metadata)
+                                <tr>
+                                    <td>{{$metadata->type}}</td>
+                                    <td>{{$metadata->key}}</td>
+                                    <td>{{$metadata->value}}</td>
+                                    <td>{{$metadata->description}}</td>
+                                    <td>{{$metadata->enabled}}</td>
+                                    <td>
+                                        <ul class="list-inline">
+                                            <li>
+                                                <a onclick='editMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Edit') }}</a>
+                                            </li>
+                                            <li>
+                                                <a onclick='deleteMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Delete') }}</a>
+                                            </li>
+                                        </ul>
+                                    </td>
+                                </tr>
                             @endforeach
-                            </tr>
                         </tbody>
                         <tfoot>
-                        <tr>
-                            <td colspan="8">{!! $metadatas->pagination !!}</td>
-                        </tr>
+                            <tr>
+                                <td colspan="8">{!! $metadatas->pagination !!}</td>
+                            </tr>
                         </tfoot>
                     </table>
                 </div>

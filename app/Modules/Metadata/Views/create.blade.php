@@ -6,10 +6,13 @@
                             aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title">{{trans('Metadata::lang.Label.Text.CreateMetadata')}}</h4>
             </div>
-            <div class="modal-body">
-                <form name="metadata-form" id="metadata-form-id" class="form-horizontal">
-                    <input type="hidden" name="api_token" id="api_token_id" value="{{ Auth::user()->api_token }}" />
-                    <input type="hidden" name="update_item" id="update_item_id"/>
+            <div class="modal-body" id="metadata-modal">
+                <form name="metadata-form" id="metadata-form-id" class="form-horizontal" action="{!! url('api/v1/metadata') !!}">
+
+                    <!-- Hidden elements -->
+                        <input type="hidden" name="api_token" id="api_token_id" value="{{ Auth::user()->api_token }}" v-model="api_token" />
+                    <!-- end hidden elements -->
+
                     <div class="form-group required">
                         <label class="col-sm-3 control-label">{{ trans('Metadata::lang.Label.Text.Type')}}</label>
                         <div class="col-sm-7">
@@ -45,8 +48,8 @@
                     <div class="checkbox">
                         <div class="col-sm-offset-3">
                             <label>
-                                <input type="checkbox" name="enabled" id="enabled-id" value="Y" checked/>
-                                <input type="hidden" name="enabled" disabled id="enabled-hidden-id" value="N"/>
+                                <input type="checkbox" name="enabled" id="enabled-id" value="Y" checked />
+                                <input type="hidden" name="enabled" disabled id="enabled-hidden-id" value="N" />
                                 {{trans('Metadata::lang.Label.Text.Enabled')}}
                             </label>
                             <script>

@@ -21,7 +21,7 @@ class ApplicationsTableSeeder extends Seeder
             "enabled"                => "Y"
         ],
         [
-            "menu_id"                =>  0,
+            "menu_id"                =>  NULL,
             "application_name"       => "Login",
             "application_short_name" => "login",
             "basepath"               => "login",

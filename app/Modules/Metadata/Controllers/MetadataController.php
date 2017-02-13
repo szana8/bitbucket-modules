@@ -14,7 +14,7 @@ class MetadataController extends Controller {
 	 */
 	public function index()
 	{
-        $request = Request::create('/api/v1/metadata', 'GET', ['api_token' => \Auth::user()->api_token,
+        $request = Request::create('api/v1/metadata', 'GET', ['api_token' => \Auth::user()->api_token,
                                                                'page' => request()->page,
                                                                'search' => request()->search
         ]);
