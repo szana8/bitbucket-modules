@@ -13,7 +13,7 @@
                 <div class="col-md-12">
                     <div class="bs-callout bs-callout-info" role="alert">
                         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
-                        {{description}}
+                        <span v-html="description"></span>
                     </div>
                 </div>
             </div>

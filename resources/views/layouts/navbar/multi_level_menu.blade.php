@@ -30,7 +30,7 @@
         @if($item->hasChildren())
 
             <ul class="dropdown-menu">
-                @include('layouts.multi_level_menu',array('items' => $item->children()))
+                @include('layouts.navbar.multi_level_menu',array('items' => $item->children()))
             </ul>
 
         @endif
