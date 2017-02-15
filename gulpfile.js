@@ -1,5 +1,5 @@
 const elixir = require('laravel-elixir');
-
+require('laravel-elixir-webpack-official');
 
 /*
  |--------------------------------------------------------------------------
@@ -55,14 +55,14 @@ elixir(function(mix) {
     /**
      * Vue components
      */
-    mix.scripts([
-        laravel_assets + 'js/components/'
+    mix.webpack([
+        laravel_assets + 'js/components.js'
     ], 'public/js/components.js');
 
     /**
      * Core javascrpit files
      */
-    mix.browserify(laravel_assets + 'js/app.js', 'public/js/app.js');
+    //mix.browserify(laravel_assets + 'js/app.js', 'public/js/app.js');
 
     /**
      * Bundle modules javascript files, we don't need to mix these files,
