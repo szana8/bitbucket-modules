@@ -30,5 +30,6 @@
   },
   "dependencies": {
     "babel-plugin-transform-class-properties": "^6.23.0",
+    "vue-resource": "^1.2.0"
   }
 }

@@ -6,20 +6,25 @@
 
 @section('content')
 
-    <div id="root">
-        <modal id="new-modal">
+    <div id="metadata_app">
+        <!-- Metadata form -->
+        @include('metadata.views.modals.create')
 
-        </modal>
-        <button class="btn btn-primary" data-toggle="modal" data-target="#new-modal"></button>
+        <module name="{{ trans('Metadata::lang.Label.Text.Metadata') }}" description="{!! trans('Metadata::lang.Info.Text.MetadataDesc') !!}">
+
+            <template slot="module-buttons">
+                @include('metadata.views.buttons.commands')
+            </template>
+
+            <template slot="module-search-form">
+                @include('layouts.modules.sections.search')
+            </template>
+
+            @include('metadata.views.lists.metadata', ['list' => $list])
+
+        </module>
     </div>
 
-    <script>
-        new Vue({
-            el: '#root',
-            components: {
-                modal: modal
-            },
-        });
-    </script>
+    @include('metadata.views.javascript')
 
 @endsection

@@ -22,7 +22,7 @@ class MetadataController extends Controller {
         \Request::replace($request->input());
         $response = json_decode(\Route::dispatch($request)->getContent());
 
-		return view("Metadata::index")->withMetadatas($response);
+		return view("Metadata::index")->withList($response);
 	}
 
 }
