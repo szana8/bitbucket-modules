@@ -7,7 +7,7 @@ class MetadataValidator extends Validator {
 
     protected static $rules = [
         'type'        => 'required',
-        'key'         => 'required',
+        'key'         => 'required|unique:metadata',
         'value'       => 'required',
         'description' => 'required',
         'enabled'     => 'required|in:Y,N',

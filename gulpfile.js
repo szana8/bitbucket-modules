@@ -49,7 +49,8 @@ elixir(function(mix) {
     mix.scripts([
         node_modules + 'jquery/dist/jquery.min.js',
         node_modules + 'bootstrap/dist/js/bootstrap.min.js',
-        node_modules + 'vue/dist/vue.js'
+        node_modules + 'vue/dist/vue.js',
+        node_modules + 'axios/dist/axios.js'
     ], 'public/js/vendor.js');
 
     /**

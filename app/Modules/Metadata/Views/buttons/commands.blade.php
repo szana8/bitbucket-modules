@@ -1,4 +1,4 @@
-<button class="btn btn-primary" id="create-metadata-btn" data-toggle="modal" data-target="#new-metadata-modal" @click="showModal = true">
+<button class="btn btn-primary" id="create-metadata-btn" data-toggle="modal" data-target="#new-metadata-modal">
     {{ trans('Core.Label.text.Create') }}
 </button>
 

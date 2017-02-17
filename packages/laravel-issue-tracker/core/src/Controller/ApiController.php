@@ -5,7 +5,8 @@ use Illuminate\Http\Response as IlluminateResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 
-class ApiController extends Controller {
+class ApiController extends Controller
+{
 
     /**
      * @var int
@@ -55,7 +56,7 @@ class ApiController extends Controller {
      */
     public function respondNotFound($message = 'Not Found!')
     {
-        return$this->setStatusCode(IlluminateResponse::HTTP_NOT_FOUND)->respondWithError($message);
+        return $this->setStatusCode(IlluminateResponse::HTTP_NOT_FOUND)->respondWithError($message);
     }
 
 
@@ -65,7 +66,7 @@ class ApiController extends Controller {
      */
     public function respondInternalError($message = 'Internal Error!')
     {
-        return$this->setStatusCode(IlluminateResponse::HTTP_INTERNAL_SERVER_ERROR)->respondWithError($message);
+        return $this->setStatusCode(IlluminateResponse::HTTP_INTERNAL_SERVER_ERROR)->respondWithError($message);
     }
 
 
@@ -77,7 +78,8 @@ class ApiController extends Controller {
     {
         return $this->respond([
             'error' => [
-                'message'     => $message,
+                'message' => $message['message'] ?: '',
+                'errors' => $message['errors'] ?: '',
                 'status_code' => $this->getStatusCode(),
             ],
         ]);

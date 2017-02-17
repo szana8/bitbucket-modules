@@ -65,7 +65,7 @@ class MetadataController extends ApiController {
             return $this->respondCreated('Metadata successfully created!');
         }
         catch (ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage() . ' because ' . $e->getErrors());
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
 
@@ -104,7 +104,7 @@ class MetadataController extends ApiController {
             return $this->respondCreated('Metadata successfully updated!');
         }
         catch(ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
 
@@ -121,7 +121,7 @@ class MetadataController extends ApiController {
             return $this->respondCreated('Metadata successfully destroyed!');
         }
         catch(ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
 
