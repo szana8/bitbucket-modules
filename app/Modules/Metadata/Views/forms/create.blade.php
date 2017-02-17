@@ -1,6 +1,6 @@
 <form id="metadata-form-id" class="form-horizontal" @keydown="form.errors.clear($event.target.name)">
     <!-- Hidden elements -->
-    <input type="hidden" name="api_token" id="api_token_id" v-model="form.api_token"/>
+    <input type="hidden" name="api_token" id="api_token_id" v-model="api_token"/>
     <!-- end hidden elements -->
 
     <div class="form-group">

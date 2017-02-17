@@ -20,7 +20,7 @@
                 <td>
                     <ul class="list-inline">
                         <li>
-                            <a @click="editMetadata({{$metadata->id}})">{{ trans('Core.Label.text.Edit') }}</a>
+                            <a @click="edit({{$metadata->id}})">{{ trans('Core.Label.text.Edit') }}</a>
                         </li>
                         <li>
                             <a onclick='deleteMetadata("{{$metadata->id}}");'>{{ trans('Core.Label.text.Delete') }}</a>

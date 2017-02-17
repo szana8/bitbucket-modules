@@ -57,6 +57,7 @@ elixir(function(mix) {
      * Vue components
      */
     mix.webpack([
+        laravel_assets + 'js/classes',
         laravel_assets + 'js/components.js'
     ], 'public/js/components.js');
 
