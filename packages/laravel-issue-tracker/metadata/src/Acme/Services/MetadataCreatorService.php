@@ -25,7 +25,7 @@ class MetadataCreatorService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValid($attributes, 'make') )
         {
             $metadata = Metadata::create($attributes);
             event('MetadataWasCreated', $metadata);
@@ -45,7 +45,7 @@ class MetadataCreatorService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValid($attributes, 'update') )
         {
             $metadata = Metadata::findOrFail($id)->update($attributes);
             event('MetadataWasUpdated', $metadata);

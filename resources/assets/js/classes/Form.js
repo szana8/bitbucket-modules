@@ -92,7 +92,9 @@ class Form {
      */
     delete(url) {
         return new Promise((resolve, reject) => {
-            axios.delete(url, this.data())
+            axios.delete(url, {
+                params: this.data()
+            })
                 .then(response => {
                     this.onSuccess(response.data);
 
@@ -113,8 +115,6 @@ class Form {
      * @param {string} url
      */
     get(url) {
-        console.log(this.data());
-
         return new Promise((resolve, reject) => {
             axios.get(url, {
                 params: this.data()
