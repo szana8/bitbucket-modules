@@ -8,8 +8,10 @@ class LoginValidator extends Validator {
      * @var array
      */
     protected static $rules = [
-        'email' => 'required',
-        'password' => 'required'
+        'default' => [
+            'email' => 'required',
+            'password' => 'required'
+        ]
     ];
 
 }

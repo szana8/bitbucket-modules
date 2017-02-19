@@ -22,7 +22,8 @@ elixir(function(mix) {
      */
     mix.styles([
         node_modules + 'bootstrap/dist/css/bootstrap.min.css',
-        node_modules + 'font-awesome/css/font-awesome.css'
+        node_modules + 'font-awesome/css/font-awesome.css',
+        node_modules + 'toastr/build/toastr.css',
     ], 'public/css/vendor.css');
 
     mix.less(laravel_assets + 'less/global.less', 'public/css/app.css');
@@ -49,6 +50,7 @@ elixir(function(mix) {
     mix.scripts([
         node_modules + 'jquery/dist/jquery.min.js',
         node_modules + 'bootstrap/dist/js/bootstrap.min.js',
+        node_modules + 'toastr/build/toastr.min.js',
         node_modules + 'vue/dist/vue.js',
         node_modules + 'axios/dist/axios.js'
     ], 'public/js/vendor.js');
