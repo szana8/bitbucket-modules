@@ -19,8 +19,8 @@ class CreateLovValuesTable extends Migration
             $table->increments('id');
             $table->integer('list_of_values_id')->unsigned();
             $table->foreign('list_of_values_id')->references('id')->on('list_of_values')->onDelete('cascade');
-            $table->string('lov_key', 45)->nullable()->index();
-            $table->string('lov_value', 45)->index();
+            $table->string('key', 45)->nullable()->index();
+            $table->string('value', 45)->index();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -13,7 +13,7 @@
         <module name="{{ trans('Metadata::lang.Label.Text.Metadata') }}" description="{!! trans('Metadata::lang.Info.Text.MetadataDesc') !!}">
 
             <template slot="module-buttons">
-                @include('metadata.views.buttons.commands')
+                @include('metadata.views.commands.commands')
             </template>
 
             <template slot="module-search-form">

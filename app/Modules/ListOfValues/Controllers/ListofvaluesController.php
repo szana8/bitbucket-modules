@@ -3,6 +3,7 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Modules\ListOfValues\ListOfValueHelper;
 use Illuminate\Http\Request;
 
 class ListOfValuesController extends Controller {
@@ -21,7 +22,7 @@ class ListOfValuesController extends Controller {
         \Request::replace($request->input());
         $response = json_decode(\Route::dispatch($request)->getContent());
 
-		return view("ListOfValues::index")->withlistofvalues($response);
+		return view("ListOfValues::index")->withlistofvalues($response)->withTables(ListOfValueHelper::getTables());
 	}
 
 	/**

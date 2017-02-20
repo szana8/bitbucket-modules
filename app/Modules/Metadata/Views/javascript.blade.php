@@ -30,14 +30,14 @@
                 if (this.form.id)
                     this.update();
                 else
-                    this.make();
+                    this.store();
             },
 
 
             /**
              * Default make function for the REST api
              */
-            make() {
+            store() {
                 this.form.post('{!! url('api/v1/metadata') !!}')
                     .then(data => {
                         $("#new-metadata-modal").modal('hide');
@@ -62,7 +62,7 @@
                         $("#new-metadata-modal").modal('show');
                     })
                     .catch(error => {
-                        this.alert.setMessage(error.message).setType('success').showAlert();
+                        this.alert.setMessage(error.message).setType('alert').showAlert();
                     });
             },
 

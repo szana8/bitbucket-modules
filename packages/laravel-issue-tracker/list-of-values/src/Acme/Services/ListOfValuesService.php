@@ -44,7 +44,7 @@ class ListOfValuesService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValid($attributes, 'make') )
         {
             if( $attributes['lov_type'] == self::TYPE_QUERY )
             {
@@ -60,7 +60,7 @@ class ListOfValuesService {
             return $listOfValues;
         }
 
-        throw new ValidationException('Exception', $this->validator->getErrors());
+        throw new ValidationException('List Of Values validation failed', $this->validator->getErrors());
     }
 
     /**
@@ -71,7 +71,7 @@ class ListOfValuesService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValid($attributes, 'update') )
         {
             $listOfValue = \DB::transaction(function () use ($attributes, $id) {
                 $listOfValue = ListOfValues::find($id)->update($attributes);

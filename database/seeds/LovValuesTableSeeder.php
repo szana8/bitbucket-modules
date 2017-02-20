@@ -11,68 +11,68 @@ class LovValuesTableSeeder extends Seeder {
     protected $_lovValues = [
         [
             "lov_id"    => "User List",
-            "lov_key"   => "action",
-            "lov_value" => "Action",
+            "key"   => "action",
+            "value" => "Action",
         ],
         [
             "lov_id"    => "SQL",
-            "lov_key"   => "and",
-            "lov_value" => "AND",
+            "key"   => "and",
+            "value" => "AND",
         ],
         [
             "lov_id"    => "SQL",
-            "lov_key"   => "or",
-            "lov_value" => "OR",
+            "key"   => "or",
+            "value" => "OR",
         ],
         [
             "lov_id"    => "SQL",
-            "lov_key"   => "in",
-            "lov_value" => "IN",
+            "key"   => "in",
+            "value" => "IN",
         ],
         [
             "lov_id"    => "SQL",
-            "lov_key"   => "not in",
-            "lov_value" => "NOT IN",
+            "key"   => "not in",
+            "value" => "NOT IN",
         ],
         [
             "lov_id"    => "SQL",
-            "lov_key"   => "not",
-            "lov_value" => "NOT",
+            "key"   => "not",
+            "value" => "NOT",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => "=",
-            "lov_value" => "=",
+            "key"   => "=",
+            "value" => "=",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => "<",
-            "lov_value" => "<",
+            "key"   => "<",
+            "value" => "<",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => ">",
-            "lov_value" => ">",
+            "key"   => ">",
+            "value" => ">",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => "<=",
-            "lov_value" => "<=",
+            "key"   => "<=",
+            "value" => "<=",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => ">=",
-            "lov_value" => ">=",
+            "key"   => ">=",
+            "value" => ">=",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => "in",
-            "lov_value" => "IN",
+            "key"   => "in",
+            "value" => "IN",
         ],
         [
             "lov_id"    => "Operations",
-            "lov_key"   => "!=",
-            "lov_value" => "!=",
+            "key"   => "!=",
+            "value" => "!=",
         ],
     ];
 
@@ -85,7 +85,7 @@ class LovValuesTableSeeder extends Seeder {
     {
         foreach ($this->_lovValues as $lovValue)
         {
-            $lovValue["list_of_values_id"] = ListOfValues::where("lov_name", $lovValue["lov_id"])->first()->id;
+            $lovValue["list_of_values_id"] = ListOfValues::where("name", $lovValue["lov_id"])->first()->id;
             unset($lovValue['lov_id']);
             DB::table('list_of_values_lookups')->insert($lovValue);
         }

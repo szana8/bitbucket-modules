@@ -5,7 +5,6 @@ use LaravelIssueTracker\Core\Acme\Validators\Validator;
 
 class MetadataValidator extends Validator
 {
-
     protected static $rules = [
         'make' => [
             'type' => 'required',

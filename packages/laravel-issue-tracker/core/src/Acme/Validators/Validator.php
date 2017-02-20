@@ -19,6 +19,11 @@ abstract class Validator {
     protected $errors;
 
     /**
+     * @var array
+     */
+    protected static $messages = [];
+
+    /**
      * Check the attributes validation
      *
      * @param array $attributes
@@ -27,7 +32,7 @@ abstract class Validator {
      */
     public function isValid(array $attributes, $option = "default")
     {
-        $validator = LaravelIssueTrackerValidator::make($attributes, static::$rules[$option]);
+        $validator = LaravelIssueTrackerValidator::make($attributes, static::$rules[$option], static::$messages);
 
         if($validator->fails())
         {

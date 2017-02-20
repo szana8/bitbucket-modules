@@ -1,6 +1,7 @@
 <?php namespace LaravelIssueTracker\ListOfValues\Controllers;
 
 use Illuminate\Support\Facades\Input;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesLookupsService;
 use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesService;
@@ -44,10 +45,10 @@ class ListOfValuesController extends ApiController {
     public function index()
     {
         $listOfValues = ListOfValues::with('lookups')
-            ->where('lov_name', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('lov_type', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('lov_source_table', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('lov_column_name', 'like', '%' . \Request::get('search') . '%')
+            ->where('name', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('type', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('source_table', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('column_name', 'like', '%' . \Request::get('search') . '%')
             ->paginate($this->limit);
 
         return $this->respond([
@@ -85,12 +86,12 @@ class ListOfValuesController extends ApiController {
     {
         try
         {
-            $this->listOfValuesService->make(Input::all()['data']);
-
+            $this->listOfValuesService->make(Input::all());
             return $this->respondCreated('List Of Value successfully created!');
-        } catch ( ValidationException $e )
+        }
+        catch (ValidationException $e)
         {
-            return $this->respondUnprocessable($e->getMessage());
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
 
@@ -111,7 +112,7 @@ class ListOfValuesController extends ApiController {
             return $this->respondCreated('List of Value successfully updated!');
         } catch ( ValidationException $e )
         {
-            return $this->respondUnprocessable($e->getMessage());
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
 

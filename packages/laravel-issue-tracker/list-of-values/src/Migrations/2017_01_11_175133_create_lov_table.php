@@ -17,10 +17,10 @@ class CreateLovTable extends Migration
             $table->engine = 'InnoDB';
 
             $table->increments('id');
-            $table->string('lov_name', 45)->unique();
-            $table->integer('lov_type')->index();
-            $table->string('lov_source_table', 45)->nullable()->default(NULL)->index();
-            $table->string('lov_column_name', 45)->nullable()->default(NULL)->index();
+            $table->string('name', 45)->unique();
+            $table->integer('type')->index();
+            $table->string('source_table', 45)->nullable()->default(NULL)->index();
+            $table->string('column_name', 45)->nullable()->default(NULL)->index();
             $table->string('condition', 200)->nullable()->default(NULL);
             $table->timestamps();
             $table->softDeletes();

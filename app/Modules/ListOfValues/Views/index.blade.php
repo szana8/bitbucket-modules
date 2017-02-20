@@ -7,6 +7,8 @@
 @section('content')
 
     <div id="listOfValues_app">
+        <!-- List of value modal -->
+        @include('listofvalues.views.modals.create')
 
         <module name="{{ trans('ListOfValues::lang.Label.Text.ListOfValues') }}" description="{!! trans('ListOfValues::lang.Info.Text.ListOfValuesDesc') !!}">
 
