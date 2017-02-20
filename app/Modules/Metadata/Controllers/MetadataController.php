@@ -16,8 +16,7 @@ class MetadataController extends Controller {
 	{
         $request = Request::create('api/v1/metadata', 'GET', ['api_token' => \Auth::user()->api_token,
                                                                'page' => request()->page,
-                                                               'search' => request()->search
-        ]);
+                                                               'search' => request()->search]);
 
         \Request::replace($request->input());
         $response = json_decode(\Route::dispatch($request)->getContent());

@@ -10,7 +10,6 @@ abstract class Transformer {
      */
     public function transformCollection($items)
     {
-        //return $items->map([$this, 'transform']);
         return array_map([$this, 'transform'], $items);
     }
 

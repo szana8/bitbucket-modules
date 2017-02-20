@@ -43,30 +43,36 @@ class ListOfValuesController extends ApiController {
      */
     public function index()
     {
-        $listOfValues = ListOfValues::with('lookups')->paginate($this->limit);
+        $listOfValues = ListOfValues::with('lookups')
+            ->where('lov_name', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('lov_type', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('lov_source_table', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('lov_column_name', 'like', '%' . \Request::get('search') . '%')
+            ->paginate($this->limit);
 
         return $this->respond([
-            'data' => $this->listOfValuesTransformer->transform($listOfValues->all())
+            'data'       => $this->listOfValuesTransformer->transformCollection($listOfValues->all()),
+            'pagination' => (string) $listOfValues->appends(\Request::only('search'))->links(),
         ]);
     }
 
     /**
-    * Display the specified resource.
-    *
-    * @param $id
-    * @return mixed
-    */
+     * Display the specified resource.
+     *
+     * @param $id
+     * @return mixed
+     */
     public function show($id)
     {
         $listOfValues = ListOfValues::with('lookups')->find($id);
 
-        if ( ! $listOfValues )
+        if ( ! $listOfValues)
         {
             return $this->respondNotFound('List Of Value does not exist');
         }
 
         return $this->respond([
-            'data' => $this->listOfValuesTransformer->transform($listOfValues)
+            'data' => $this->listOfValuesTransformer->transform($listOfValues),
         ]);
     }
 
@@ -77,11 +83,13 @@ class ListOfValuesController extends ApiController {
      */
     public function store()
     {
-        try {
+        try
+        {
             $this->listOfValuesService->make(Input::all()['data']);
+
             return $this->respondCreated('List Of Value successfully created!');
-        }
-        catch(ValidationException $e) {
+        } catch ( ValidationException $e )
+        {
             return $this->respondUnprocessable($e->getMessage());
         }
     }
@@ -95,12 +103,14 @@ class ListOfValuesController extends ApiController {
      */
     public function update(\Request $request, $id)
     {
-        try {
+        try
+        {
             // Store the original input of the request and then replace the input with your request instances input.
             $this->listOfValuesService->update(Input::all()['data'], $id);
+
             return $this->respondCreated('List of Value successfully updated!');
-        }
-        catch(ValidationException $e) {
+        } catch ( ValidationException $e )
+        {
             return $this->respondUnprocessable($e->getMessage());
         }
     }
@@ -113,11 +123,13 @@ class ListOfValuesController extends ApiController {
      */
     public function destroy($id)
     {
-        try {
+        try
+        {
             $this->listOfValuesService->destroy($id);
+
             return $this->respondCreated('List of Value successfully destroyed!');
-        }
-        catch(ValidationException $e) {
+        } catch ( ValidationException $e )
+        {
             return $this->respondUnprocessable($e->getMessage());
         }
     }

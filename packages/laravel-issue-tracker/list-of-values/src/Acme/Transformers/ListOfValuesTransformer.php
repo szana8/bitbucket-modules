@@ -1,8 +1,8 @@
 <?php namespace LaravelIssueTracker\ListOfValues\Acme\Transformers;
 
-use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
+use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
 
-class ListOfValuesTransformer {
+class ListOfValuesTransformer extends Transformer {
 
     public function transform($listOfValues)
     {
