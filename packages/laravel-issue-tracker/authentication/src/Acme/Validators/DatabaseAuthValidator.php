@@ -2,14 +2,17 @@
 
 use LaravelIssueTracker\Core\Acme\Validators\Validator;
 
-class DatabaseAuthValidator extends Validator {
+class DatabaseAuthValidator extends Validator
+{
 
     /**
      * @var array
      */
     protected static $rules = [
-        'email' => 'required',
-        'password' => 'required'
+        'default' => [
+            'email' => 'required',
+            'password' => 'required'
+        ]
     ];
 
 }

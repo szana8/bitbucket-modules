@@ -14,5 +14,8 @@ window.Errors = Errors;
 import Form from './classes/Form';
 window.Form = Form;
 
+import Alert from './classes/Alert.js';
+window.Alert = Alert;
+
 window.module = Vue.component('module', Module);
 window.modal = Vue.component('modal', Modal);

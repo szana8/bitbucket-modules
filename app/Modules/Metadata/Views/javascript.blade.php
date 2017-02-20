@@ -8,6 +8,7 @@
         },
 
         data: {
+            alert: new Alert({}),
             api_token: "{{ Auth::user()->api_token }}",
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
@@ -41,7 +42,9 @@
                     .then(data => {
                         $("#new-metadata-modal").modal('hide');
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => {
+                        this.alert.setMessage(error.error.message).setType('error').showAlert();
+                    });
             },
 
 
@@ -58,7 +61,9 @@
                         this.setFormAttributes(data);
                         $("#new-metadata-modal").modal('show');
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => {
+                        this.alert.setMessage(error.message).setType('success').showAlert();
+                    });
             },
 
 
@@ -67,7 +72,10 @@
              */
             update() {
                 this.form.patch('{!! url('api/v1/metadata') !!}/' + this.form.id)
-                    .then(data => console.log(data))
+                    .then(data => {
+                        this.alert.setMessage(data.message).setType('success').showAlert();
+                        $("#new-metadata-modal").modal('hide');
+                    })
                     .catch(error => console.log(error));
             },
 
@@ -78,10 +86,11 @@
              * @param {integer} id
              */
             destroy(id) {
-                //this.form.api_token = this.api_token;
-
                 this.form.delete('{!! url('api/v1/metadata') !!}/' +id)
-                    .then(data => console.log(data))
+                    .then(data => {
+                        this.alert.setMessage(data.message).setType('success').showAlert();
+                        $("#new-metadata-modal").modal('hide');
+                    })
                     .catch(error => console.log(error));
             },
 
@@ -110,7 +119,6 @@
                 this.form.enabled = data.data.enabled;
                 this.form.api_token = this.api_token;
             }
-
         }
     });
 </script>
