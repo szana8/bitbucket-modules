@@ -12,20 +12,23 @@ class LovTableSeeder extends Seeder
         [
             "name"         => "User List",
             "type"         => 2,
-            "source_table" => NULL,
-            "column_name"  => NULL,
+            "table" => NULL,
+            "column"  => NULL,
+            "condition" => NULL
         ],
         [
             "name"         => "SQL",
             "type"         => 2,
-            "source_table" => NULL,
-            "column_name"  => NULL,
+            "table" => NULL,
+            "column"  => NULL,
+            "condition" => NULL
         ],
         [
             "name"         => "Operations",
             "type"         => 2,
-            "source_table" => NULL,
-            "column_name"  => NULL,
+            "table" => NULL,
+            "column"  => NULL,
+            "condition" => NULL
         ],
     ];
 

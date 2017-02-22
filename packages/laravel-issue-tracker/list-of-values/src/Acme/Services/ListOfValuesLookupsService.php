@@ -30,6 +30,7 @@ class ListOfValuesLookupsService {
     {
         if( $this->validator->isValid($attributes) )
         {
+            dd($attributes);
             $listOfValuesLookup = ListOfValuesLookups::create($attributes);
             event('ListOfValuesLookupsWasCreated', $listOfValuesLookup);
 

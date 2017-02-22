@@ -9,9 +9,9 @@ class ListOfValuesValidator extends Validator
         'make' => [
             'name' => 'required|unique:list_of_values',
             'type' => 'required',
-            'lov_table' => 'required_if:type,1',
-            'lov_column_name' => 'required_if:type,1',
-            'lovValues' => 'required_if:type,2'
+            'table' => 'required_if:type,1',
+            'column' => 'required_if:type,1',
+            'lookups' => 'required_if:type,2'
         ],
         'update' => [
             'name' => 'required',
@@ -24,8 +24,8 @@ class ListOfValuesValidator extends Validator
     ];
 
     protected static $messages = [
-        'lov_table.required_if' => 'The :attribute field is required when type is database',
-        'lov_column_name.required_if' => 'The :attribute field is required when type is database'
+        'table.required_if' => 'The :attribute field is required when type is database',
+        'column.required_if' => 'The :attribute field is required when type is database'
     ];
 
 }

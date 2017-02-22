@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class ListOfValuesLookups extends Model {
 
     protected $fillable = [
-        'key', 'value', 'list_of_values_id',
+        'value', 'list_of_values_id',
     ];
 
     /**

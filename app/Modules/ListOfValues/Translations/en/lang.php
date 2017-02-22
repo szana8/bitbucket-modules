@@ -13,6 +13,8 @@ return [
     'Label.Text.LovValues' => 'Value',
     'Label.Text.FromTable' => 'From Table',
     'Label.Text.FromList' => 'From List',
+    'Label.Text.WhereClause' => 'Where Clause',
+    'Label.Text.Condition' => 'Condition',
 
     'Message.Info.ColumnsLoaded' => 'Columns for the %s table are succesfully loaded!',
     'Message.Error.ColumnsLoaded' => 'Somethings happend when the system tried to load the columns for the %s table! Please check the console for the details!'

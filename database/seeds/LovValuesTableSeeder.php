@@ -11,67 +11,54 @@ class LovValuesTableSeeder extends Seeder {
     protected $_lovValues = [
         [
             "lov_id"    => "User List",
-            "key"   => "action",
             "value" => "Action",
         ],
         [
             "lov_id"    => "SQL",
-            "key"   => "and",
             "value" => "AND",
         ],
         [
             "lov_id"    => "SQL",
-            "key"   => "or",
             "value" => "OR",
         ],
         [
             "lov_id"    => "SQL",
-            "key"   => "in",
             "value" => "IN",
         ],
         [
             "lov_id"    => "SQL",
-            "key"   => "not in",
             "value" => "NOT IN",
         ],
         [
             "lov_id"    => "SQL",
-            "key"   => "not",
             "value" => "NOT",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => "=",
             "value" => "=",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => "<",
             "value" => "<",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => ">",
             "value" => ">",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => "<=",
             "value" => "<=",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => ">=",
             "value" => ">=",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => "in",
             "value" => "IN",
         ],
         [
             "lov_id"    => "Operations",
-            "key"   => "!=",
             "value" => "!=",
         ],
     ];

@@ -46,7 +46,7 @@ class ListOfValuesService {
     {
         if( $this->validator->isValid($attributes, 'make') )
         {
-            if( $attributes['lov_type'] == self::TYPE_QUERY )
+            if( $attributes['type'] == self::TYPE_QUERY )
             {
                 $listOfValues = ListOfValues::create($attributes);
 
@@ -89,7 +89,11 @@ class ListOfValuesService {
         throw new ValidationException('List of Values validation failed', $this->validator->getErrors());
     }
 
-
+    /**
+     * @param $id
+     * @return bool
+     * @throws ValidationException
+     */
     public function destroy($id)
     {
         if( ListOfValues::find($id)->exists() )
@@ -111,10 +115,15 @@ class ListOfValuesService {
      */
     protected function makeWithLookups($attributes)
     {
-        $listOfValues = \DB::transaction(function($listOfValuesAttributes) use ($attributes) {
-            $listOfValues = ListOfValues::create($listOfValuesAttributes);
-            $listOfValuesAttributes['lookups']['list_of_values_id'] = $listOfValues->id;
-            $this->listOfValuesLookupsService->make($listOfValuesAttributes['lookups']);
+        $listOfValues = \DB::transaction(function() use ($attributes) {
+            $listOfValues = ListOfValues::create($attributes);
+            //dd($attributes['lookups']);
+            $listOfValues->lookups()->create([
+                ['value' => 'a'],
+                ['value' => 'b']
+            ]);
+            //$attributes['lookups']['list_of_values_id'] = $listOfValues->id;
+            //$this->listOfValuesLookupsService->make($attributes['lookups']);
         });
 
         return $listOfValues;

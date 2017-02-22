@@ -6,6 +6,7 @@
             <th>{{ trans('ListOfValues::lang.Label.Text.TableName') }}</th>
             <th>{{ trans('ListOfValues::lang.Label.Text.Column') }}</th>
             <th>{{ trans('ListOfValues::lang.Label.Text.LovValues') }}</th>
+            <th>{{ trans('ListOfValues::lang.Label.Text.Condition') }}</th>
             <th>{{ trans('ListOfValues::lang.Label.Text.Operations') }}</th>
         </tr>
     </thead>
@@ -20,13 +21,14 @@
                         {{ trans('ListOfValues::lang.Label.Text.FromList') }}
                     @endif
                 </td>
-                <td>{{ $listOfValue->source_table }}</td>
-                <td>{{ $listOfValue->column_name }}</td>
+                <td>{{ $listOfValue->table }}</td>
+                <td>{{ $listOfValue->column }}</td>
                 <td width="450px">
                     @foreach($listOfValue->lookups as $lookup)
                         <span class="label label-primary">{{ $lookup->value }}</span>&nbsp;
                     @endforeach
                 </td>
+                <td>{{ $listOfValue->condition }}</td>
                 <td>
                     <ul class="list-inline">
                         <li><a onclick='editLOV("{{ $listOfValue->id }}");'>{{ trans('Core.Label.text.Edit') }}</a></li>

@@ -39,18 +39,26 @@
                                 <option value="{{$table->TABLE_NAME}}">{{$table->TABLE_NAME}}</option>
                             @endforeach
                         </select>
-                        <span class="error text-danger" v-if="form.errors.has('lov_table')" v-text="form.errors.get('lov_table')"></span>
+                        <span class="error text-danger" v-if="form.errors.has('table')" v-text="form.errors.get('table')"></span>
                     </div>
                 </div>
 
                 <div class="form-group required">
                     <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.Column')}}</label>
                     <div class="col-sm-7">
-                        <select name="lov_column_name" id="lov_column_name-id" class="form-control" v-model="form.column" @change="form.errors.clear('lov_column_name')">
+                        <select name="column" class="form-control" v-model="form.column" @change="form.errors.clear('column')">
                             <option value="">{{ trans('Core.Form.Select.Option.Select') }}</option>
-                            <option v-for="column in columns" v-bind:form.column="column.name">@{{ column.name }}</option>
+                            <option v-for="column in columns" :form.column="column.name">@{{ column.name }}</option>
                         </select>
-                        <span class="error text-danger" v-if="form.errors.has('lov_column_name')" v-text="form.errors.get('lov_column_name')"></span>
+                        <span class="error text-danger" v-if="form.errors.has('column')" v-text="form.errors.get('column')"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.WhereClause')}}</label>
+                    <div class="col-sm-7">
+                        <textarea name="condition" class="form-control" rows="4" v-model="form.condition"></textarea>
+                        <span class="error text-danger" v-if="form.errors.has('condition')" v-text="form.errors.get('condition')"></span>
                     </div>
                 </div>
 
@@ -60,10 +68,9 @@
                 <div class="form-group required">
                     <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.LovValues')}}</label>
                     <div class="col-sm-7">
-                        <select name="lovValues[]" class="hidden" id="lov_value_list-id" multiple v-model="form.lov_values"></select>
-                        <input type="text" name="lov_value_input" id="lov_value_input-id" class="form-control" />
 
-                        <span class="error text-danger" v-if="form.errors.has('lovValues')" v-text="form.errors.get('lovValues')"></span>
+                        <input type="text" name="lov_value_input" class="form-control" v-model="values" @keyup.enter ="setValues()" />
+                        <span class="error text-danger" v-if="form.errors.has('lookupValues')" v-text="form.errors.get('lookupValues')"></span>
                     </div>
                 </div>
                 <div id="lov_list"></div>
