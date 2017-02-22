@@ -99,6 +99,7 @@
              * After the save we set the default value for some of the attributes.
              */
             setAttributeDefaults() {
+                this.form.reset();
                 this.form.api_token = this.api_token;
                 this.form.enabled = 'Y';
             },

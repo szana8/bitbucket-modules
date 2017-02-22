@@ -15,14 +15,16 @@
          * Vue attributes
          */
         data: {
+            alert    : new Alert({}),
             api_token: "{{ Auth::user()->api_token }}",
-            form: new Form({
-                api_token: "{{ Auth::user()->api_token }}",
-                id: null,
-                type: 1,
-                name: null,
-                table: "",
-                column: "",
+            columns  : [],
+            form     : new Form({
+                api_token : "{{ Auth::user()->api_token }}",
+                id        : null,
+                type      : 1,
+                name      : null,
+                table     : "",
+                column    : "",
                 lov_values: [],
             })
         },
@@ -40,12 +42,31 @@
 
             store() {
                 this.form.post('{!! url('api/v1/ListOfValues') !!}')
-                    .then(data => {
+                    .then(data =>
+                    {
                         $("#new-list-of-values-modal").modal('hide');
                     })
-                    .catch(error => {
+                    .catch(error =>
+                    {
                         console.log(error);
-                        //this.alert.setMessage(error.error.message).setType('error').showAlert();
+                        this.alert.setMessage(error.error.message).setType('error').showAlert();
+                    });
+            },
+
+            getColumns() {
+                axios.get('{!! url('ListOfValues/getTableColumns') !!}/' + this.form.table)
+                    .then(response =>
+                    {
+                        this.columns = response.data;
+                        this.form.column = "";
+                        var message = "{{ trans('ListOfValues::lang.Message.Info.ColumnsLoaded') }}";
+                        this.alert.setMessage(message.replace('%s', this.form.table)).setType('success').showAlert();
+                    })
+                    .catch(error =>
+                    {
+                        console.log(error);
+                        var message = "{{ trans('ListOfValues::lang.Message.Error.ColumnsLoaded') }}";
+                        this.alert.setMessage(message.replace('%s', this.form.table)).setType('error').showAlert();
                     });
             }
 

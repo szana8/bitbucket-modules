@@ -33,7 +33,7 @@
                 <div class="form-group required">
                     <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.TableName')}}</label>
                     <div class="col-sm-7">
-                        <select name="lov_table" id="source_table-id" class="form-control" v-model="form.table" @change="form.errors.clear('lov_table')">
+                        <select name="lov_table" id="source_table-id" class="form-control" v-model="form.table" @change="getColumns()">
                             <option value="">{{ trans('Core.Form.Select.Option.Select') }}</option>
                             @foreach($tables as $table)
                                 <option value="{{$table->TABLE_NAME}}">{{$table->TABLE_NAME}}</option>
@@ -48,6 +48,7 @@
                     <div class="col-sm-7">
                         <select name="lov_column_name" id="lov_column_name-id" class="form-control" v-model="form.column" @change="form.errors.clear('lov_column_name')">
                             <option value="">{{ trans('Core.Form.Select.Option.Select') }}</option>
+                            <option v-for="column in columns" v-bind:form.column="column.name">@{{ column.name }}</option>
                         </select>
                         <span class="error text-danger" v-if="form.errors.has('lov_column_name')" v-text="form.errors.get('lov_column_name')"></span>
                     </div>
