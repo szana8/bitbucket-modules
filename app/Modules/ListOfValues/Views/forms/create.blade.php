@@ -68,12 +68,11 @@
                 <div class="form-group required">
                     <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.LovValues')}}</label>
                     <div class="col-sm-7">
-
                         <input type="text" name="lov_value_input" class="form-control" v-model="values" @keyup.enter ="setValues()" />
                         <span class="error text-danger" v-if="form.errors.has('lookupValues')" v-text="form.errors.get('lookupValues')"></span>
                     </div>
                 </div>
-                <div id="lov_list"></div>
+                <div id="lov_list">@{{ lov_list }}</div>
             </div>
 
         </div>

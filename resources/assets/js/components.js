@@ -17,5 +17,8 @@ window.Form = Form;
 import Alert from './classes/Alert.js';
 window.Alert = Alert;
 
+import Helpers from './classes/Helpers.js';
+window.Helpers = Helpers;
+
 window.module = Vue.component('module', Module);
 window.modal = Vue.component('modal', Modal);

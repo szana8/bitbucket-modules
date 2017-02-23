@@ -19,6 +19,7 @@
             api_token: "{{ Auth::user()->api_token }}",
             columns: [],
             values: null,
+            lov_list: "",
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
                 id: null,
@@ -72,13 +73,21 @@
             },
 
             setValues() {
-                console.log(this.form.lookups.indexOf(this.values));
-
-                if( this.form.lookups.indexOf(this.values) < 0 && this.values) {
+                //console.log(this.form.lookups.indexOf(this.values));
+                if( Helpers.arrayObjectIndexOf(this.form.lookups, this.values, "value") < 0 && this.values) {
                     this.form.lookups.push({value : this.values});
+                    $("#lov_list").append('<div id="tag_' + this.values + '" class="tag label label-primary">' + this.values + ' <a @click="removeLookup(\'' + this.values + '\');"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div> ');
                     this.values = "";
+                }
+                else {
 
                 }
+            },
+
+            removeLookup(value) {
+                //noinspection JSJQueryEfficiency
+                //$("#lov_value_list-id option[value=\"" + value + "\"]").remove();
+                $("#tag_" + value).remove();
             }
 
         }

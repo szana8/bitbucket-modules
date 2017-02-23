@@ -117,13 +117,7 @@ class ListOfValuesService {
     {
         $listOfValues = \DB::transaction(function() use ($attributes) {
             $listOfValues = ListOfValues::create($attributes);
-            //dd($attributes['lookups']);
-            $listOfValues->lookups()->create([
-                ['value' => 'a'],
-                ['value' => 'b']
-            ]);
-            //$attributes['lookups']['list_of_values_id'] = $listOfValues->id;
-            //$this->listOfValuesLookupsService->make($attributes['lookups']);
+            $listOfValues->lookups()->createMany($attributes['lookups']);
         });
 
         return $listOfValues;
