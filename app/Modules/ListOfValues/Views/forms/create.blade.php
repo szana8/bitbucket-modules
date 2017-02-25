@@ -14,11 +14,11 @@
     <div class="form-group required">
         <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.LovType')}}</label>
         <div class="col-sm-7">
-            <select name="type" id="type-id" class="form-control" v-model="form.type" @change="form.errors.clear('type')">
+            <select name="type" class="form-control" v-model="form.lov_type" @change="form.errors.clear('lov_type')">
                 <option value="1">{{ trans('Core.Form.Select.Option.FromTable') }}</option>
                 <option value="2">{{ trans('Core.Form.Select.Option.FromList') }}</option>
             </select>
-            <span class="error text-danger" v-if="form.errors.has('type')" v-text="form.errors.get('type')"></span>
+            <span class="error text-danger" v-if="form.errors.has('lov_type')" v-text="form.errors.get('lov_type')"></span>
         </div>
     </div>
 
@@ -72,7 +72,12 @@
                         <span class="error text-danger" v-if="form.errors.has('lookupValues')" v-text="form.errors.get('lookupValues')"></span>
                     </div>
                 </div>
-                <div id="lov_list">@{{ lov_list }}</div>
+                <div id="lov_list">
+                    <div v-for="lookup in form.lookups" :id="lookup.id" class="tag label label-primary">
+                        @{{ lookup.value }}
+                        <a @click='removeLookup($event)'><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                    </div>
+                </div>
             </div>
 
         </div>

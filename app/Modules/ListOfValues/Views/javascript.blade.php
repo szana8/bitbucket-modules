@@ -20,10 +20,13 @@
             columns: [],
             values: null,
             lov_list: "",
+            modal: new ModalHelper({
+               id: 'new-list-of-values-modal'
+            }),
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
                 id: null,
-                type: 1,
+                lov_type: 1,
                 name: null,
                 table: "",
                 column: "",
@@ -36,6 +39,9 @@
          * Vue methods
          */
         methods: {
+            /**
+             * Save button triggered function
+             */
             submit() {
                 if (this.form.id)
                     this.update();
@@ -43,12 +49,16 @@
                     this.store();
             },
 
+
+            /**
+             * Default make function for the REST api
+             */
             store() {
                 this.form.post('{!! url('api/v1/ListOfValues') !!}')
                     .then(data => {
                         console.log(data);
                         this.alert.setMessage(data.message).setType('success').showAlert();
-                        $("#new-list-of-values-modal").modal('hide');
+                        this.modal.hideModal();
                     })
                     .catch(error => {
                         console.log(error);
@@ -56,6 +66,32 @@
                     });
             },
 
+
+            /**
+             * Call the metadata REST API to return the proper object
+             *
+             * @param {integer} id
+             */
+            show(id) {
+                this.form.api_token = this.api_token;
+
+                this.form.get('{!! url('api/v1/ListOfValues') !!}/' + id)
+                    .then(data => {
+                        console.log(data);
+                        this.setFormAttributes(data);
+                        //$("#new-list-of-values-modal").modal('show');
+                        this.modal.showModal();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        //this.alert.setMessage(error.message).setType('alert').showAlert();
+                    });
+            },
+
+
+            /**
+             * Set the columns of the selected table
+             */
             getColumns() {
                 axios.get('{!! url('ListOfValues/getTableColumns') !!}/' + this.form.table)
                     .then(response => {
@@ -72,22 +108,35 @@
                     });
             },
 
-            setValues() {
-                //console.log(this.form.lookups.indexOf(this.values));
-                if( Helpers.arrayObjectIndexOf(this.form.lookups, this.values, "value") < 0 && this.values) {
-                    this.form.lookups.push({value : this.values});
-                    $("#lov_list").append('<div id="tag_' + this.values + '" class="tag label label-primary">' + this.values + ' <a @click="removeLookup(\'' + this.values + '\');"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a></div> ');
-                    this.values = "";
-                }
-                else {
 
+            /**
+             * Add the given value to the lookups object
+             */
+            setValues() {
+                if( Helpers.arrayObjectIndexOf(this.form.lookups, this.values, "value") < 0 && this.values) {
+                    this.form.lookups.push({
+                        value : this.values,
+                        id: this.values.toLowerCase().replace(' ', '')
+                    });
+                    this.values = "";
                 }
             },
 
-            removeLookup(value) {
-                //noinspection JSJQueryEfficiency
-                //$("#lov_value_list-id option[value=\"" + value + "\"]").remove();
-                $("#tag_" + value).remove();
+
+            /**
+             * Remove the selected value from the lookups object
+             * @param {event} value
+             */
+            removeLookup(event) {
+               var index = Helpers.arrayObjectIndexOf(this.form.lookups, event.target.parentElement.parentElement.id, "id");
+               this.form.lookups.splice(index, 1);
+            },
+
+
+            setFormAttributes(data) {
+                console.log(data.data.type);
+                this.form.name = data.data.name;
+                this.form.lov_type = 2;
             }
 
         }

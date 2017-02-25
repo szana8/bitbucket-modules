@@ -31,8 +31,12 @@
                 <td>{{ $listOfValue->condition }}</td>
                 <td>
                     <ul class="list-inline">
-                        <li><a onclick='editLOV("{{ $listOfValue->id }}");'>{{ trans('Core.Label.text.Edit') }}</a></li>
-                        <li><a onclick='deleteLov("{{ $listOfValue->id }}");'>{{ trans('Core.Label.text.Delete') }}</a></li>
+                        <li>
+                            <a @click="show({{ $listOfValue->id }})">{{ trans('Core.Label.text.Edit') }}</a>
+                        </li>
+                        <li>
+                            <a @click='destroy("{{ $listOfValue->id }}");'>{{ trans('Core.Label.text.Delete') }}</a>
+                        </li>
                     </ul>
                 </td>
             </tr>

@@ -20,5 +20,8 @@ window.Alert = Alert;
 import Helpers from './classes/Helpers.js';
 window.Helpers = Helpers;
 
+import ModalHelper from './classes/ModalHelper.js';
+window.ModalHelper = ModalHelper;
+
 window.module = Vue.component('module', Module);
 window.modal = Vue.component('modal', Modal);
