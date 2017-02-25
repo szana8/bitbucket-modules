@@ -10,29 +10,28 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($list->data as $metadata)
-            <tr>
-                <td>{{$metadata->type}}</td>
-                <td>{{$metadata->key}}</td>
-                <td>{{$metadata->value}}</td>
-                <td>{{$metadata->description}}</td>
-                <td>{{$metadata->enabled}}</td>
-                <td>
-                    <ul class="list-inline">
-                        <li>
-                            <a @click="show({{ $metadata->id }})">{{ trans('Core.Label.text.Edit') }}</a>
-                        </li>
-                        <li>
-                            <a @click='destroy("{{ $metadata->id }}");'>{{ trans('Core.Label.text.Delete') }}</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        @endforeach
+        <tr v-for="metadata in list.data">
+            <td v-text="metadata.type"></td>
+            <td v-text="metadata.key"></td>
+            <td v-text="metadata.value"></td>
+            <td v-text="metadata.description"></td>
+            <td v-text="metadata.enabled"></td>
+            <td>
+                <ul class="list-inline">
+                    <li>
+                        <a @click="show(metadata.id)">{{ trans('Core.Label.text.Edit') }}</a>
+                    </li>
+                    <li>
+                        <a @click='destroy(metadata.id);'>{{ trans('Core.Label.text.Delete') }}</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+
     </tbody>
     <tfoot>
         <tr>
-            <td colspan="8">{!! $list->pagination !!}</td>
+            <td colspan="8" v-html="list.pagination"></td>
         </tr>
     </tfoot>
 </table>

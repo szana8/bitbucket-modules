@@ -22,6 +22,19 @@ class MetadataController extends Controller {
 	}
 
 
+    public function getList()
+    {
+        $request = Request::create('api/v1/metadata',
+            'GET',
+            [
+                'api_token' => \Auth::user()->api_token,
+                'page' => request()->page,
+                'search' => request()->search
+            ]);
+        \Request::replace($request->input());
+        return \Route::dispatch($request)->getContent();
+    }
+
     /**
      * Call the metadata API to get the list of the metadata.
      *
@@ -39,5 +52,7 @@ class MetadataController extends Controller {
         \Request::replace($request->input());
         return json_decode(\Route::dispatch($request)->getContent());
     }
+
+
 
 }

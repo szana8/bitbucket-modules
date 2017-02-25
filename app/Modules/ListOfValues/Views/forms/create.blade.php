@@ -14,11 +14,11 @@
     <div class="form-group required">
         <label class="col-sm-3 control-label">{{ trans('ListOfValues::lang.Label.Text.LovType')}}</label>
         <div class="col-sm-7">
-            <select name="type" class="form-control" v-model="form.lov_type" @change="form.errors.clear('lov_type')">
+            <select name="type" class="form-control" v-model="form.type" @change="form.errors.clear('type')">
                 <option value="1">{{ trans('Core.Form.Select.Option.FromTable') }}</option>
                 <option value="2">{{ trans('Core.Form.Select.Option.FromList') }}</option>
             </select>
-            <span class="error text-danger" v-if="form.errors.has('lov_type')" v-text="form.errors.get('lov_type')"></span>
+            <span class="error text-danger" v-if="form.errors.has('type')" v-text="form.errors.get('type')"></span>
         </div>
     </div>
 

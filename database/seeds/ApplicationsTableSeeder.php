@@ -29,14 +29,6 @@ class ApplicationsTableSeeder extends Seeder
             "enabled"                => "Y"
         ],
         [
-            "menu_id"                => "APP.MENU.SERVER_MANAGEMENT",
-            "application_name"       => "Server Management",
-            "application_short_name" => "server_management",
-            "basepath"               => "ServerManagement",
-            "need_authentication"    => "Y",
-            "enabled"                => "Y"
-        ],
-        [
             "menu_id"                => "APP.MENU.USER_MANAGEMENT",
             "application_name"       => "User Management",
             "application_short_name" => "user_management",
@@ -45,34 +37,10 @@ class ApplicationsTableSeeder extends Seeder
             "enabled"                => "Y"
         ],
         [
-            "menu_id"                => "APP.MENU.MANAGE_RESPONSIBILITY",
-            "application_name"       => "Manage Responsibility",
-            "application_short_name" => "manage_responsibility",
-            "basepath"               => "ManageResponsibility",
-            "need_authentication"    => "Y",
-            "enabled"                => "Y"
-        ],
-        [
-            "menu_id"                => "APP.MENU.MANAGE_RESPONSIBILITY_LOOKUP",
-            "application_name"       => "Responsibility Lookups",
-            "application_short_name" => "responsibility_lookups",
-            "basepath"               => "ResponsibilityLookups",
-            "need_authentication"    => "Y",
-            "enabled"                => "Y"
-        ],
-        [
             "menu_id"                => "APP.MENU.MANAGE_METADATA",
             "application_name"       => "Metadata",
             "application_short_name" => "metadata",
             "basepath"               => "Metadata",
-            "need_authentication"    => "Y",
-            "enabled"                => "Y"
-        ],
-        [
-            "menu_id"                => "APP.MENU.INSTALL_MODULE",
-            "application_name"       => "Install Module",
-            "application_short_name" => "install_module",
-            "basepath"               => "InstallModule",
             "need_authentication"    => "Y",
             "enabled"                => "Y"
         ],
@@ -92,14 +60,6 @@ class ApplicationsTableSeeder extends Seeder
             "need_authentication"    => "Y",
             "enabled"                => "Y"
         ],
-        [
-            "menu_id"                => "APP.MENU.ISSUE",
-            "application_name"       => "Issue",
-            "application_short_name" => "issue",
-            "basepath"               => "Issue",
-            "need_authentication"    => "Y",
-            "enabled"                => "Y"
-        ]
     ];
 
 

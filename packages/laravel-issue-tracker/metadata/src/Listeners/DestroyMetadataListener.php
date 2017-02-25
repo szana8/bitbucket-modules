@@ -24,6 +24,6 @@ class DestroyMetadataListener
      */
     public function handle(MetadataWasDestroyed $event)
     {
-        var_dump('metadata destroyed ' . $event->metadata->value);
+        //
     }
 }

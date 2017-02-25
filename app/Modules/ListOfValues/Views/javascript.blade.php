@@ -15,6 +15,7 @@
          * Vue attributes
          */
         data: {
+
             alert: new Alert({}),
             api_token: "{{ Auth::user()->api_token }}",
             columns: [],
@@ -23,16 +24,18 @@
             modal: new ModalHelper({
                id: 'new-list-of-values-modal'
             }),
+
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
                 id: null,
-                lov_type: 1,
+                type: 1,
                 name: null,
                 table: "",
                 column: "",
                 lookups: [],
                 condition: ""
             })
+
         },
 
         /**
@@ -68,6 +71,22 @@
 
 
             /**
+             *
+             */
+            update() {
+                this.form.patch('{!! url('api/v1/ListOfValues') !!}/' + this.form.id)
+                    .then(data => {
+                        console.log(data);
+                        this.alert.setMessage(data.message).setType('success').showAlert();
+                        this.modal.hideModal();
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        this.alert.setMessage(error.error.message).setType('error').showAlert();
+                    });
+            },
+
+            /**
              * Call the metadata REST API to return the proper object
              *
              * @param {integer} id
@@ -79,7 +98,6 @@
                     .then(data => {
                         console.log(data);
                         this.setFormAttributes(data);
-                        //$("#new-list-of-values-modal").modal('show');
                         this.modal.showModal();
                     })
                     .catch(error => {
@@ -92,7 +110,7 @@
             /**
              * Set the columns of the selected table
              */
-            getColumns() {
+            getColumns(defaultValue) {
                 axios.get('{!! url('ListOfValues/getTableColumns') !!}/' + this.form.table)
                     .then(response => {
                         this.columns = response.data;
@@ -100,6 +118,9 @@
                         var message = "{{ trans('ListOfValues::lang.Message.Info.ColumnsLoaded') }}";
                         this.alert.setMessage(message.replace('%s', this.form.table)).setType('success').showAlert();
                         this.form.errors.clear('lov_table');
+
+                        if(defaultValue)
+                            this.form.column = defaultValue;
                     })
                     .catch(error => {
                         console.log(error);
@@ -134,9 +155,13 @@
 
 
             setFormAttributes(data) {
-                console.log(data.data.type);
+                this.form.type = 1;
                 this.form.name = data.data.name;
-                this.form.lov_type = 2;
+                this.form.table = data.data.table;
+                this.getColumns(data.data.column);
+                this.form.id = data.data.id;
+                this.form.lookups = [];
+                this.form.api_token = this.api_token;
             }
 
         }

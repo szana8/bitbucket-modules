@@ -84,6 +84,7 @@ class ListOfValuesController extends ApiController {
      */
     public function store()
     {
+
         try
         {
             $this->listOfValuesService->make(Input::all());
@@ -107,7 +108,7 @@ class ListOfValuesController extends ApiController {
         try
         {
             // Store the original input of the request and then replace the input with your request instances input.
-            $this->listOfValuesService->update(Input::all()['data'], $id);
+            $this->listOfValuesService->update(Input::all(), $id);
 
             return $this->respondCreated('List of Value successfully updated!');
         } catch ( ValidationException $e )

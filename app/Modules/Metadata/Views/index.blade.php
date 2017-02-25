@@ -20,11 +20,11 @@
                 @include('layouts.modules.sections.search')
             </template>
 
-            @include('metadata.views.lists.metadata', ['list' => $list])
+            @include('metadata.views.lists.metadata')
 
         </module>
     </div>
 
-    @include('metadata.views.javascript')
+    @include('metadata.views.javascript', ['list' => json_encode($list)])
 
 @endsection

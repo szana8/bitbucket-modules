@@ -75,8 +75,9 @@ class ListOfValuesService {
         {
             $listOfValue = \DB::transaction(function () use ($attributes, $id) {
                 $listOfValue = ListOfValues::find($id)->update($attributes);
+                $attributes['list_of_values_id'] = $id;
 
-                if( $attributes['lov_type'] == self::TYPE_LOOKUP )
+                if( $attributes['type'] == self::TYPE_LOOKUP )
                     $this->listOfValuesLookupsService->update($attributes['lookups'], '');
 
                 return $listOfValue;

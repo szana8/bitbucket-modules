@@ -9,6 +9,8 @@
 
         data: {
             alert: new Alert({}),
+            modal: new ModalHelper({ id: 'new-metadata-modal' }),
+            list: {!! $list !!},
             api_token: "{{ Auth::user()->api_token }}",
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
@@ -40,7 +42,7 @@
             store() {
                 this.form.post('{!! url('api/v1/metadata') !!}')
                     .then(data => {
-                        $("#new-metadata-modal").modal('hide');
+                        this.modal.hideModal();
                     })
                     .catch(error => {
                         this.alert.setMessage(error.error.message).setType('error').showAlert();
@@ -59,7 +61,7 @@
                 this.form.get('{!! url('api/v1/metadata') !!}/' + id)
                     .then(data => {
                         this.setFormAttributes(data);
-                        $("#new-metadata-modal").modal('show');
+                        this.modal.showModal();
                     })
                     .catch(error => {
                         this.alert.setMessage(error.message).setType('alert').showAlert();
@@ -74,7 +76,7 @@
                 this.form.patch('{!! url('api/v1/metadata') !!}/' + this.form.id)
                     .then(data => {
                         this.alert.setMessage(data.message).setType('success').showAlert();
-                        $("#new-metadata-modal").modal('hide');
+                        this.modal.hideModal();
                     })
                     .catch(error => console.log(error));
             },
@@ -89,7 +91,7 @@
                 this.form.delete('{!! url('api/v1/metadata') !!}/' +id)
                     .then(data => {
                         this.alert.setMessage(data.message).setType('success').showAlert();
-                        $("#new-metadata-modal").modal('hide');
+                        this.modal.hideModal();
                     })
                     .catch(error => console.log(error));
             },
