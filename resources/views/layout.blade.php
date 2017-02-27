@@ -7,16 +7,11 @@
     @yield('navbar')
 
     <body>
-        <main class="content">
-            @yield('sidebar')
-
-            <div class="content-wrapper">
-                <div class="content-inner">
-                    @yield('content')
-                </div>
+        <div id="wrap">
+            <div class="container-fluid clear-top ui-layout">
+                @yield('content')
             </div>
-        </main>
-
+        </div>
     </body>
 
     @yield('footer')

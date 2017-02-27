@@ -154,6 +154,10 @@
             },
 
 
+            /**
+             *
+             * @param data
+             */
             setFormAttributes(data) {
                 this.form.type = 1;
                 this.form.name = data.data.name;

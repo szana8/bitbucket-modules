@@ -21,5 +21,11 @@ class UsersTableSeeder extends Seeder
             'password'          => Hash::make('password'),
             'api_token'         => str_random(60)
         ]);
+
+        DB::table('profiles')->insert([
+            'user_id' => 1,
+            'type' => 'database',
+            'name' => 'Administrator'
+        ]);
     }
 }
