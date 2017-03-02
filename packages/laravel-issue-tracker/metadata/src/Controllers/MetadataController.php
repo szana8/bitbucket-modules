@@ -43,7 +43,7 @@ class MetadataController extends ApiController {
         $metadata = Metadata::where('type', 'like', '%' . \Request::get('search') . '%')
                             ->orWhere('key', 'like', '%' . \Request::get('search') . '%')
                             ->orWhere('value', 'like', '%' . \Request::get('search') . '%')
-                            ->paginate($this->limit);
+                            ->paginate(3);
 
         return $this->respond([
             'data' => $this->metadataTransformer->transformCollection($metadata->all()),

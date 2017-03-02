@@ -2,7 +2,6 @@
 @extends('layouts.header')
 @extends('layouts.navbar')
 @extends('layouts.footer')
-@extends('layouts.sidebar', ['sidebars' => $sidebars])
 
 @section('content')
     <div class="col-md-12">
