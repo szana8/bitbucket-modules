@@ -28,7 +28,8 @@
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
                 id: null,
-                type: 1,
+                datatype: 1,
+                old_datatype: null,
                 name: null,
                 table: "",
                 column: "",
@@ -76,7 +77,6 @@
             update() {
                 this.form.patch('{!! url('api/v1/ListOfValues') !!}/' + this.form.id)
                     .then(data => {
-                        console.log(data);
                         this.alert.setMessage(data.message).setType('success').showAlert();
                         this.modal.hideModal();
                     })
@@ -96,8 +96,7 @@
 
                 this.form.get('{!! url('api/v1/ListOfValues') !!}/' + id)
                     .then(data => {
-                        console.log(data);
-                        this.setFormAttributes(data);
+                        this.setFormAttributes(data.data);
                         this.modal.showModal();
                     })
                     .catch(error => {
@@ -111,6 +110,9 @@
              * Set the columns of the selected table
              */
             getColumns(defaultValue) {
+                if(this.form.datatype != 1)
+                    return;
+
                 axios.get('{!! url('ListOfValues/getTableColumns') !!}/' + this.form.table)
                     .then(response => {
                         this.columns = response.data;
@@ -159,11 +161,15 @@
              * @param data
              */
             setFormAttributes(data) {
-                this.form.type = 1;
-                this.form.name = data.data.name;
-                this.form.table = data.data.table;
-                this.getColumns(data.data.column);
-                this.form.id = data.data.id;
+                this.form.datatype = data.datatype;
+                this.form.old_datatype = data.datatype;
+                this.form.name = data.name;
+                this.form.table = data.table ? data.table : "";
+
+                if( data.datatype == 1 )
+                    this.getColumns(data.column);
+
+                this.form.id = data.id;
                 this.form.lookups = [];
                 this.form.api_token = this.api_token;
             }

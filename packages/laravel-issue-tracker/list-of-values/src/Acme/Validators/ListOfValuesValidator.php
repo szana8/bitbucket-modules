@@ -8,18 +8,18 @@ class ListOfValuesValidator extends Validator
     protected static $rules = [
         'make' => [
             'name' => 'required|unique:list_of_values',
-            'type' => 'required',
+            'datatype' => 'required',
             'table' => 'required_if:type,1',
             'column' => 'required_if:type,1',
             'lookups' => 'required_if:type,2'
         ],
         'update' => [
             'name' => 'required',
-            'type' => 'required',
+            'datatype' => 'required',
         ],
         'default' => [
             'name' => 'required|unique:list_of_values',
-            'type' => 'required',
+            'datatype' => 'required',
         ]
     ];
 

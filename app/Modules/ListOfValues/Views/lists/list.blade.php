@@ -15,7 +15,7 @@
             <tr>
                 <td>{{ $listOfValue->name }}</td>
                 <td>
-                    @if($listOfValue->type == 1)
+                    @if($listOfValue->datatype == 1)
                         {{ trans('ListOfValues::lang.Label.Text.FromTable') }}
                     @else
                         {{ trans('ListOfValues::lang.Label.Text.FromList') }}

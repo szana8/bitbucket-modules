@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div id="metadata_app">
+    <div class="col-md-12" id="metadata_app">
         <!-- Metadata form -->
         @include('metadata.views.modals.create')
 

@@ -21,12 +21,6 @@ class MetadataController extends Controller {
 		return view("Metadata::index")->withList(json_decode($this->callApi()));
 	}
 
-
-    public function getList()
-    {
-        return $this->callApi();
-    }
-
     /**
      * Call the metadata API to get the list of the metadata.
      *

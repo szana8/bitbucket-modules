@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class ListOfValues extends Model {
 
     protected $fillable = [
-        'name', 'type', 'table', 'column', 'condition',
+        'name', 'datatype', 'table', 'column', 'condition',
     ];
 
     protected $guarded = [

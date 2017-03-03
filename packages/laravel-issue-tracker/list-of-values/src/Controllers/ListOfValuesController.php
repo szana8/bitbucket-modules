@@ -46,7 +46,7 @@ class ListOfValuesController extends ApiController {
     {
         $listOfValues = ListOfValues::with('lookups')
             ->where('name', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('type', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('datatype', 'like', '%' . \Request::get('search') . '%')
             ->orWhere('table', 'like', '%' . \Request::get('search') . '%')
             ->orWhere('column', 'like', '%' . \Request::get('search') . '%')
             ->paginate($this->limit);

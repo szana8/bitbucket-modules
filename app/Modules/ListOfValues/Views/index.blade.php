@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <div id="listOfValues_app">
+    <div class="col-md-12" id="listOfValues_app">
         <!-- List of value modal -->
         @include('listofvalues.views.modals.create')
 
