@@ -80,6 +80,26 @@ class Alert {
      */
     showAlert() {
         toastr[this.type](this.message);
+        return this;
+    }
+
+    /**
+     * Refresh the page.
+     * @param time in microseconds
+     */
+    forceRefresh(time) {
+        if( time )
+        {
+            toastr['info']('The page will be refresh after ' + time / 1000 + ' second(s).');
+            setTimeout(function () {
+                location.reload();
+            }, time);
+        }
+        else {
+            location.reload();
+        }
+
+        return this;
     }
 }
 

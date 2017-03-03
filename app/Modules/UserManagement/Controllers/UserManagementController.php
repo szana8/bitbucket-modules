@@ -8,56 +8,6 @@ use Illuminate\Http\Request;
 
 class UserManagementController extends Controller {
 
-    protected $sidebar = [
-        [
-            'id'       => 'user_management',
-            'heading'  => 'User Management',
-            'elements' => [
-                [
-                    'url'       => '',
-                    'id'        => '',
-                    'class'     => 'nav-icon fa fa-user',
-                    'itemclass' => 'nav-item-label',
-                    'item'      => 'Users',
-                ],
-                [
-                    'url'       => '',
-                    'id'        => '',
-                    'class'     => 'nav-icon fa fa-group',
-                    'itemclass' => 'nav-item-label',
-                    'item'      => 'Groups',
-                ],
-                [
-                    'url'       => '',
-                    'id'        => '',
-                    'class'     => 'nav-icon fa fa-user-secret',
-                    'itemclass' => 'nav-item-label',
-                    'item'      => 'Roles',
-                ],
-                [
-                    'url'       => '',
-                    'id'        => '',
-                    'class'     => 'nav-icon fa fa-key',
-                    'itemclass' => 'nav-item-label',
-                    'item'      => 'Permissions',
-                ],
-            ],
-        ],
-        [
-            'id'       => 'user_management',
-            'heading'  => '',
-            'elements' => [
-                [
-                    'url'       => '',
-                    'id'        => '',
-                    'class'     => 'nav-icon fa fa-globe',
-                    'itemclass' => 'nav-item-label',
-                    'item'      => 'Global Permissions',
-                ],
-            ],
-        ],
-    ];
-
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +15,7 @@ class UserManagementController extends Controller {
      */
     public function index()
     {
-        return view("UserManagement::index")->withSidebars($this->sidebar)->withUsers(User::with('profiles')->get());
+        return view("UserManagement::index")->withUsers(User::with('profiles')->get());
     }
 
     /**

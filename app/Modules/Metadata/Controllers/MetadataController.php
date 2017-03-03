@@ -18,21 +18,13 @@ class MetadataController extends Controller {
 	 */
 	public function index()
 	{
-		return view("Metadata::index")->withList($this->callApi());
+		return view("Metadata::index")->withList(json_decode($this->callApi()));
 	}
 
 
     public function getList()
     {
-        $request = Request::create('api/v1/metadata',
-            'GET',
-            [
-                'api_token' => \Auth::user()->api_token,
-                'page' => request()->page,
-                'search' => request()->search
-            ]);
-        \Request::replace($request->input());
-        return \Route::dispatch($request)->getContent();
+        return $this->callApi();
     }
 
     /**
@@ -50,7 +42,7 @@ class MetadataController extends Controller {
                                         'search' => request()->search
                                     ]);
         \Request::replace($request->input());
-        return json_decode(\Route::dispatch($request)->getContent());
+        return \Route::dispatch($request)->getContent();
     }
 
 

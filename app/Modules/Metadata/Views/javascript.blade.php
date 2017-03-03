@@ -42,6 +42,7 @@
             store() {
                 this.form.post('{!! url('api/v1/metadata') !!}')
                     .then(data => {
+                        this.alert.setMessage(data.message).setType('success').showAlert().forceRefresh(5000);
                         this.modal.hideModal();
                     })
                     .catch(error => {
@@ -75,7 +76,7 @@
             update() {
                 this.form.patch('{!! url('api/v1/metadata') !!}/' + this.form.id)
                     .then(data => {
-                        this.alert.setMessage(data.message).setType('success').showAlert();
+                        this.alert.setMessage(data.message).setType('success').showAlert().forceRefresh(5000);
                         this.modal.hideModal();
                     })
                     .catch(error => console.log(error));
