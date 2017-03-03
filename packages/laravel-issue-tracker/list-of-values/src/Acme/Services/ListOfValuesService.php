@@ -105,7 +105,8 @@ class ListOfValuesService {
         if( ListOfValues::find($id)->exists() )
         {
             $listOfValues = ListOfValues::destroy($id);
-            event('ListOfValuesWasDestroyed', $listOfValues);
+            if ( $listOfValues )
+                event('ListOfValuesWasDestroyed', $listOfValues);
 
             return true;
         }
