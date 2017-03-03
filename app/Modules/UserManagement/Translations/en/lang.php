@@ -1,7 +1,11 @@
 <?php
 
 return [
-    'Label.Text.Users'                 => 'Users',
+    'Label.Text.UserManagement'        => 'User Management',
+    'Label.Text.GroupManagement'       => 'Group Management',
+    'Label.Text.PermissionManagement'  => 'Permission Management',
+    'Label.Text.RoleManagement'        => 'Role Management',
+    'Label.Text.Dashboard'             => 'Dashboard',
     'Info.Text.UserManagementDesc'     => 'You can manage the registrated users in here, or you can add a new User to the database.',
     'Label.Text.UserName'              => 'User Name',
     'Label.Text.FullName'              => 'Full Name',

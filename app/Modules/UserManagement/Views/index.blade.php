@@ -7,7 +7,85 @@
 @section('content')
     <div class="col-md-12">
         <div class="row">
-            <h3>{{ trans('UserManagement::lang.Label.Text.Users')}}</h3>
+            <h1 class="page-header">{{ trans('UserManagement::lang.Label.Text.UserManagement') }} <small>{{ trans('UserManagement::lang.Label.Text.Dashboard') }}</small></h1>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6" title="{{ trans('UserManagement::lang.Label.Text.UserManagement') }}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <i class="fa fa-user fa-5x"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">{{ trans('UserManagement::lang.Label.Text.UserManagement') }}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" title="{{ trans('UserManagement::lang.Label.Text.GroupManagement') }}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <i class="fa fa-5x fa-group"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">{{ trans('UserManagement::lang.Label.Text.GroupManagement') }}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" title="{{ trans('UserManagement::lang.Label.Text.RoleManagement') }}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <i class="fa fa-5x fa-user-secret"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">{{ trans('UserManagement::lang.Label.Text.RoleManagement') }}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6" title="{{ trans('UserManagement::lang.Label.Text.PermissionManagement') }}">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <i class="fa fa-5x fa-key"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">{{ trans('UserManagement::lang.Label.Text.PermissionManagement') }}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
             <div class="row">
                 <div class="col-md-12">
