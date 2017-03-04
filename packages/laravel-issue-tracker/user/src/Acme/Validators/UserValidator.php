@@ -6,7 +6,9 @@ use App\User;
 class UserValidator extends Validator {
 
     protected static $rules = [
-        'email' => 'required',
+        'default' => [
+            'email' => 'required',
+        ],
     ];
 
     /**

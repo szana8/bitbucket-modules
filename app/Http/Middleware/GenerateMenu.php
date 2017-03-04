@@ -15,6 +15,16 @@ class GenerateMenu
      */
     public function handle($request, Closure $next)
     {
+        $this->createNavbar();
+
+        return $next($request);
+    }
+
+    /**
+     *
+     */
+    protected function createNavbar()
+    {
         Menu::make('navbarmenu', function ($menu) {
 
             Navbar::with('application')->get()->each(function ($item, $key) use ($menu) {
@@ -34,7 +44,6 @@ class GenerateMenu
             });
 
         })->sortBy('order');
-
-        return $next($request);
     }
+
 }
