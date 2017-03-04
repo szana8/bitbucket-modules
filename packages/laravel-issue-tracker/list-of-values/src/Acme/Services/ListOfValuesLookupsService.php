@@ -49,17 +49,19 @@ class ListOfValuesLookupsService {
     public function update(array $attributes, $id)
     {
         $listOfValues = \DB::transaction(function() use ($attributes, $id) {
+            //
             foreach ( $attributes as $attribute )
             {
-                if ($this->validator->isValid($attribute, "update") )
-                {
+                if ($this->validator->isValid($attribute, "update") ) {
+                    //Create a record if not exists else return the id of it.
                     $destroy[] = ListOfValuesLookups::firstOrCreate($attribute)->id;
                 }
-                else
-                {
+                else {
                     throw new ValidationException('Lookups validation failed', $this->validator->getErrors());
                 }
             }
+
+            //Delete the removed attributes from the list.
             ListOfValuesLookups::whereNotIn('id', $destroy)->where('list_of_values_id', $id)->delete();
         });
 

@@ -169,12 +169,14 @@
 
                 if( data.datatype == 1 ) {
                     this.getColumns(data.column);
+                    $('#lov-tab a[href="#database"]').tab('show') // Select tab by name
                 }
 
                 this.form.id = data.id;
 
                 if( data.datatype == 2 ) {
                     this.setLookupsValue(data.lookups, data.id);
+                    $('#lov-tab a[href="#list"]').tab('show') // Select tab by name
                 }
 
                 this.form.api_token = this.api_token;
@@ -200,6 +202,15 @@
 
                 this.form.lookups = lookupList;
 
+            },
+
+
+            /**
+             * Set the form default attributes.
+             */
+            setAttributeDefaults() {
+                this.form.reset();
+                this.form.api_token = this.api_token;
             }
 
         }

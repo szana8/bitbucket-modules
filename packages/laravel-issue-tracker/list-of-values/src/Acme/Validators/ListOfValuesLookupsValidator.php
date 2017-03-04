@@ -5,14 +5,17 @@ use LaravelIssueTracker\Core\Acme\Validators\Validator;
 class ListOfValuesLookupsValidator extends Validator {
 
     protected static $rules = [
-        'default' => [
+        'make' => [
             'value' => 'required',
+            'list_of_values_id' => 'required|exists:list_of_values,id'
         ],
         'update'  => [
             'value'             => 'required',
-            'id'                => 'required',
-            'list_of_values_id' => 'required',
+            'list_of_values_id' => 'required|exists:list_of_values,id',
         ],
+        'default' => [
+            'value' => 'required',
+        ]
     ];
 
 }
