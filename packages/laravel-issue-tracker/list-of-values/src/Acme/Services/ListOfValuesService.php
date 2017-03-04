@@ -87,9 +87,8 @@ class ListOfValuesService {
             if ( $attributes['datatype'] == self::TYPE_QUERY )
                 return ListOfValues::find($id)->update($attributes);
 
+            return $this->listOfValuesLookupsService->update($attributes['lookups'], $id);
 
-
-            return true;
         }
 
         throw new ValidationException('List of Values validation failed', $this->validator->getErrors());

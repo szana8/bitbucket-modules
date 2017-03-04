@@ -74,9 +74,9 @@
                     </div>
                 </div>
                 <div id="lov_list">
-                    <div v-for="lookup in form.lookups" :id="lookup.id" class="tag label label-primary">
+                    <div v-for="lookup in form.lookups" :id="lookup.id" style="margin: 5px;" class="tag label label-primary">
                         @{{ lookup.value }}
-                        <a @click='removeLookup($event)'><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
+                        <a @click='removeLookup($event)' style="padding-left: 5px;"><i class="remove glyphicon glyphicon-remove-sign glyphicon-white"></i></a>
                     </div>
                 </div>
             </div>

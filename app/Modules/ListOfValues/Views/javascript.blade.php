@@ -24,7 +24,6 @@
             modal: new ModalHelper({
                id: 'new-list-of-values-modal'
             }),
-
             form: new Form({
                 api_token: "{{ Auth::user()->api_token }}",
                 id: null,
@@ -72,7 +71,7 @@
 
 
             /**
-             *
+             * Default update function forthe REST api.
              */
             update() {
                 this.form.patch('{!! url('api/v1/ListOfValues') !!}/' + this.form.id)
@@ -101,7 +100,7 @@
                     })
                     .catch(error => {
                         console.log(error);
-                        //this.alert.setMessage(error.message).setType('alert').showAlert();
+                        this.alert.setMessage(error.message).setType('alert').showAlert();
                     });
             },
 
@@ -139,7 +138,9 @@
                 if( Helpers.arrayObjectIndexOf(this.form.lookups, this.values, "value") < 0 && this.values) {
                     this.form.lookups.push({
                         value : this.values,
-                        id: this.values.toLowerCase().replace(' ', '')
+                        id: this.values.toLowerCase().replace(' ', ''),
+                        list_of_values_id: this.form.id ? this.form.id : null
+
                     });
                     this.values = "";
                 }
@@ -157,7 +158,7 @@
 
 
             /**
-             *
+             * Set the form attributes to the appropriate value
              * @param data
              */
             setFormAttributes(data) {
@@ -166,12 +167,39 @@
                 this.form.name = data.name;
                 this.form.table = data.table ? data.table : "";
 
-                if( data.datatype == 1 )
+                if( data.datatype == 1 ) {
                     this.getColumns(data.column);
+                }
 
                 this.form.id = data.id;
-                this.form.lookups = [];
+
+                if( data.datatype == 2 ) {
+                    this.setLookupsValue(data.lookups, data.id);
+                }
+
                 this.form.api_token = this.api_token;
+            },
+
+
+            /**
+             *
+             * @param lookups
+             */
+            setLookupsValue(lookups, lov_id) {
+
+                var lookupList = [];
+
+                for( value in lookups )
+                {
+                    var tmp = {};
+                    tmp.id = lookups[value].id;
+                    tmp.list_of_values_id = lov_id;
+                    tmp.value = lookups[value].value;
+                    lookupList.push(tmp);
+                }
+
+                this.form.lookups = lookupList;
+
             }
 
         }

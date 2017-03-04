@@ -48,30 +48,22 @@ class ListOfValuesLookupsService {
      */
     public function update(array $attributes, $id)
     {
-        if( isset($attributes[0]) && is_array($attributes[0]) )
-        {
-            foreach($attributes as $attribute)
+        $listOfValues = \DB::transaction(function() use ($attributes, $id) {
+            foreach ( $attributes as $attribute )
             {
-                if( $this->validator->isValid($attribute) )
+                if ($this->validator->isValid($attribute, "update") )
                 {
-                    ListOfValuesLookups::updateOrCreate(['id' => $attribute['id']], $attribute);
+                    $destroy[] = ListOfValuesLookups::firstOrCreate($attribute)->id;
+                }
+                else
+                {
+                    throw new ValidationException('Lookups validation failed', $this->validator->getErrors());
                 }
             }
-            event('ListOfValuesLookupsWasUpdated', '');
-            return true;
-        }
-        else
-        {
-            if( $this->validator->isValid($attributes) )
-            {
-                $profile = ListOfValuesLookups::updateOrCreate(['id' => $attributes['id']], $attributes);
-                event('ListOfValuesLookupsWasUpdated', $profile);
+            ListOfValuesLookups::whereNotIn('id', $destroy)->where('list_of_values_id', $id)->delete();
+        });
 
-                return true;
-            }
-
-            throw new ValidationException('Lookups validation failed', $this->validator->getErrors());
-        }
+        return $listOfValues;
 
     }
 

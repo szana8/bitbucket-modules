@@ -84,7 +84,6 @@ class ListOfValuesController extends ApiController {
      */
     public function store()
     {
-
         try
         {
             $this->listOfValuesService->make(Input::all());
