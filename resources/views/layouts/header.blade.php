@@ -6,9 +6,7 @@
     <link rel="icon" href="{{ URL('/') }}/favicon.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{ Html::script('js/vendor.js') }}
     {{ Html::script('js/app.js') }}
-    {{ Html::script('js/components.js') }}
 
     {!! Html::style('css/vendor.css') !!}
     {!! Html::style('css/app.css') !!}
