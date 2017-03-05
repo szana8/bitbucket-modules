@@ -3,7 +3,7 @@
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use LaravelIssueTracker\Comments\Eloquent\Comment;
-use LaravelIssueTracker\Metadata\Model\Metadata;
+use LaravelIssueTracker\Metadata\Models\Metadata;
 
 class MetadataPolicy
 {
