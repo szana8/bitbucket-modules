@@ -3,7 +3,7 @@
 namespace LaravelIssueTracker\Metadata\Events;
 
 use Illuminate\Queue\SerializesModels;
-use LaravelIssueTracker\Metadata\Model\Metadata;
+use LaravelIssueTracker\Metadata\Models\Metadata;
 
 class MetadataWasCreated
 {

@@ -40,14 +40,14 @@ class MetadataController extends ApiController {
      */
     public function index()
     {
-        $metadata = Metadata::where('type', 'like', '%' . \Request::get('search') . '%')
-                            ->orWhere('key', 'like', '%' . \Request::get('search') . '%')
-                            ->orWhere('value', 'like', '%' . \Request::get('search') . '%')
+        $metadata = Metadata::where('type', 'like', '%' . Request::get('search') . '%')
+                            ->orWhere('key', 'like', '%' . Request::get('search') . '%')
+                            ->orWhere('value', 'like', '%' . Request::get('search') . '%')
                             ->paginate($this->limit);
 
         return $this->respond([
             'data' => $this->metadataTransformer->transformCollection($metadata->all()),
-            'pagination' => (string) $metadata->appends(\Request::only('search'))->links()
+            'pagination' => (string) $metadata->appends(Request::only('search'))->links()
         ]);
 
     }
@@ -92,11 +92,10 @@ class MetadataController extends ApiController {
     /**
      * Update the specified resource in storage.
      *
-     * @param Request $request
      * @param  int $id
      * @return Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
         try {
             //$this->authorize('update', Metadata::find($id));

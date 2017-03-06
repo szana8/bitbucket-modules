@@ -52,7 +52,7 @@ trait Factory
      */
     protected function getStub()
     {
-        throw new BadMethodCallException('Create your own getStub method to declare your fields.');
+        throw new \BadMethodCallException('Create your own getStub method to declare your fields.');
     }
 
 }
