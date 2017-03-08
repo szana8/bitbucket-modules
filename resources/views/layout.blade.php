@@ -14,14 +14,5 @@
     </body>
 
 </html>
-<script>
-    Vue.use(VueMaterial);
 
-    window.app = new Vue({
-        el: '#app',
-
-        data: {
-            stay_signed_in: true
-        }
-    });
-</script>
+@yield('contentjavascript')

@@ -62,4 +62,21 @@
             <md-layout></md-layout>
 
         </md-layout>
+
+@endsection
+
+@section('contentjavascript')
+    <script>
+
+        Vue.use(VueMaterial);
+
+        new Vue({
+            el: '#app',
+
+            data: {
+                stay_signed_in: true
+            }
+        });
+
+    </script>
 @endsection
