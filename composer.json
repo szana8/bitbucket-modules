@@ -9,7 +9,6 @@
         "laravel/framework": "5.4.*",
         "jeroen-g/laravel-packager": "^1.5",
         "laravel/socialite": "^2.0",
-        "illuminate/html": "5.*",
         "alexsoft/laravel-socialite-bitbucket": "^1.0",
         "laravelcollective/html": "^5.4",
         "lavary/laravel-menu": "dev-master",
