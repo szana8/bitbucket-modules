@@ -4,16 +4,24 @@
         @yield('header')
     </head>
 
-    @yield('navbar')
-
     <body>
-        <div id="wrap">
-            <div class="container-fluid clear-top ui-layout">
+        <div id="app">
+            @yield('navbar')
+            <md-layout>
                 @yield('content')
-            </div>
+            </md-layout>
         </div>
     </body>
 
-    @yield('footer')
-
 </html>
+<script>
+    Vue.use(VueMaterial);
+
+    window.app = new Vue({
+        el: '#app',
+
+        data: {
+            stay_signed_in: true
+        }
+    });
+</script>

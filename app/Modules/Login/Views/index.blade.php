@@ -1,70 +1,65 @@
 @extends('layout')
+@extends('layouts.navbar')
 @extends('layouts.header')
 
 @section('content')
+        <md-layout :md-gutter="40">
 
-    {!! Html::style('css/login.css') !!}
+            <md-layout></md-layout>
 
-    <div class="inner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box">
-                    <div class="form-top">
-                        <div class="form-top-left">
-                            <h3>{{ trans('Login::login.login-form-title') }}</h3>
-                            <p>{{ trans('Login::login.login-form-header-subtitle') }}</p>
-                        </div>
-                        <div class="form-top-right">
-                            <i class="fa fa-lock"></i>
-                        </div>
-                    </div>
-                    <div class="form-bottom" id="login-form">
-                        <form role="form" method="post" class="login-form" action="{{ url('authenticate') }}">
-                            {!! csrf_field() !!}
-                            <input type="hidden" value="{{ url('/') }}" id="redirect" />
+            <md-layout style="margin-top: 20px;">
+                <md-card md-with-hover>
+                    <md-card-header style="width: 550px; text-align: center;">
+                        <div class="md-title">{{ trans('Login::login.login-form-title') }}</div>
+                        <div class="md-subhead">{{ trans('Login::login.login-form-header-subtitle') }}</div>
+                    </md-card-header>
 
-                            <div class="form-group">
-                                <label class="sr-only" for="form-email">{{ trans('Login::login.login-form-email-label') }}</label>
+                    <md-card-content>
 
-                                <input type="text" name="email" class="form-username form-control" placeholder="{{ trans('Login::login.login-form-email-label') }}..." id="email">
+                        <form novalidate @submit.stop.prevent="submit">
 
-                                <label class="control-label" for="inputError1"></label>
-                            </div>
+                            <md-input-container>
+                                <label>{{ trans('Login::login.login-form-email-label') }}</label>
+                                <md-input v-model="email"></md-input>
+                            </md-input-container>
 
-                            <div class="form-group">
-                                <label class="sr-only" for="form-password">{{ trans('Login::login.login-form-password-label') }}</label>
+                            <md-input-container md-has-password>
+                                <label>{{ trans('Login::login.login-form-password-label') }}</label>
+                                <md-input type="password"></md-input>
+                            </md-input-container>
 
-                                <input type="password" name="password" placeholder="{{ trans('Login::login.login-form-password-label') }}..." class="form-password form-control" id="password">
+                            <md-layout>
+                                <md-switch v-model="stay_signed_in" class="md-primary">{{ trans('Login::login.login-form-stay-signed-in-label') }}</md-switch>
+                            </md-layout>
 
-                            </div>
-
-
-
-                            <button type="submit" class="btn btn-default">{{ trans('Login::login.login-form-sing-in-label') }}</button>
+                            <md-layout md-align="end">
+                                <md-button class="md-raised md-primary md-fab-bottom-right">{{ trans('Login::login.login-form-sing-in-label') }}</md-button>
+                            </md-layout>
 
                         </form>
 
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 social-login">
-                    <h3>{{ trans('Login::login.login-form-other-option') }}</h3>
-                    <div class="social-login-buttons">
-                        <a class="btn btn-link-1 btn-link-1-facebook" href="{{ url('api/v1/authentication/facebook/login') }}">
-                            <i class="fa fa-facebook"></i> Facebook
-                        </a>
-                        <a class="btn btn-link-1 btn-link-1-google-plus" href="{{ url('api/v1/authentication/github/login') }}">
-                            <i class="fa fa-github"></i> Github
-                        </a>
-                        <a class="btn btn-link-1 btn-link-1-twitter" href="{{ url('api/v1/authentication/bitbucket/login') }}">
-                            <i class="fa fa-bitbucket"></i> Bitbucket
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </md-card-content>
 
-    {!! Html::script('js/login.js') !!}
+                </md-card>
+
+                <md-layout>
+                    <md-layout md-column md-gutter>
+                        <md-layout md-align="center">
+                            <h2>{{ trans('Login::login.login-form-other-option') }}</h2>
+                        </md-layout>
+
+                        <md-layout md-align="center">
+                            <md-button class="md-raised"><i class="fa fa-facebook"></i> Facebook</md-button>
+                            <md-button class="md-raised"><i class="fa fa-github"></i> Github</md-button>
+                            <md-button class="md-raised"><i class="fa fa-bitbucket"></i> Bitbucket</md-button>
+                        </md-layout>
+                    </md-layout>
+
+                </md-layout>
+
+            </md-layout>
+
+            <md-layout></md-layout>
+
+        </md-layout>
 @endsection

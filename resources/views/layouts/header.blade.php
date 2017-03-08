@@ -6,10 +6,18 @@
     <link rel="icon" href="{{ URL('/') }}/favicon.png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel='stylesheet prefetch' href='https://unpkg.com/vue-material@latest/dist/vue-material.css'>
+    <script src='https://unpkg.com/vue@latest'></script>
+    <script src='https://unpkg.com/vue-material@latest'></script>
+
+    {{ Html::script('js/vendor.js') }}
     {{ Html::script('js/app.js') }}
+    {{-- Html::script('js/components.js') --}}
 
     {!! Html::style('css/vendor.css') !!}
-    {!! Html::style('css/app.css') !!}
+    {{-- Html::style('css/app.css') --}}
 
     {{-- Html::style('css/extension.css') --}}
 

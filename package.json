@@ -20,7 +20,8 @@
     "ionicons": "^3.0.0",
     "bootstrap-social": "^5.1.1",
     "bootstrap-tokenfield": "^0.12.0",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "vue-material": "^0.7.1"
   },
   "dependencies": {
     "vue-resource": "^1.2.0"
