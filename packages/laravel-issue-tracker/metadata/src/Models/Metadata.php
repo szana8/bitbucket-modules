@@ -1,34 +1,32 @@
 <?php
+
 namespace LaravelIssueTracker\Metadata\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LaravelIssueTracker\Metadata\Events\MetadataWasUpdated;
 use LaravelIssueTracker\Metadata\Events\MetadataWasCreated;
 use LaravelIssueTracker\Metadata\Events\MetadataWasDestroyed;
-use LaravelIssueTracker\Metadata\Events\MetadataWasUpdated;
 
 class Metadata extends Model {
 
     /**
      * Table name of the model.
-     * @var string
      */
     protected $table = "metadata";
 
     /**
      * These fields are mandatory.
-     * @var array
      */
     protected $fillable = [
-        "type",
         "key",
+        "type",
         "value",
-        "description",
-        "enabled"
+        "enabled",
+        "description"
     ];
 
     /**
      * Registered events for this eloquent model.
-     * @var array
      */
     protected $events = [
         'created' => MetadataWasCreated::class,
@@ -38,6 +36,7 @@ class Metadata extends Model {
 
     /**
      * Active metadata scope.
+     *
      * @param $query
      * @return mixed
      */

@@ -21,7 +21,7 @@ class CreateMetadataTable extends Migration
             $table->string('key', 240)->index();
             $table->string('value', 255)->index();
             $table->string('description', 255);
-            $table->enum('enabled', array('Y', 'N'))->default('Y');
+            $table->enum('enabled', ['Y', 'N'])->default('Y');
             $table->timestamps();
             $table->softDeletes();
         });

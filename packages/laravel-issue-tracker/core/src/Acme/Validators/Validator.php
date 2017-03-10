@@ -44,6 +44,26 @@ abstract class Validator {
     }
 
     /**
+     * Check the attributes for insert.
+     * @param array $attributes
+     * @return bool
+     */
+    public function isValidForInsert(array $attributes)
+    {
+        return $this->isValid($attributes, 'make');
+    }
+
+    /**
+     * Check the attributes for update.
+     * @param array $attributes
+     * @return bool
+     */
+    public function isValidForUpdate(array $attributes)
+    {
+        return $this->isValid($attributes);
+    }
+
+    /**
      * Return the errors object
      *
      * @return mixed

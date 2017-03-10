@@ -1,4 +1,5 @@
 <?php
+
 namespace LaravelIssueTracker\Core\Tests\Helpers;
 
 use Faker\Factory as Faker;
@@ -10,7 +11,6 @@ class ApiTester {
      * @var \Faker\Generator
      */
     protected $fake;
-
 
     /**
      * ApiTester constructor.

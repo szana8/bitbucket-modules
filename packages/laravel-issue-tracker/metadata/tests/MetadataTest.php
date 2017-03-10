@@ -1,8 +1,8 @@
 <?php
 namespace LaravelIssueTracker\Metadata\Tests;
 
-use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 use LaravelIssueTracker\Core\Tests\Helpers\Factory;
+use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 
 class MetadataTest extends ApiTester {
 
@@ -14,9 +14,7 @@ class MetadataTest extends ApiTester {
     {
         $this->times(3)->make('LaravelIssueTracker\Metadata\Models\Metadata');
 
-
         $this->getJson('api/v1/metadata');
-
 
         $this->assertResponseOk();
     }
@@ -29,7 +27,6 @@ class MetadataTest extends ApiTester {
         $this->make('LaravelIssueTracker\Metadata\Models\Metadata');
 
         $metadata = $this->getJson('api/v1/metadata/1')->data;
-
 
         $this->assertResponseOk();
 

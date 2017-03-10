@@ -1,12 +1,13 @@
-<?php namespace LaravelIssueTracker\Metadata\Policies;
+<?php
+
+namespace LaravelIssueTracker\Metadata\Policies;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use LaravelIssueTracker\Comments\Eloquent\Comment;
 use LaravelIssueTracker\Metadata\Models\Metadata;
 
-class MetadataPolicy
-{
+class MetadataPolicy {
+
     use HandlesAuthorization;
 
     /**

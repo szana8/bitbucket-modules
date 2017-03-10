@@ -1,9 +1,10 @@
-<?php namespace LaravelIssueTracker\Metadata;
+<?php
+
+namespace LaravelIssueTracker\Metadata;
 
 use Illuminate\Support\ServiceProvider;
 
-class MetadataServiceProvider extends ServiceProvider
-{
+class MetadataServiceProvider extends ServiceProvider {
     /**
      * Perform post-registration booting of services.
      *
@@ -11,9 +12,9 @@ class MetadataServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
-
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         if( ! $this->app->routesAreCached() ) {
             require __DIR__.'/routes.php';
@@ -29,4 +30,5 @@ class MetadataServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

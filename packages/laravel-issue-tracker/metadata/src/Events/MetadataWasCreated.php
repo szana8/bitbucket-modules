@@ -1,4 +1,5 @@
 <?php
+
 namespace LaravelIssueTracker\Metadata\Events;
 
 use Illuminate\Queue\SerializesModels;

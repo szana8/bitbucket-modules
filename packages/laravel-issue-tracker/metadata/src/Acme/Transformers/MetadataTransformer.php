@@ -7,6 +7,7 @@ class MetadataTransformer extends Transformer {
 
     /**
      * Transformer function for the Metadata.
+     *
      * @param $item
      * @return mixed
      */

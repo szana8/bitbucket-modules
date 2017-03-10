@@ -1,24 +1,30 @@
 <?php
 namespace LaravelIssueTracker\Core\Controller;
 
-use Illuminate\Http\Response as IlluminateResponse;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Http\Response as IlluminateResponse;
 
-class ApiController extends Controller
-{
+class ApiController extends Controller {
 
     /**
-     * @var int
-     */
-    protected $statusCode = IlluminateResponse::HTTP_OK;
-    /**
+     * The default limit for the pagination.
+     *
      * @var int
      */
     protected $limit = 20;
 
+    /**
+     * The default status code is 200.
+     *
+     * @var int
+     */
+    protected $statusCode = IlluminateResponse::HTTP_OK;
+
 
     /**
+     * Return the status code.
+     *
      * @return mixed
      */
     public function getStatusCode()
@@ -28,6 +34,8 @@ class ApiController extends Controller
 
 
     /**
+     * Set the status code and return the object.
+     *
      * @param mixed $statusCode
      * @return $this
      */
@@ -40,6 +48,8 @@ class ApiController extends Controller
 
 
     /**
+     * Return a json object a status code and some optional headers.
+     *
      * @param $data
      * @param array $headers
      * @return mixed
@@ -51,6 +61,8 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for respond not found. Set the status code to 404.
+     *
      * @param string $message
      * @return mixed
      */
@@ -61,6 +73,8 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for respond internal error. Set the status code to 500.
+     *
      * @param string $message
      * @return mixed
      */
@@ -71,6 +85,8 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for respond with error.
+     *
      * @param $message
      * @return mixed
      */
@@ -87,6 +103,8 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for the respond created.
+     *
      * @param $message
      * @return mixed
      */
@@ -101,6 +119,8 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for the respond unprocessable. Set the status code to 422.
+     *
      * @param $message
      * @return mixed
      */
@@ -111,10 +131,12 @@ class ApiController extends Controller
 
 
     /**
+     * Default function for the respond unauthorized. Set the status code to 401.
+     *
      * @param $message
      * @return mixed
      */
-    public function respondUnathorized($message)
+    public function respondUnauthorized($message)
     {
         return $this->setStatusCode(IlluminateResponse::HTTP_UNAUTHORIZED)->respondWithError($message);
     }

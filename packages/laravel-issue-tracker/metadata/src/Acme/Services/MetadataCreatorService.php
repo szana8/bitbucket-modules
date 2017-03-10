@@ -1,9 +1,9 @@
 <?php
 namespace LaravelIssueTracker\Metadata\Acme\Services;
 
+use LaravelIssueTracker\Metadata\Models\Metadata;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Metadata\Acme\Validators\MetadataValidator;
-use LaravelIssueTracker\Metadata\Models\Metadata;
 
 class MetadataCreatorService {
 
@@ -11,6 +11,11 @@ class MetadataCreatorService {
      * @var MetadataValidator
      */
     protected $validator;
+
+    /**
+     * @var string
+     */
+    protected static $validationFailedMessage = 'Metadata Validation Failed';
 
 
     /**
@@ -24,39 +29,41 @@ class MetadataCreatorService {
 
 
     /**
-     * @param array $attributes
+     * @param $requestArray
      * @return bool
      * @throws ValidationException
      */
-    public function make(array $attributes)
+    public function make($requestArray)
     {
-        if( $this->validator->isValid($attributes, 'make') )
+        if( $this->validator->isValidForInsert($requestArray) )
         {
-            return Metadata::create($attributes);
+            return Metadata::create($requestArray);
         }
 
-        throw new ValidationException('Metadata validation failed', $this->validator->getErrors());
+        throw new ValidationException(self::$validationFailedMessage, $this->validator->getErrors());
     }
 
 
     /**
-     * @param array $attributes
+     * @param array $requestArray
      * @param $id
      * @return bool
      * @throws ValidationException
      */
-    public function update(array $attributes, $id)
+    public function update($requestArray, $id)
     {
-        if( $this->validator->isValid($attributes, 'update') )
+        if( $this->validator->isValidForUpdate($requestArray) )
         {
-            return Metadata::findOrFail($id)->update($attributes);
+            return Metadata::findOrFail($id)->update($requestArray);
         }
 
-        throw new ValidationException('Metadata validation failed', $this->validator->getErrors());
+        throw new ValidationException(self::$validationFailedMessage, $this->validator->getErrors());
     }
 
 
     /**
+     * Remove the specified resource from storage.
+     *
      * @param $id
      * @return bool
      * @throws ValidationException
@@ -68,7 +75,7 @@ class MetadataCreatorService {
             return Metadata::destroy($id);
         }
 
-        throw new ValidationException('Metadata does not exists', '');
+        throw new ValidationException('Metadata does not exists');
     }
 
 }
