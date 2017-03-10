@@ -1,13 +1,13 @@
 <?php
+
 namespace LaravelIssueTracker\Metadata\Tests;
 
 use LaravelIssueTracker\Core\Tests\Helpers\Factory;
 use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 
-class MetadataTest extends ApiTester {
-
+class MetadataTest extends ApiTester
+{
     use Factory;
-
 
     /** @test */
     public function it_fetches_metadata()

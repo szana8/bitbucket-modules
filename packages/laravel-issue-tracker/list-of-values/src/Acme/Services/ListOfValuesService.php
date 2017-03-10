@@ -1,29 +1,31 @@
-<?php namespace LaravelIssueTracker\ListOfValues\Acme\Services;
+<?php
 
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
-use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesValidator;
+namespace LaravelIssueTracker\ListOfValues\Acme\Services;
+
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
+use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesValidator;
 
 class ListOfValuesService {
 
     /**
-     *
+     * Constant value for the query type list of value.
      */
     const TYPE_QUERY = 1;
 
     /**
-     *
+     * Constant value for the lookup type list of value.
      */
     const TYPE_LOOKUP = 2;
 
     /**
-     * @var ListOfValuesValidator
+     * Property for the validator object.
      */
     protected $validator;
 
     /**
-     * @var ListOfValuesLookupsService
+     * Property for the lookup service object.
      */
     protected $listOfValuesLookupsService;
 
@@ -49,16 +51,10 @@ class ListOfValuesService {
         {
             if( $attributes['datatype'] == self::TYPE_QUERY )
             {
-                $listOfValues = ListOfValues::create($attributes);
-
-                event('ListOfValuesWasCreated', $listOfValues);
-                return $listOfValues;
+                return ListOfValues::create($attributes);
             }
 
-            $listOfValues = $this->makeWithLookups($attributes);
-            event('ListOfValuesWasCreated', $listOfValues);
-
-            return $listOfValues;
+            return $this->makeWithLookups($attributes);
         }
 
         throw new ValidationException('List Of Values validation failed', $this->validator->getErrors());
@@ -103,11 +99,7 @@ class ListOfValuesService {
     {
         if( ListOfValues::find($id)->exists() )
         {
-            $listOfValues = ListOfValues::destroy($id);
-            if ( $listOfValues )
-                event('ListOfValuesWasDestroyed', $listOfValues);
-
-            return true;
+            return ListOfValues::destroy($id);
         }
 
         throw new ValidationException('List of Values does not exist!', '');

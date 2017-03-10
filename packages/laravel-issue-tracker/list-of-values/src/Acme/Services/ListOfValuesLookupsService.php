@@ -1,9 +1,10 @@
 <?php
+
 namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
+use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidator;
-use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 
 class ListOfValuesLookupsService {
 
