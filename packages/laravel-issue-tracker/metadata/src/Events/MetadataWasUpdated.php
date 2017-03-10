@@ -7,6 +7,7 @@ use LaravelIssueTracker\Metadata\Models\Metadata;
 class MetadataWasUpdated
 {
     use SerializesModels;
+
     /**
      * @var metadata
      */

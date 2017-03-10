@@ -1,5 +1,5 @@
-<?php namespace LaravelIssueTracker\ListOfValues\Acme\Services;
-
+<?php
+namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidator;
@@ -30,7 +30,6 @@ class ListOfValuesLookupsService {
     {
         if( $this->validator->isValid($attributes) )
         {
-            dd($attributes);
             $listOfValuesLookup = ListOfValuesLookups::create($attributes);
             event('ListOfValuesLookupsWasCreated', $listOfValuesLookup);
 

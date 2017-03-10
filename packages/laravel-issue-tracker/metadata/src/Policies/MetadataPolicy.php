@@ -38,4 +38,14 @@ class MetadataPolicy
         return true;
     }
 
+    /**
+     * @param User $user
+     * @param Metadata $metadata
+     * @return bool
+     */
+    public function destroy(User $user, Metadata $metadata)
+    {
+        return true;
+    }
+
 }

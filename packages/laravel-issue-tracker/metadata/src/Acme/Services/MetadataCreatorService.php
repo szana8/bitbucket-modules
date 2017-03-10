@@ -7,7 +7,11 @@ use LaravelIssueTracker\Metadata\Models\Metadata;
 
 class MetadataCreatorService {
 
+    /**
+     * @var MetadataValidator
+     */
     protected $validator;
+
 
     /**
      * MetadataCreatorService constructor.
@@ -18,6 +22,7 @@ class MetadataCreatorService {
         $this->validator = $validator;
     }
 
+
     /**
      * @param array $attributes
      * @return bool
@@ -27,10 +32,7 @@ class MetadataCreatorService {
     {
         if( $this->validator->isValid($attributes, 'make') )
         {
-            $metadata = Metadata::create($attributes);
-            event('MetadataWasCreated', $metadata);
-
-            return true;
+            return Metadata::create($attributes);
         }
 
         throw new ValidationException('Metadata validation failed', $this->validator->getErrors());
@@ -47,10 +49,7 @@ class MetadataCreatorService {
     {
         if( $this->validator->isValid($attributes, 'update') )
         {
-            $metadata = Metadata::findOrFail($id)->update($attributes);
-            event('MetadataWasUpdated', $metadata);
-
-            return true;
+            return Metadata::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException('Metadata validation failed', $this->validator->getErrors());
@@ -66,10 +65,7 @@ class MetadataCreatorService {
     {
         if( Metadata::find($id)->exists() )
         {
-            $metadata = Metadata::destroy($id);
-            event('MetadataWasDestroyed', $metadata);
-
-            return true;
+            return Metadata::destroy($id);
         }
 
         throw new ValidationException('Metadata does not exists', '');

@@ -6,6 +6,7 @@ use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
 class MetadataTransformer extends Transformer {
 
     /**
+     * Transformer function for the Metadata.
      * @param $item
      * @return mixed
      */
@@ -13,4 +14,5 @@ class MetadataTransformer extends Transformer {
     {
         return $item;
     }
+
 }

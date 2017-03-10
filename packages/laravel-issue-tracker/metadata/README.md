@@ -2,8 +2,9 @@
 
 **Note:** Replace ```:author_name``` ```:author_username``` ```:author_website``` ```:author_email``` ```:vendor``` ```:package_name``` ```:package_description``` with their correct values in [README.md](README.md), [CHANGELOG.md](CHANGELOG.md), [CONTRIBUTING.md](CONTRIBUTING.md), [LICENSE.md](LICENSE.md) and [composer.json](composer.json) files, then delete this line. You can run `$ php prefill.php` in the command line to make all replacements at once. Delete the file prefill.php as well.
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what
-PSRs you support to avoid any confusion with users and contributors.
+This metadata package can manage a key => value pairs to use your own metadata for you own application.
+This is a standard RESTfull api.
+
 
 ## Structure
 
@@ -20,14 +21,17 @@ test/
 Via Composer
 
 ``` bash
-$ composer require :vendor/:package_name
+$ composer require laravel-issue-tracker/metadata
 ```
 
 ## Usage
 
 ``` php
-$skeleton = new League\Skeleton();
-echo $skeleton->echoPhrase('Hello, League!');
+GET http://yourapplicationurl/api/v1/metadata
+GET http://yourapplicationurl/api/v1/metadata/{id}
+POST http://yourapplicationurl/api/v1/metadata/{id}
+PUT http://yourapplicationurl/api/v1/metadata/{id}
+DELETE http://yourapplicationurl/api/v1/metadata/{id}
 ```
 
 ## Change log

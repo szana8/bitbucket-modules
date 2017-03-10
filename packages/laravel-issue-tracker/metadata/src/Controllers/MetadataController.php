@@ -116,6 +116,7 @@ class MetadataController extends ApiController {
     public function destroy($id)
     {
         try {
+            //$this->authorize('destroy', Metadata::find($id));
             $this->metadataCreator->destroy($id);
             return $this->respondCreated('Metadata successfully destroyed!');
         }
