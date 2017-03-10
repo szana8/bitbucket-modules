@@ -47,7 +47,7 @@ class ListOfValuesService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes, 'make') )
+        if( $this->validator->isValidForInsert($attributes) )
         {
             if( $attributes['datatype'] == self::TYPE_QUERY )
             {
@@ -68,7 +68,7 @@ class ListOfValuesService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes, 'update') )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
             if ( $attributes['old_datatype'] != $attributes['datatype'] )
             {
