@@ -1,8 +1,14 @@
-<?php namespace LaravelIssueTracker\Issue\Acme\Transformers;
+<?php
+namespace LaravelIssueTracker\Issue\Acme\Transformers;
 
 use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
 
-class IssueTransformer extends Transformer {
+/**
+ * Class IssueTransformer
+ * @package LaravelIssueTracker\Issue\Acme\Transformers
+ */
+class IssueTransformer extends Transformer
+{
 
     /**
      * @param $item

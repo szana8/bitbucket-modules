@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Issue\Events;
+<?php
+namespace LaravelIssueTracker\Issue\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\Issue\Models\Issue;
 
-class IssueWasDestroyed {
+/**
+ * Class IssueWasDestroyed
+ * @package LaravelIssueTracker\Issue\Events
+ */
+class IssueWasDestroyed
+{
 
     use SerializesModels;
 

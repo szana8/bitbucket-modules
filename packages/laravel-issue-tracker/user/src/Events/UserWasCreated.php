@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\User\Events;
+<?php
+namespace LaravelIssueTracker\User\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\User\Models\User;
 
-class UserWasCreated {
+/**
+ * Class UserWasCreated
+ * @package LaravelIssueTracker\User\Events
+ */
+class UserWasCreated
+{
 
     use SerializesModels;
 

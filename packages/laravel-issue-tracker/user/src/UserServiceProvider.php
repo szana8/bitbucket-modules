@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\User;
+<?php
+namespace LaravelIssueTracker\User;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class UserServiceProvider
+ * @package LaravelIssueTracker\User
+ */
 class UserServiceProvider extends ServiceProvider
 {
     /**
@@ -11,9 +16,9 @@ class UserServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
-
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         if( ! $this->app->routesAreCached() ) {
             require __DIR__.'/routes.php';
@@ -29,4 +34,5 @@ class UserServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

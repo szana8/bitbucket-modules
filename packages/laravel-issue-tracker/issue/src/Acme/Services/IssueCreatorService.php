@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Issue\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Issue\Acme\Services;
 
-use LaravelIssueTracker\Issue\Acme\Validators\IssueValidator;
 use LaravelIssueTracker\Issue\Models\Issue;
+use LaravelIssueTracker\Issue\Acme\Validators\IssueValidator;
 
-class IssueCreatorService {
+/**
+ * Class IssueCreatorService
+ * @package LaravelIssueTracker\Issue\Acme\Services
+ */
+class IssueCreatorService
+{
 
     /**
      * @var IssueValidator
@@ -26,12 +32,9 @@ class IssueCreatorService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
-            $issue = Issue::create($attributes);
-            event('IssueWasCreated', $issue);
-
-            return true;
+            return Issue::create($attributes);
         }
 
         throw new ValidationException('Issue validation failed', $this->validator->getErrors());
@@ -46,12 +49,9 @@ class IssueCreatorService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            $issue = Issue::findOrFail($id)->update($attributes);
-            event('IssueWasUpdated', $issue);
-
-            return true;
+            return Issue::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException('Issue validation failed', $this->validator->getErrors());
@@ -67,10 +67,7 @@ class IssueCreatorService {
     {
         if( Issue::find($id)->exists() )
         {
-            $issue = Issue::destroy($id);
-            event('IssueWasDestroyed', $issue);
-
-            return true;
+            return Issue::destroy($id);
         }
 
         throw new ValidationException('Issue does not exists', '');

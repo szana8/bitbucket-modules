@@ -1,17 +1,22 @@
-<?php namespace LaravelIssueTracker\Issue\Policies;
+<?php
+namespace LaravelIssueTracker\Issue\Policies;
 
-
-use Models\User;
-use Illuminate\Auth\Access\HandlesAuthorization;
+use App\User;
 use LaravelIssueTracker\Issue\Models\Issue;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class IssuePolicy {
+/**
+ * Class IssuePolicy
+ * @package LaravelIssueTracker\Issue\Policies
+ */
+class IssuePolicy
+{
 
     use HandlesAuthorization;
 
     /**
      * @param User $user
-     * @param Metadata $metadata
+     * @param Issue $issue
      * @return bool
      */
     public function show(User $user, Issue $issue)
@@ -30,7 +35,7 @@ class IssuePolicy {
 
     /**
      * @param User $user
-     * @param Metadata $metadata
+     * @param Issue $issue
      * @return bool
      */
     public function update(User $user, Issue $issue)

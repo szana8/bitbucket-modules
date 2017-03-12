@@ -1,12 +1,23 @@
-<?php namespace LaravelIssueTracker\Watcher\Acme\Validators;
+<?php
+namespace LaravelIssueTracker\Watcher\Acme\Validators;
 
 use LaravelIssueTracker\Core\Acme\Validators\Validator;
 
-class WatcherValidator extends Validator {
+/**
+ * Class WatcherValidator
+ * @package LaravelIssueTracker\Watcher\Acme\Validators
+ */
+class WatcherValidator extends Validator
+{
 
+    /**
+     * @var array
+     */
     protected static $rules = [
-        'issue_id' => 'required|integer',
-        'user_id'  => 'required|integer',
+        'default' => [
+            'issue_id' => 'required|integer',
+            'user_id'  => 'required|integer',
+        ],
     ];
 
 }

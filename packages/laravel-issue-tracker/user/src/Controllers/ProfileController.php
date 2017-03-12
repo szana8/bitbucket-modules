@@ -1,11 +1,13 @@
-<?php namespace LaravelIssueTracker\User\Controllers;
+<?php
+namespace LaravelIssueTracker\User\Controllers;
 
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\User\Acme\Services\ProfileCreatorService;
 use LaravelIssueTracker\User\Acme\Transformers\ProfileTransformer;
 
 
-class ProfileController extends ApiController {
+class ProfileController extends ApiController
+{
 
     /**
      * @var ProfileTransformer
@@ -24,11 +26,8 @@ class ProfileController extends ApiController {
      */
     public function __construct(ProfileTransformer $profileTransformer, ProfileCreatorService $profileCreator)
     {
-        $this->profileTransformer = $profileTransformer;
         $this->profileCreator = $profileCreator;
+        $this->profileTransformer = $profileTransformer;
     }
-
-
-
 
 }

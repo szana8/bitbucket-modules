@@ -1,13 +1,19 @@
-<?php namespace LaravelIssueTracker\User\Controllers;
+<?php
+namespace LaravelIssueTracker\User\Controllers;
 
+use App\User;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Core\Controller\ApiController;
-use LaravelIssueTracker\User\Acme\Services\ProfileCreatorService;
 use LaravelIssueTracker\User\Acme\Services\UserCreatorService;
 use LaravelIssueTracker\User\Acme\Transformers\UserTransformer;
-use Models\User;
+use LaravelIssueTracker\User\Acme\Services\ProfileCreatorService;
 
-class UserController extends ApiController {
+/**
+ * Class UserController
+ * @package LaravelIssueTracker\User\Controllers
+ */
+class UserController extends ApiController
+{
 
     /**
      * @var UserTransformer
@@ -60,7 +66,6 @@ class UserController extends ApiController {
      */
     public function show($id)
     {
-
         $user = User::with('profiles')->find($id);
 
         if ( ! $user )
@@ -80,7 +85,8 @@ class UserController extends ApiController {
      */
     public function store()
     {
-        try {
+        try
+        {
             $this->userCreator->make(Input::all());
             return $this->respondCreated('User successfully created!');
         }

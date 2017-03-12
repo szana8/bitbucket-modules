@@ -1,12 +1,18 @@
-<?php namespace LaravelIssueTracker\Watcher\Controllers;
+<?php
+namespace LaravelIssueTracker\Watcher\Controllers;
 
 use Illuminate\Support\Facades\Input;
+use LaravelIssueTracker\Watcher\Models\Watcher;
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\Watcher\Acme\Services\WatcherCreatorService;
 use LaravelIssueTracker\Watcher\Acme\Transformers\WatcherTransformer;
-use LaravelIssueTracker\Watcher\Models\Watcher;
 
-class WatcherController extends ApiController {
+/**
+ * Class WatcherController
+ * @package LaravelIssueTracker\Watcher\Controllers
+ */
+class WatcherController extends ApiController
+{
 
     /**
      * @var WatcherTransformer

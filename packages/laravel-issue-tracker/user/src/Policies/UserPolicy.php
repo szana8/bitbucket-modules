@@ -1,8 +1,11 @@
-<?php namespace LaravelIssueTracker\User\Policies;
+<?php
+namespace LaravelIssueTracker\User\Policies;
 
-
-class UserPolicy {
-
+/**
+ * Class UserPolicy
+ * @package LaravelIssueTracker\User\Policies
+ */
+class UserPolicy
+{
     //
-
 }

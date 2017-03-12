@@ -1,10 +1,16 @@
-<?php namespace LaravelIssueTracker\Project\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Project\Acme\Services;
 
-use LaravelIssueTracker\Project\Acme\Validators\ProjectValidator;
-use LaravelIssueTracker\Project\Models\Project;
 use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Project\Models\Project;
+use LaravelIssueTracker\Project\Acme\Validators\ProjectValidator;
 
-class ProjectCreatorService {
+/**
+ * Class ProjectCreatorService
+ * @package LaravelIssueTracker\Project\Acme\Services
+ */
+class ProjectCreatorService
+{
 
     protected $validator;
 
@@ -24,12 +30,9 @@ class ProjectCreatorService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
-            $project = Project::create($attributes);
-            event('ProjectWasCreated', $project);
-
-            return true;
+            return Project::create($attributes);
         }
 
         throw new ValidationException('Project validation failed', $this->validator->getErrors());
@@ -44,12 +47,9 @@ class ProjectCreatorService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            $project = Project::findOrFail($id)->update($attributes);
-            event('ProjectWasUpdated', $project);
-
-            return true;
+            return Project::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException('Project validation failed', $this->validator->getErrors());
@@ -65,10 +65,7 @@ class ProjectCreatorService {
     {
         if( Project::find($id)->exists() )
         {
-            $profile = Profile::destroy($id);
-            event('ProjectWasDestroyed', $profile);
-
-            return true;
+            return Profile::destroy($id);
         }
 
         throw new ValidationException('Project does not exists', '');

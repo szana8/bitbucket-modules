@@ -1,16 +1,22 @@
-<?php namespace LaravelIssueTracker\Project\Policies;
+<?php
+namespace LaravelIssueTracker\Project\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
-use LaravelIssueTracker\Project\Models\Project;
 use LaravelIssueTracker\User\Models\User;
+use LaravelIssueTracker\Project\Models\Project;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ProjectPolicy {
+/**
+ * Class ProjectPolicy
+ * @package LaravelIssueTracker\Project\Policies
+ */
+class ProjectPolicy
+{
 
     use HandlesAuthorization;
 
     /**
      * @param User $user
-     * @param Metadata $metadata
+     * @param Project $project
      * @return bool
      */
     public function show(User $user, Project $project)
@@ -29,7 +35,7 @@ class ProjectPolicy {
 
     /**
      * @param User $user
-     * @param Metadata $metadata
+     * @param Project $project
      * @return bool
      */
     public function update(User $user, Project $project)

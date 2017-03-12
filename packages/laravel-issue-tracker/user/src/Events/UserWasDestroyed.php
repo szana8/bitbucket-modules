@@ -1,11 +1,18 @@
-<?php namespace LaravelIssueTracker\User\Events;
+<?php
+namespace LaravelIssueTracker\User\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\User\Models\User;
 
-class UserWasDestroyed {
+/**
+ * Class UserWasDestroyed
+ * @package LaravelIssueTracker\User\Events
+ */
+class UserWasDestroyed
+{
 
     use SerializesModels;
+
     /**
      * @var Comment
      */

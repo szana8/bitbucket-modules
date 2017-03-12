@@ -1,4 +1,5 @@
-<?php namespace LaravelIssueTracker\Watcher;
+<?php
+namespace LaravelIssueTracker\Watcher;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -11,9 +12,9 @@ class WatcherServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__.'/migrations');
-
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
 
         if( ! $this->app->routesAreCached() ) {
             require __DIR__.'/routes.php';

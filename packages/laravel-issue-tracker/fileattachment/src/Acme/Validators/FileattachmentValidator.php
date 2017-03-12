@@ -1,10 +1,20 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Acme\Validators;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Acme\Validators;
 
 use LaravelIssueTracker\Core\Acme\Validators\Validator;
 
-class FileattachmentValidator extends Validator {
+/**
+ * Class FileattachmentValidator
+ * @package LaravelIssueTracker\Fileattachment\Acme\Validators
+ */
+class FileattachmentValidator extends Validator
+{
 
     protected static $rules = [
+
+        'default' => [
+
+        ]
 
     ];
 

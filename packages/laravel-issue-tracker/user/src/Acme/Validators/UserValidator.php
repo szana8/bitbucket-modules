@@ -1,8 +1,13 @@
-<?php namespace LaravelIssueTracker\User\Acme\Validators;
+<?php
+namespace LaravelIssueTracker\User\Acme\Validators;
 
-use LaravelIssueTracker\Core\Acme\Validators\Validator;
 use App\User;
+use LaravelIssueTracker\Core\Acme\Validators\Validator;
 
+/**
+ * Class UserValidator
+ * @package LaravelIssueTracker\User\Acme\Validators
+ */
 class UserValidator extends Validator {
 
     protected static $rules = [

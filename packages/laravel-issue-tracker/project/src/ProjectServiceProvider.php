@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Project;
+<?php
+namespace LaravelIssueTracker\Project;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ProjectServiceProvider
+ * @package LaravelIssueTracker\Project
+ */
 class ProjectServiceProvider extends ServiceProvider
 {
     /**

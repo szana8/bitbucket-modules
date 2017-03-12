@@ -1,6 +1,11 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Events;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Events;
 
-
-class FileattachmentWasDestroyed {
-
+/**
+ * Class FileattachmentWasDestroyed
+ * @package LaravelIssueTracker\Fileattachment\Events
+ */
+class FileattachmentWasDestroyed
+{
+    //
 }

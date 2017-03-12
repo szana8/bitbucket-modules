@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Acme\Transformers;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Acme\Transformers;
 
-
-class FileattachmentTransformer {
+/**
+ * Class FileattachmentTransformer
+ * @package LaravelIssueTracker\Fileattachment\Acme\Transformers
+ */
+class FileattachmentTransformer
+{
 
     /**
      * @param $item

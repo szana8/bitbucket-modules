@@ -1,10 +1,15 @@
-<?php namespace LaravelIssueTracker\Issue\Events;
-
+<?php
+namespace LaravelIssueTracker\Issue\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\Issue\Models\Issue;
 
-class IssueWasUpdated {
+/**
+ * Class IssueWasUpdated
+ * @package LaravelIssueTracker\Issue\Events
+ */
+class IssueWasUpdated
+{
 
     use SerializesModels;
 

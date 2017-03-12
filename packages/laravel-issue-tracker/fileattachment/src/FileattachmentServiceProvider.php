@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Fileattachment;
+<?php
+namespace LaravelIssueTracker\Fileattachment;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class FileattachmentServiceProvider
+ * @package LaravelIssueTracker\Fileattachment
+ */
 class FileattachmentServiceProvider extends ServiceProvider
 {
     /**

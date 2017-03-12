@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Watcher\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Watcher\Acme\Services;
 
-use LaravelIssueTracker\Watcher\Acme\Validators\WatcherValidator;
 use LaravelIssueTracker\Watcher\Models\Watcher;
+use LaravelIssueTracker\Watcher\Acme\Validators\WatcherValidator;
 
-class WatcherCreatorService {
+/**
+ * Class WatcherCreatorService
+ * @package LaravelIssueTracker\Watcher\Acme\Services
+ */
+class WatcherCreatorService
+{
 
     protected $validator;
 
@@ -23,12 +29,9 @@ class WatcherCreatorService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
-            $watcher = Watcher::create($attributes);
-            event('WatcherWasCreated', $watcher);
-
-            return true;
+            return Watcher::create($attributes);
         }
 
         throw new ValidationException('Watcher validation failed', $this->validator->getErrors());
@@ -43,12 +46,9 @@ class WatcherCreatorService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            $watcher = Watcher::findOrFail($id)->update($attributes);
-            event('WatcherWasUpdated', $watcher);
-
-            return true;
+            return Watcher::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException('Watcher validation failed', $this->validator->getErrors());
@@ -64,10 +64,7 @@ class WatcherCreatorService {
     {
         if( Watcher::find($id)->exists() )
         {
-            $watcher = Watcher::destroy($id);
-            event('WatcherWasDestroyed', $watcher);
-
-            return true;
+            return Watcher::destroy($id);
         }
 
         throw new ValidationException('Watcher does not exists', '');

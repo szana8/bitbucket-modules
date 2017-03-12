@@ -1,8 +1,14 @@
-<?php namespace LaravelIssueTracker\User\Acme\Transformers;
+<?php
+namespace LaravelIssueTracker\User\Acme\Transformers;
 
 use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
 
-class UserTransformer extends Transformer {
+/**
+ * Class UserTransformer
+ * @package LaravelIssueTracker\User\Acme\Transformers
+ */
+class UserTransformer extends Transformer
+{
 
     /**
      * @var ProfileTransformer

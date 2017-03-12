@@ -1,10 +1,10 @@
-<?php namespace LaravelIssueTracker\Issue\Tests;
+<?php
+namespace LaravelIssueTracker\Issue\Tests;
 
-use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 use LaravelIssueTracker\Core\Tests\Helpers\Factory;
+use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 
-class IssueTest extends ApiTester {
-
+class IssueTest extends ApiTester
+{
     use Factory;
-
 }

@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Issue;
+<?php
+namespace LaravelIssueTracker\Issue;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class IssueServiceProvider
+ * @package LaravelIssueTracker\Issue
+ */
 class IssueServiceProvider extends ServiceProvider
 {
     /**
@@ -29,4 +34,5 @@ class IssueServiceProvider extends ServiceProvider
     {
         //
     }
+
 }

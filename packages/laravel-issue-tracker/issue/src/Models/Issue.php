@@ -1,8 +1,17 @@
-<?php namespace LaravelIssueTracker\Issue\Models;
+<?php
+namespace LaravelIssueTracker\Issue\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use LaravelIssueTracker\Issue\Events\IssueWasCreated;
+use LaravelIssueTracker\Issue\Events\IssueWasDestroyed;
+use LaravelIssueTracker\Issue\Events\IssueWasUpdated;
 
-class Issue extends Model {
+/**
+ * Class Issue
+ * @package LaravelIssueTracker\Issue\Models
+ */
+class Issue extends Model
+{
 
     /**
      * @var array
@@ -27,6 +36,15 @@ class Issue extends Model {
      * @var array
      */
     protected $guarded = [];
+
+    /**
+     * @var array
+     */
+    protected $events = [
+        'created' => IssueWasCreated::class,
+        'updated' => IssueWasUpdated::class,
+        'deleted' => IssueWasDestroyed::class
+    ];
 
     /**
      * Join the user table to the issue reporter table by hasOne type.

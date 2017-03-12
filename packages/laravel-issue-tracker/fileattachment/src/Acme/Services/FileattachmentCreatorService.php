@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Acme\Services;
 
-use LaravelIssueTracker\Fileattachment\Acme\Validators\FileattachmentValidator;
 use LaravelIssueTracker\Fileattachment\Models\Fileattachment;
+use LaravelIssueTracker\Fileattachment\Acme\Validators\FileattachmentValidator;
 
-class FileattachmentCreatorService {
+/**
+ * Class FileattachmentCreatorService
+ * @package LaravelIssueTracker\Fileattachment\Acme\Services
+ */
+class FileattachmentCreatorService
+{
 
     /**
      * @var FileattachmentValidator
@@ -26,12 +32,9 @@ class FileattachmentCreatorService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
-            $fileattachment = Fileattachment::create($attributes);
-            event('FileattachmentWasCreated', $fileattachment);
-
-            return true;
+            return Fileattachment::create($attributes);
         }
 
         throw new ValidationException('Fileattachment validation failed', $this->validator->getErrors());
@@ -46,12 +49,9 @@ class FileattachmentCreatorService {
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            $fileattachment = Fileattachment::findOrFail($id)->update($attributes);
-            event('FileattachmentWasUpdated', $fileattachment);
-
-            return true;
+            return Fileattachment::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException('Fileattachment validation failed', $this->validator->getErrors());
@@ -67,10 +67,7 @@ class FileattachmentCreatorService {
     {
         if( Fileattachment::find($id)->exists() )
         {
-            $fileattachment = Fileattachment::destroy($id);
-            event('FileattachmentWasDestroyed', $fileattachment);
-
-            return true;
+            return Fileattachment::destroy($id);
         }
 
         throw new ValidationException('Fileattachment does not exists', '');

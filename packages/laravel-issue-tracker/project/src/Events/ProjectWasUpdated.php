@@ -1,9 +1,11 @@
-<?php namespace LaravelIssueTracker\Project\Events;
+<?php
+namespace LaravelIssueTracker\Project\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\Project\Models\Project;
 
-class ProjectWasUpdated {
+class ProjectWasUpdated
+{
 
     use SerializesModels;
 

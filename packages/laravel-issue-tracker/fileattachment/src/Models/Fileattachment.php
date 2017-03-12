@@ -1,7 +1,13 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Models;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Fileattachment extends Model {
-
+/**
+ * Class Fileattachment
+ * @package LaravelIssueTracker\Fileattachment\Models
+ */
+class Fileattachment extends Model
+{
+    //
 }

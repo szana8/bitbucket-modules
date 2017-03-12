@@ -1,12 +1,14 @@
-<?php namespace LaravelIssueTracker\ListOfValues\Tests;
+<?php
+namespace LaravelIssueTracker\ListOfValues\Tests;
 
-use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 use LaravelIssueTracker\Core\Tests\Helpers\Factory;
+use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 
-class ListOfvalueTest extends ApiTester {
-
+/**
+ * Class ListOfValueTest
+ * @package LaravelIssueTracker\ListOfValues\Tests
+ */
+class ListOfValueTest extends ApiTester
+{
     use Factory;
-
-
-
 }

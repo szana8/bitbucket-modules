@@ -1,11 +1,20 @@
-<?php namespace LaravelIssueTracker\User\Acme\Services;
+<?php
+namespace LaravelIssueTracker\User\Acme\Services;
 
 use LaravelIssueTracker\User\Models\Profile;
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Acme\Validators\ProfileValidator;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
-class ProfileCreatorService  {
+/**
+ * Class ProfileCreatorService
+ * @package LaravelIssueTracker\User\Acme\Services
+ */
+class ProfileCreatorService
+{
 
+    /**
+     * @var ProfileValidator
+     */
     protected $validator;
 
     /**
@@ -24,7 +33,7 @@ class ProfileCreatorService  {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
             $user = Profile::create($attributes);
             event('ProfileWasCreated', $user);
@@ -37,12 +46,13 @@ class ProfileCreatorService  {
 
     /**
      * @param array $attributes
+     * @param $id
      * @return bool
      * @throws ValidationException
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
             $profile = Profile::find($id)->update($attributes);
             event('ProfileWasUpdated', $profile);

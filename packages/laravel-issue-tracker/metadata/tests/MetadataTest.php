@@ -1,12 +1,16 @@
 <?php
-
 namespace LaravelIssueTracker\Metadata\Tests;
 
 use LaravelIssueTracker\Core\Tests\Helpers\Factory;
 use LaravelIssueTracker\Core\Tests\Helpers\ApiTester;
 
+/**
+ * Class MetadataTest
+ * @package LaravelIssueTracker\Metadata\Tests
+ */
 class MetadataTest extends ApiTester
 {
+
     use Factory;
 
     /** @test */

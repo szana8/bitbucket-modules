@@ -1,13 +1,18 @@
-<?php namespace LaravelIssueTracker\Issue\Controllers;
+<?php
+namespace LaravelIssueTracker\Issue\Controllers;
 
 use Illuminate\Support\Facades\Input;
+use LaravelIssueTracker\Issue\Models\Issue;
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\Issue\Acme\Services\IssueCreatorService;
 use LaravelIssueTracker\Issue\Acme\Transformers\IssueTransformer;
-use LaravelIssueTracker\Issue\Models\Issue;
 
-class IssueController extends ApiController {
-
+/**
+ * Class IssueController
+ * @package LaravelIssueTracker\Issue\Controllers
+ */
+class IssueController extends ApiController
+{
 
     /**
      * @var IssueTransformer
@@ -29,7 +34,6 @@ class IssueController extends ApiController {
         $this->issueTransformer = $issueTransformer;
         $this->issueCreatorService = $issueCreatorService;
     }
-
 
     /**
      * Display a listing of the resource.

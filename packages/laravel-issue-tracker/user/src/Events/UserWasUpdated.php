@@ -1,11 +1,18 @@
-<?php namespace LaravelIssueTracker\User\Events;
+<?php
+namespace LaravelIssueTracker\User\Events;
 
 use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\User\Models\User;
 
-class UserWasUpdated {
+/**
+ * Class UserWasUpdated
+ * @package LaravelIssueTracker\User\Events
+ */
+class UserWasUpdated
+{
 
     use SerializesModels;
+
     /**
      * @var Comment
      */

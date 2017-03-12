@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Watcher\Policies;
+<?php
+namespace LaravelIssueTracker\Watcher\Policies;
 
-use Illuminate\Auth\Access\HandlesAuthorization;
 use LaravelIssueTracker\Watcher\Models\Watcher;
+use Illuminate\Auth\Access\HandlesAuthorization;
 
-class WatcherPolicy {
+/**
+ * Class WatcherPolicy
+ * @package LaravelIssueTracker\Watcher\Policies
+ */
+class WatcherPolicy
+{
 
     use HandlesAuthorization;
 

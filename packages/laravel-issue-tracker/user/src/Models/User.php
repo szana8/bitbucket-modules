@@ -1,6 +1,12 @@
-<?php namespace LaravelIssueTracker\User\Models;
+<?php
+namespace LaravelIssueTracker\User\Models;
 
-trait User {
+/**
+ * Class User
+ * @package LaravelIssueTracker\User\Models
+ */
+trait User
+{
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

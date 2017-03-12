@@ -1,12 +1,17 @@
-<?php namespace LaravelIssueTracker\User\Acme\Services;
+<?php
+namespace LaravelIssueTracker\User\Acme\Services;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\User\Acme\Validators\UserValidator;
-use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
-class UserCreatorService {
+/**
+ * Class UserCreatorService
+ * @package LaravelIssueTracker\User\Acme\Services
+ */
+class UserCreatorService
+{
 
     /**
      * @var UserValidator
@@ -38,8 +43,8 @@ class UserCreatorService {
         $this->validator = $validator;
         $this->profileCreatorService = $profileCreatorService;
 
-        $this->password = Hash::make(str_random(8));
         $this->api_token = str_random(60);
+        $this->password = Hash::make(str_random(8));
     }
 
     /**
@@ -60,30 +65,27 @@ class UserCreatorService {
         }
         else
         {
-            $user = $this->makeWithProfile($attributes);
-
-            event('UserWasCreated', $user);
-            return $user;
+           return $this->makeWithProfile($attributes);
         }
     }
 
     /**
      * @param array $attributes
+     * @param $id
      * @return bool
      * @throws ValidationException
      */
     public function update(array $attributes, $id)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            $user = \DB::transaction(function () use ($attributes, $id) {
+            $user = \DB::transaction(function () use ($attributes, $id)
+            {
                 $user = User::find($id)->update($attributes);
-                $this->profileCreatorService->update($attributes['profile'],  $attributes['profile']['id']);
+                $this->profileCreatorService->update($attributes['profile'], $attributes['profile']['id']);
 
                 return $user;
             });
-
-            event('UserWasUpdated', $user);
 
             return true;
         }
@@ -100,10 +102,7 @@ class UserCreatorService {
     {
         if( User::find($id)->exists() )
         {
-            $comment = User::destroy($id);
-            event('UserWasDestroyed', $comment);
-
-            return true;
+            return User::destroy($id);
         }
 
         throw new ValidationException('User does not exist!', '');
@@ -116,7 +115,7 @@ class UserCreatorService {
      */
     protected function makeWithProfile($attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
             $user = \DB::transaction(function () use ($attributes) {
                 $attributes['password'] = $this->password ?: str_random(60);
@@ -134,4 +133,5 @@ class UserCreatorService {
 
         throw new ValidationException('User validation failed', $this->validator->getErrors());
     }
+
 }

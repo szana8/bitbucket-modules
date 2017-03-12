@@ -1,11 +1,17 @@
-<?php namespace LaravelIssueTracker\Fileattachment\Controllers;
+<?php
+namespace LaravelIssueTracker\Fileattachment\Controllers;
 
 use LaravelIssueTracker\Core\Controller\ApiController;
+use LaravelIssueTracker\Fileattachment\Models\Fileattachment;
 use LaravelIssueTracker\Fileattachment\Acme\Services\FileattachmentCreatorService;
 use LaravelIssueTracker\Fileattachment\Acme\Transformers\FileattachmentTransformer;
-use LaravelIssueTracker\Fileattachment\Models\Fileattachment;
 
-class FileattachmentController extends ApiController {
+/**
+ * Class FileattachmentController
+ * @package LaravelIssueTracker\Fileattachment\Controllers
+ */
+class FileattachmentController extends ApiController
+{
 
     /**
     * @var IssueTransformer
