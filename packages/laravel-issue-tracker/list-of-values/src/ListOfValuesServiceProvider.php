@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\ListOfValues;
+<?php
+namespace LaravelIssueTracker\ListOfValues;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class ListOfValuesServiceProvider
+ * @package LaravelIssueTracker\ListOfValues
+ */
 class ListOfValuesServiceProvider extends ServiceProvider
 {
     /**

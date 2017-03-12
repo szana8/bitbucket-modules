@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Authentication\Listeners;
+<?php
+namespace LaravelIssueTracker\Authentication\Listeners;
 
-interface AuthenticateUserListener {
-
+/**
+ * Interface AuthenticateUserListener
+ * @package LaravelIssueTracker\Authentication\Listeners
+ */
+interface AuthenticateUserListener
+{
     /**
      * @param $user
      * @return mixed

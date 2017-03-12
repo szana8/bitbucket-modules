@@ -1,11 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Controllers;
+<?php
+namespace LaravelIssueTracker\Authentication\Controllers;
 
 use Illuminate\Http\Request;
 use LaravelIssueTracker\Authentication\Acme\Services\BitbucketAuthService;
 use LaravelIssueTracker\Authentication\Controllers\AbstractControllers\AuthenticationController;
 
-class BitbucketAuthController extends AuthenticationController {
-
+/**
+ * Class BitbucketAuthController
+ * @package LaravelIssueTracker\Authentication\Controllers
+ */
+class BitbucketAuthController extends AuthenticationController
+{
     /**
      * @param BitbucketAuthService $bitbucketAuthService
      * @param Request $request

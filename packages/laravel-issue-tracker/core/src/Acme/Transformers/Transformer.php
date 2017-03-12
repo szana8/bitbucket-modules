@@ -1,10 +1,15 @@
 <?php
 namespace LaravelIssueTracker\Core\Acme\Transformers;
 
-
-abstract class Transformer {
-
+/**
+ * Class Transformer
+ * @package LaravelIssueTracker\Core\Acme\Transformers
+ */
+abstract class Transformer
+{
     /**
+     * Transform the given collection to the proper style.
+     *
      * @param $items
      * @return array
      */
@@ -14,6 +19,8 @@ abstract class Transformer {
     }
 
     /**
+     * Abstract function for the transformation, need to be implement in the child class.
+     *
      * @param $item
      * @return mixed
      */

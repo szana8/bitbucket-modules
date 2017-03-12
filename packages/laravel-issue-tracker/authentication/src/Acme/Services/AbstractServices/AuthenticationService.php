@@ -1,11 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Acme\Services\AbstractServices;
+<?php
+namespace LaravelIssueTracker\Authentication\Acme\Services\AbstractServices;
 
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use LaravelIssueTracker\Authentication\Acme\Repositories\UserRepository;
 use LaravelIssueTracker\Authentication\Listeners\AuthenticateUserListener;
 
-abstract class AuthenticationService {
-
+/**
+ * Class AuthenticationService
+ * @package LaravelIssueTracker\Authentication\Acme\Services\AbstractServices
+ */
+abstract class AuthenticationService
+{
     /**
      * @var UserRepository
      */
@@ -19,7 +24,6 @@ abstract class AuthenticationService {
      * AuthenticationService constructor.
      * @param UserRepository $user
      * @param Socialite $socialite
-     * @param Authenticatable $authenticatable
      */
     public function __construct(UserRepository $user, Socialite $socialite)
     {

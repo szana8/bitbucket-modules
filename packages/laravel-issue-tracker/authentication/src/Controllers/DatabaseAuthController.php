@@ -1,12 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Controllers;
+<?php
+namespace LaravelIssueTracker\Authentication\Controllers;
 
 use Illuminate\Http\Request;
 use LaravelIssueTracker\Authentication\Acme\Services\DatabaseAuthService;
 use LaravelIssueTracker\Authentication\Controllers\AbstractControllers\AuthenticationController;
 
-class DatabaseAuthController extends AuthenticationController {
-
-
+/**
+ * Class DatabaseAuthController
+ * @package LaravelIssueTracker\Authentication\Controllers
+ */
+class DatabaseAuthController extends AuthenticationController
+{
     /**
      * @var DatabaseAuthService
      */
@@ -21,7 +25,6 @@ class DatabaseAuthController extends AuthenticationController {
         $this->databaseAuthService = $databaseAuthService;
     }
 
-
     /**
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -29,6 +32,7 @@ class DatabaseAuthController extends AuthenticationController {
     public function login(Request $request)
     {
         $respond = $this->databaseAuthService->authenticate($request);
+
         if( $respond === true)
         {
             return $this->respondCreated('User successfully logged in!');

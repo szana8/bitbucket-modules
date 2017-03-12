@@ -1,7 +1,12 @@
-<?php namespace LaravelIssueTracker\Authentication;
+<?php
+namespace LaravelIssueTracker\Authentication;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class AuthenticationServiceProvider
+ * @package LaravelIssueTracker\Authentication
+ */
 class AuthenticationServiceProvider extends ServiceProvider
 {
     /**
@@ -27,4 +32,5 @@ class AuthenticationServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__.'/Config/services.php', 'services');
     }
+
 }

@@ -1,9 +1,14 @@
-<?php namespace LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface;
+<?php
+namespace LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface;
 
 use Laravel\Socialite\Contracts\User;
 
-interface SocialiteTransformerInterface {
-
+/**
+ * Interface SocialiteTransformerInterface
+ * @package LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface
+ */
+interface SocialiteTransformerInterface
+{
     /**
      * @param User $user
      * @return mixed

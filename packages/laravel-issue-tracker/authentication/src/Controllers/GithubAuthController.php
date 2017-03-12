@@ -1,11 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Controllers;
+<?php
+namespace LaravelIssueTracker\Authentication\Controllers;
 
 use Illuminate\Http\Request;
 use LaravelIssueTracker\Authentication\Acme\Services\GithubAuthService;
 use LaravelIssueTracker\Authentication\Controllers\AbstractControllers\AuthenticationController;
 
-class GithubAuthController extends AuthenticationController {
-
+/**
+ * Class GithubAuthController
+ * @package LaravelIssueTracker\Authentication\Controllers
+ */
+class GithubAuthController extends AuthenticationController
+{
     /**
      * @param GithubAuthService $githubAuthService
      * @param Request $request

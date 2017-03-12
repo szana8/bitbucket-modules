@@ -1,11 +1,14 @@
 <?php
-
 namespace App\Modules\ListOfValues\Events;
 
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 
-class ListOfValueWasDestroyed {
-
+/**
+ * Class ListOfValueWasDestroyed
+ * @package App\Modules\ListOfValues\Events
+ */
+class ListOfValueWasDestroyed
+{
     use SerializesModels;
 
     /**

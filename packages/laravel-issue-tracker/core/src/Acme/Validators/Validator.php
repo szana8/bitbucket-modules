@@ -14,34 +14,14 @@ abstract class Validator {
 
     /**
      * Errors object
-     * @var
      */
     protected $errors;
 
     /**
-     * @var array
+     * Messages array
      */
     protected static $messages = [];
 
-    /**
-     * Check the attributes validation
-     *
-     * @param array $attributes
-     * @param String $option
-     * @return bool
-     */
-    public function isValid(array $attributes, $option = "default")
-    {
-        $validator = LaravelIssueTrackerValidator::make($attributes, static::$rules[$option], static::$messages);
-
-        if($validator->fails())
-        {
-            $this->errors = $validator->messages();
-            return false;
-        }
-
-        return true;
-    }
 
     /**
      * Check the attributes for insert.
@@ -53,6 +33,7 @@ abstract class Validator {
         return $this->isValid($attributes, 'make');
     }
 
+
     /**
      * Check the attributes for update.
      * @param array $attributes
@@ -62,6 +43,7 @@ abstract class Validator {
     {
         return $this->isValid($attributes);
     }
+
 
     /**
      * Return the errors object
@@ -73,4 +55,27 @@ abstract class Validator {
         return $this->errors;
     }
 
+
+    /**
+     * Check the attributes validation
+     *
+     * @param array $attributes
+     * @param String $option
+     * @return bool
+     */
+    protected function isValid(array $attributes, $option = "default")
+    {
+        $validator = LaravelIssueTrackerValidator::make($attributes, static::$rules[$option], static::$messages);
+
+        if( $validator->fails() )
+        {
+            // Add the error message to the attribute.
+            $this->errors = $validator->messages();
+
+            return false;
+        }
+
+        // The attributes are valid
+        return true;
+    }
 }

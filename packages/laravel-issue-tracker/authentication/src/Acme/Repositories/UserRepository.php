@@ -1,17 +1,23 @@
-<?php namespace LaravelIssueTracker\Authentication\Acme\Repositories;
+<?php
+namespace LaravelIssueTracker\Authentication\Acme\Repositories;
 
 use App\User;
 use LaravelIssueTracker\User\Acme\Services\UserCreatorService;
 
-class UserRepository {
-
+/**
+ * Class UserRepository
+ * @package LaravelIssueTracker\Authentication\Acme\Repositories
+ */
+class UserRepository
+{
     /**
-     * @var UserCreatorService
+     * Private attribute for the user creator service.
      */
     private $userCreatorService;
 
     /**
      * UserRepository constructor.
+     *
      * @param UserCreatorService $userCreatorService
      */
     public function __construct(UserCreatorService $userCreatorService)
@@ -21,6 +27,8 @@ class UserRepository {
 
 
     /**
+     * Find the user by email or create a new one if the user not exists.
+     *
      * @param $userData
      * @return static
      */
@@ -46,6 +54,8 @@ class UserRepository {
     }
 
     /**
+     * Find the user by email and password.
+     *
      * @param $userData
      * @return mixed
      */

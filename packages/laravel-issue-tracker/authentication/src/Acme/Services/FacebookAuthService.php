@@ -1,13 +1,18 @@
-<?php namespace LaravelIssueTracker\Authentication\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Authentication\Acme\Services;
 
 use Laravel\Socialite\Contracts\Factory as Socialite;
 use LaravelIssueTracker\Authentication\Acme\Repositories\UserRepository;
-use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationInterface;
-use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationService;
 use LaravelIssueTracker\Authentication\Acme\Transformers\FacebookAuthTransformer;
+use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationService;
+use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationInterface;
 
-class FacebookAuthService extends AuthenticationService implements AuthenticationInterface {
-
+/**
+ * Class FacebookAuthService
+ * @package LaravelIssueTracker\Authentication\Acme\Services
+ */
+class FacebookAuthService extends AuthenticationService implements AuthenticationInterface
+{
     /**
      * @var FacebookAuthTransformer
      */
@@ -26,6 +31,8 @@ class FacebookAuthService extends AuthenticationService implements Authenticatio
     }
 
     /**
+     * Authenticate the user with the proper driver.
+     *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function getAuthorizationFirst()
@@ -34,6 +41,8 @@ class FacebookAuthService extends AuthenticationService implements Authenticatio
     }
 
     /**
+     * Return the authenticated user.
+     *
      * @return \Laravel\Socialite\Contracts\User
      */
     public function getSocialiteUser()

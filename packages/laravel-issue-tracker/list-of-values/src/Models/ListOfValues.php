@@ -1,12 +1,17 @@
-<?php namespace LaravelIssueTracker\ListOfValues\Models;
+<?php
+namespace LaravelIssueTracker\ListOfValues\Models;
 
+use Illuminate\Database\Eloquent\Model;
+use App\Modules\ListOfValues\Events\ListOfValueWasUpdated;
 use App\Modules\ListOfValues\Events\ListOfValueWasCreated;
 use App\Modules\ListOfValues\Events\ListOfValueWasDestroyed;
-use App\Modules\ListOfValues\Events\ListOfValueWasUpdated;
-use Illuminate\Database\Eloquent\Model;
 
-class ListOfValues extends Model {
-
+/**
+ * Class ListOfValues
+ * @package LaravelIssueTracker\ListOfValues\Models
+ */
+class ListOfValues extends Model
+{
     /**
      * These fields are mandatory.
      * @var array

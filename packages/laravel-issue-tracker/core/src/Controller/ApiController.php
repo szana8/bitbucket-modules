@@ -5,8 +5,8 @@ use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Response as IlluminateResponse;
 
-class ApiController extends Controller {
-
+class ApiController extends Controller
+{
     /**
      * The default limit for the pagination.
      *

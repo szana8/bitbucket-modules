@@ -1,9 +1,15 @@
-<?php namespace LaravelIssueTracker\Core;
+<?php
+namespace LaravelIssueTracker\Core;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class CoreServiceProvider
+ * @package LaravelIssueTracker\Core
+ */
 class CoreServiceProvider extends ServiceProvider
 {
+
     /**
      * Perform post-registration booting of services.
      *

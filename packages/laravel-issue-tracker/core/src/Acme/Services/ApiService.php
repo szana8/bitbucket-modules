@@ -1,6 +1,11 @@
-<?php namespace LaravelIssueTracker\Core\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Core\Acme\Services;
 
-
-class ApiService {
-
+/**
+ * Class ApiService
+ * @package LaravelIssueTracker\Core\Acme\Services
+ */
+class ApiService
+{
+    //
 }

@@ -1,10 +1,15 @@
-<?php namespace App\Acme\Services;
+<?php
+namespace App\Acme\Services;
 
 use Illuminate\Support\Facades\Auth;
 use App\Acme\Validators\LoginValidator;
 
-class LoginService {
-
+/**
+ * Class LoginService
+ * @package App\Acme\Services
+ */
+class LoginService
+{
     /**
      * @var LoginValidator
      */
@@ -27,7 +32,7 @@ class LoginService {
     public function authenticate($request)
     {
 
-        if( $this->loginValidator->isValid($request) )
+        if( $this->loginValidator->isValidForInsert($request) )
         {
             return Auth::attempt(['email' => $request['email'], 'password' => $request['password']]);
         }

@@ -1,11 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Controllers;
+<?php
+namespace LaravelIssueTracker\Authentication\Controllers;
 
 use Illuminate\Http\Request;
 use LaravelIssueTracker\Authentication\Acme\Services\GoogleAuthService;
 use LaravelIssueTracker\Authentication\Controllers\AbstractControllers\AuthenticationController;
 
-class GoogleAuthController extends AuthenticationController {
-
+/**
+ * Class GoogleAuthController
+ * @package LaravelIssueTracker\Authentication\Controllers
+ */
+class GoogleAuthController extends AuthenticationController
+{
     /**
      * @param GoogleAuthService $googleAuthService
      * @param Request $request

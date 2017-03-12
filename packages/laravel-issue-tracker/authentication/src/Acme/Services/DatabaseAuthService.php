@@ -1,12 +1,16 @@
-<?php namespace LaravelIssueTracker\Authentication\Acme\Services;
+<?php
+namespace LaravelIssueTracker\Authentication\Acme\Services;
 
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Authentication\Acme\Repositories\UserRepository;
-use LaravelIssueTracker\Authentication\Acme\Validators\AuthenticationValidator;
-use LaravelIssueTracker\Authentication\Acme\Validators\DatabaseAuthValidator;
 use LaravelIssueTracker\Authentication\Listeners\AuthenticateUserListener;
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
+use LaravelIssueTracker\Authentication\Acme\Validators\DatabaseAuthValidator;
+use LaravelIssueTracker\Authentication\Acme\Validators\AuthenticationValidator;
 
+/**
+ * Class DatabaseAuthService
+ * @package LaravelIssueTracker\Authentication\Acme\Services
+ */
 class DatabaseAuthService
 {
     /**
@@ -38,7 +42,7 @@ class DatabaseAuthService
      */
     public function authenticate($request)
     {
-        if( $this->databaseAuthValidator->isValid(Input::all()) )
+        if( $this->databaseAuthValidator->isValidForInsert(Input::all()) )
         {
             $databaseUser = $this->user->findByEmailAndPassword($request);
             if( isset($databaseUser->id) ) {

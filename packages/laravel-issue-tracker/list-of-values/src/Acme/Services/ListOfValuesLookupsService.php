@@ -1,13 +1,16 @@
 <?php
-
 namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
 use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidator;
 
-class ListOfValuesLookupsService {
-
+/**
+ * Class ListOfValuesLookupsService
+ * @package LaravelIssueTracker\ListOfValues\Acme\Services
+ */
+class ListOfValuesLookupsService
+{
     /**
      * @var ListOfValuesLookupsValidator
      */
@@ -29,7 +32,7 @@ class ListOfValuesLookupsService {
      */
     public function make(array $attributes)
     {
-        if( $this->validator->isValid($attributes) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
             $listOfValuesLookup = ListOfValuesLookups::create($attributes);
             event('ListOfValuesLookupsWasCreated', $listOfValuesLookup);
@@ -52,7 +55,7 @@ class ListOfValuesLookupsService {
             //
             foreach ( $attributes as $attribute )
             {
-                if ($this->validator->isValid($attribute, "update") ) {
+                if ($this->validator->isValidForUpdate($attribute) ) {
                     //Create a record if not exists else return the id of it.
                     $destroy[] = ListOfValuesLookups::firstOrCreate($attribute)->id;
                 }

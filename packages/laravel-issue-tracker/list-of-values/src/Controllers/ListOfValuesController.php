@@ -1,15 +1,20 @@
-<?php namespace LaravelIssueTracker\ListOfValues\Controllers;
+<?php
+namespace LaravelIssueTracker\ListOfValues\Controllers;
 
 use Illuminate\Support\Facades\Input;
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Core\Controller\ApiController;
-use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesLookupsService;
-use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesService;
-use LaravelIssueTracker\ListOfValues\Acme\Transformers\ListOfValuesTransformer;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
+use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesService;
+use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesLookupsService;
+use LaravelIssueTracker\ListOfValues\Acme\Transformers\ListOfValuesTransformer;
 
-class ListOfValuesController extends ApiController {
-
+/**
+ * Class ListOfValuesController
+ * @package LaravelIssueTracker\ListOfValues\Controllers
+ */
+class ListOfValuesController extends ApiController
+{
     /**
      * @var ListOfValuesTransformer
      */
@@ -32,8 +37,8 @@ class ListOfValuesController extends ApiController {
      */
     public function __construct(ListOfValuesTransformer $listOfValuesTransformer, ListOfValuesService $listOfValuesService, ListOfValuesLookupsService $listOfValuesLookupsService)
     {
-        $this->listOfValuesTransformer = $listOfValuesTransformer;
         $this->listOfValuesService = $listOfValuesService;
+        $this->listOfValuesTransformer = $listOfValuesTransformer;
         $this->listOfValuesLookupsService = $listOfValuesLookupsService;
     }
 
@@ -46,9 +51,9 @@ class ListOfValuesController extends ApiController {
     {
         $listOfValues = ListOfValues::with('lookups')
             ->where('name', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('datatype', 'like', '%' . \Request::get('search') . '%')
             ->orWhere('table', 'like', '%' . \Request::get('search') . '%')
             ->orWhere('column', 'like', '%' . \Request::get('search') . '%')
+            ->orWhere('datatype', 'like', '%' . \Request::get('search') . '%')
             ->paginate($this->limit);
 
         return $this->respond([
@@ -110,7 +115,8 @@ class ListOfValuesController extends ApiController {
             $this->listOfValuesService->update(Input::all(), $id);
 
             return $this->respondCreated('List of Value successfully updated!');
-        } catch ( ValidationException $e )
+        }
+        catch ( ValidationException $e )
         {
             return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
@@ -129,9 +135,11 @@ class ListOfValuesController extends ApiController {
             $this->listOfValuesService->destroy($id);
 
             return $this->respondCreated('List of Value successfully destroyed!');
-        } catch ( ValidationException $e )
+        }
+        catch ( ValidationException $e )
         {
             return $this->respondUnprocessable($e->getMessage());
         }
     }
+
 }

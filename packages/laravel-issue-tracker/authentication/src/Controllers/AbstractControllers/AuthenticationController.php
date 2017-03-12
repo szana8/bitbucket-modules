@@ -1,14 +1,21 @@
-<?php namespace LaravelIssueTracker\Authentication\Controllers\AbstractControllers;
+<?php
+namespace LaravelIssueTracker\Authentication\Controllers\AbstractControllers;
 
 use Illuminate\Http\Request;
-use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationInterface;
-use LaravelIssueTracker\Authentication\Acme\Services\AuthenticationService;
-use LaravelIssueTracker\Authentication\Listeners\AuthenticateUserListener;
 use LaravelIssueTracker\Core\Controller\ApiController;
+use LaravelIssueTracker\Authentication\Listeners\AuthenticateUserListener;
+use LaravelIssueTracker\Authentication\Acme\Services\AuthenticationService;
+use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationInterface;
 
-abstract class AuthenticationController extends ApiController implements AuthenticateUserListener {
-
+/**
+ * Class AuthenticationController
+ * @package LaravelIssueTracker\Authentication\Controllers\AbstractControllers
+ */
+abstract class AuthenticationController extends ApiController implements AuthenticateUserListener
+{
     /**
+     * Authenticate the user.
+     *
      * @param AuthenticationInterface $authenticationService
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
@@ -19,6 +26,8 @@ abstract class AuthenticationController extends ApiController implements Authent
     }
 
     /**
+     * Redirect the user to the root url.
+     *
      * @param $user
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */

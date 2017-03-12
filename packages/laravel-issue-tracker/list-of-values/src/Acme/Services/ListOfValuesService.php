@@ -1,5 +1,4 @@
 <?php
-
 namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
@@ -7,8 +6,12 @@ use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesValidator;
 
-class ListOfValuesService {
-
+/**
+ * Class ListOfValuesService
+ * @package LaravelIssueTracker\ListOfValues\Acme\Services
+ */
+class ListOfValuesService
+{
     /**
      * Constant value for the query type list of value.
      */
@@ -72,13 +75,17 @@ class ListOfValuesService {
         {
             if ( $attributes['old_datatype'] != $attributes['datatype'] )
             {
+                // If the data type has been changed we have to drop the old values
+
                 if ( $attributes['datatype'] == self::TYPE_QUERY )
                 {
-                    return $this->listToTable($attributes, $id);
+                    return $this->convertListToTable($attributes, $id);
                 }
 
-                return $this->tableToList($attributes, $id);
+                return $this->convertTableToList($attributes, $id);
             }
+
+            // We just update the tables if the data type is the same
 
             if ( $attributes['datatype'] == self::TYPE_QUERY )
                 return ListOfValues::find($id)->update($attributes);
@@ -128,7 +135,7 @@ class ListOfValuesService {
      * @param $id
      * @return mixed
      */
-    protected function listToTable($attributes, $id)
+    protected function convertListToTable($attributes, $id)
     {
         return \DB::transaction(function () use ($attributes, $id) {
 
@@ -149,7 +156,7 @@ class ListOfValuesService {
      * @param $id
      * @return mixed
      */
-    protected function tableToList($attributes, $id)
+    protected function convertTableToList($attributes, $id)
     {
         return \DB::transaction(function () use ($attributes, $id) {
 

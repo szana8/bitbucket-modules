@@ -1,7 +1,11 @@
-<?php namespace LaravelIssueTracker\Authentication\Policies;
+<?php
+namespace LaravelIssueTracker\Authentication\Policies;
 
-class AuthenticationPolicy {
-
+/**
+ * Class AuthenticationPolicy
+ * @package LaravelIssueTracker\Authentication\Policies
+ */
+class AuthenticationPolicy
+{
     //
-
 }

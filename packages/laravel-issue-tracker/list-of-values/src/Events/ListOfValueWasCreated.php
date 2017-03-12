@@ -1,11 +1,14 @@
 <?php
-
 namespace App\Modules\ListOfValues\Events;
 
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 
-class ListOfValueWasCreated {
-
+/**
+ * Class ListOfValueWasCreated
+ * @package App\Modules\ListOfValues\Events
+ */
+class ListOfValueWasCreated
+{
     use SerializesModels;
 
     /**
