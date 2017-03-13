@@ -86,7 +86,8 @@
                 login() {
                     this.form.post('{!! url('authenticate') !!}')
                         .then(data => {
-                            this.alert.setMessage(data.message).setType('success').showAlert().forceRefresh(5000);
+                            this.alert.setMessage(data.message).setType('success').showAlert();
+                            window.location.href = "{{ url('/') }}";
                         })
                         .catch(error => {
                             console.log(error);

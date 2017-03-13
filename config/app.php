@@ -186,12 +186,6 @@ return [
         ArtemSchander\L5Modular\ModuleServiceProvider::class,
 
         /*
-         * Laravel Issue Modules...
-         */
-        //LaravelIssueModules\Login\LoginServiceProvider::class,
-        //LaravelIssueModules\Dashboard\DashboardServiceProvider::class,
-
-        /*
          * Laravel Issue Packages...
         */
         LaravelIssueTracker\Core\CoreServiceProvider::class,

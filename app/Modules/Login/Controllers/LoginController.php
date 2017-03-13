@@ -49,7 +49,7 @@ class LoginController extends Controller {
         try
         {
             if ($this->loginService->authenticate($request->toArray()))
-                return redirect()->to('/');
+                return \Response::json(['message' => 'Login successfull'], 200);
         }
         catch(ValidationException $e) {
             return \Response::json(['error' => ['message' => $e->getMessage(), 'errors' => $e->getErrors()]], 500);
