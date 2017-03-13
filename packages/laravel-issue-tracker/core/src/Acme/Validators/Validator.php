@@ -41,7 +41,7 @@ abstract class Validator {
      */
     public function isValidForUpdate(array $attributes)
     {
-        return $this->isValid($attributes);
+        return $this->isValid($attributes, 'update');
     }
 
 

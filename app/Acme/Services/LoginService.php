@@ -3,6 +3,7 @@ namespace App\Acme\Services;
 
 use Illuminate\Support\Facades\Auth;
 use App\Acme\Validators\LoginValidator;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
 /**
  * Class LoginService
@@ -31,12 +32,11 @@ class LoginService
      */
     public function authenticate($request)
     {
-
         if( $this->loginValidator->isValidForInsert($request) )
         {
             return Auth::attempt(['email' => $request['email'], 'password' => $request['password']]);
         }
 
-        return $this->loginValidator->getErrors();
+        throw new ValidationException('Invalid username or password', $this->loginValidator->getErrors());
     }
 }

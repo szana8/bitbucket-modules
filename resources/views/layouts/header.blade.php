@@ -12,7 +12,7 @@
     <script src='https://unpkg.com/vue@latest'></script>
     <script src='https://unpkg.com/vue-material@latest'></script>
 
-    {{ Html::script('js/vendor.js') }}
+    {{-- Html::script('js/vendor.js') --}}
     {{ Html::script('js/app.js') }}
     {{-- Html::script('js/components.js') --}}
 
@@ -22,6 +22,8 @@
     {{-- Html::style('css/extension.css') --}}
 
     <script type="text/javascript">
+        Vue.use(VueMaterial);
+
         $.ajaxSetup({
             headers: {'X-XSRF-TOKEN': $('meta[name=_token]').attr('content')}
         });

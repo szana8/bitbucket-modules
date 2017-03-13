@@ -6,6 +6,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Acme\Services\LoginService;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
 
 class LoginController extends Controller {
@@ -45,10 +46,14 @@ class LoginController extends Controller {
      */
     public function authenticate(Request $request)
     {
-        if( $this->loginService->authenticate($request->toArray()) )
-            return redirect()->to('/');
-
-        return redirect()->back()->withErrors('Invalid username or password!');
+        try
+        {
+            if ($this->loginService->authenticate($request->toArray()))
+                return redirect()->to('/');
+        }
+        catch(ValidationException $e) {
+            return \Response::json(['error' => ['message' => $e->getMessage(), 'errors' => $e->getErrors()]], 500);
+        }
     }
 
     /**

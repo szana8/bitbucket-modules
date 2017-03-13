@@ -15,6 +15,18 @@ class ProfileValidator extends Validator {
             'type'    => 'required',
             'name'    => 'required',
         ],
+
+        'make' => [
+            'user_id' => 'required',
+            'type'    => 'required',
+            'name'    => 'required',
+        ],
+
+        'update' => [
+            'user_id' => 'required',
+            'type'    => 'required',
+            'name'    => 'required',
+        ],
     ];
 
 }

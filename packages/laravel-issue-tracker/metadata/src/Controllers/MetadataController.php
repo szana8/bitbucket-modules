@@ -68,7 +68,7 @@ class MetadataController extends ApiController {
             return $this->respondCreated('Metadata successfully created!');
         }
         catch (ValidationException $e) {
-            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
+            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors(), 'status_code' => 500]);
         }
     }
 

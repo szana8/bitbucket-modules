@@ -19,6 +19,22 @@ class ProjectValidator extends Validator {
             "enabled"     => "required|in:Y,N",
         ],
 
+        'make' => [
+            "name"        => "required|max:100|unique:projects",
+            "key"         => "required|max:5|unique:projects",
+            "type"        => "required|integer",
+            "description" => "required",
+            "enabled"     => "required|in:Y,N",
+        ],
+
+        'update' => [
+            "name"        => "required|max:100",
+            "key"         => "required|max:5",
+            "type"        => "required|integer",
+            "description" => "required",
+            "enabled"     => "required|in:Y,N",
+        ],
+
     ];
 
 }

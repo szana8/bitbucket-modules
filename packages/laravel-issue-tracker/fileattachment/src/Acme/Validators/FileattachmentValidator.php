@@ -14,8 +14,15 @@ class FileattachmentValidator extends Validator
 
         'default' => [
 
-        ]
+        ],
 
+        'make' => [
+
+        ],
+
+        'update' => [
+
+        ]
     ];
 
 }

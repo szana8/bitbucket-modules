@@ -7,4 +7,11 @@
 
         </md-toolbar>
     </div>
+
+    <script>
+        new Vue({
+            el: '#navbar_menu'
+        });
+    </script>
+
 @endsection

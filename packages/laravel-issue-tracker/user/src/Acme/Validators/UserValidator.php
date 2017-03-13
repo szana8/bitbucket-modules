@@ -14,6 +14,14 @@ class UserValidator extends Validator {
         'default' => [
             'email' => 'required',
         ],
+
+        'make' => [
+            'email' => 'required',
+        ],
+
+        'update' => [
+            'email' => 'required',
+        ]
     ];
 
     /**

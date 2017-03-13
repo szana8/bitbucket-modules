@@ -20425,6 +20425,8 @@ window.Helpers = __WEBPACK_IMPORTED_MODULE_7__classes_Helpers_js__["a" /* defaul
 
 window.ModalHelper = __WEBPACK_IMPORTED_MODULE_8__classes_ModalHelper_js__["a" /* default */];
 
+__WEBPACK_IMPORTED_MODULE_0_vue___default.a.use(VueMaterial);
+
 window.module = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('module', __WEBPACK_IMPORTED_MODULE_2__components_VueModule_vue___default.a);
 window.modal = __WEBPACK_IMPORTED_MODULE_0_vue___default.a.component('modal', __WEBPACK_IMPORTED_MODULE_3__components_VueModal_vue___default.a);
 

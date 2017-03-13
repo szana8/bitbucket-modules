@@ -17,7 +17,11 @@ class AuthenticationValidator extends Validator
             'email' => 'required'
         ],
 
-        'store' => [
+        'make' => [
+            'email' => 'required|unique'
+        ],
+
+        'update' => [
             'email' => 'required'
         ]
     ];

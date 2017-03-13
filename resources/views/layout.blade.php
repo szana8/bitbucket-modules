@@ -5,8 +5,9 @@
     </head>
 
     <body>
+        @yield('navbar')
+
         <div id="app">
-            @yield('navbar')
             <md-layout>
                 @yield('content')
             </md-layout>

@@ -18,6 +18,16 @@ class WatcherValidator extends Validator
             'issue_id' => 'required|integer',
             'user_id'  => 'required|integer',
         ],
+
+        'make' => [
+            'issue_id' => 'required|integer',
+            'user_id'  => 'required|integer',
+        ],
+
+        'update' => [
+            'issue_id' => 'required|integer',
+            'user_id'  => 'required|integer',
+        ],
     ];
 
 }

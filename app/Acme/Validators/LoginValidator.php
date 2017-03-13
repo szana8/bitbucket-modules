@@ -17,6 +17,12 @@ class LoginValidator extends Validator
             'email'    => 'required',
             'password' => 'required',
         ],
+
+        'make' => [
+            'email'    => 'required',
+            'password' => 'required',
+        ]
+
     ];
 
 }
