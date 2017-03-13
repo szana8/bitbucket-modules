@@ -162,13 +162,14 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        \Collective\Html\HtmlServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
 
         JeroenG\Packager\PackagerServiceProvider::class,
-        \Laravel\Socialite\SocialiteServiceProvider::class,
+        Laravel\Socialite\SocialiteServiceProvider::class,
         Alexsoft\LaravelSocialiteBitbucket\Provider::class,
 
         /*
@@ -180,28 +181,28 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        \Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+        Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         ArtemSchander\L5Modular\ModuleServiceProvider::class,
 
         /*
          * Laravel Issue Modules...
          */
-        //\LaravelIssueModules\Login\LoginServiceProvider::class,
-        //\LaravelIssueModules\Dashboard\DashboardServiceProvider::class,
+        //LaravelIssueModules\Login\LoginServiceProvider::class,
+        //LaravelIssueModules\Dashboard\DashboardServiceProvider::class,
 
         /*
          * Laravel Issue Packages...
         */
-        \LaravelIssueTracker\Core\CoreServiceProvider::class,
-        \LaravelIssueTracker\Metadata\MetadataServiceProvider::class,
-        \LaravelIssueTracker\User\UserServiceProvider::class,
-        \LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
-        \LaravelIssueTracker\ListOfValues\ListOfValuesServiceProvider::class,
-        \LaravelIssueTracker\Project\ProjectServiceProvider::class,
-        \LaravelIssueTracker\Issue\IssueServiceProvider::class,
-        \LaravelIssueTracker\Fileattachment\FileattachmentServiceProvider::class,
-        \LaravelIssueTracker\Watcher\WatcherServiceProvider::class,
+        LaravelIssueTracker\Core\CoreServiceProvider::class,
+        LaravelIssueTracker\Metadata\MetadataServiceProvider::class,
+        LaravelIssueTracker\User\UserServiceProvider::class,
+        LaravelIssueTracker\Authentication\AuthenticationServiceProvider::class,
+        LaravelIssueTracker\ListOfValues\ListOfValuesServiceProvider::class,
+        LaravelIssueTracker\Project\ProjectServiceProvider::class,
+        LaravelIssueTracker\Issue\IssueServiceProvider::class,
+        LaravelIssueTracker\Fileattachment\FileattachmentServiceProvider::class,
+        LaravelIssueTracker\Watcher\WatcherServiceProvider::class,
     ],
 
     /*
@@ -252,8 +253,8 @@ return [
         'Form'         => Collective\Html\FormFacade::class,
         'Html'         => Collective\Html\HtmlFacade::class,
 
-        'Socialite' => \Laravel\Socialite\Facades\Socialite::class,
-        'Menu'      => Lavary\Menu\Facade::class,
+        'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
+        'Menu'         => Lavary\Menu\Facade::class,
     ],
 
 ];
