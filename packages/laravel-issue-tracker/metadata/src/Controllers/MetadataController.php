@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 use LaravelIssueTracker\Metadata\Models\Metadata;
 use LaravelIssueTracker\Core\Controller\ApiController;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Metadata\Acme\Services\MetadataCreatorService;
 use LaravelIssueTracker\Metadata\Acme\Transformers\MetadataTransformer;
@@ -47,11 +48,13 @@ class MetadataController extends ApiController {
                             ->orWhere('value', 'like', '%' . Request::get('search') . '%')
                             ->paginate($this->limit);
 
-        return $this->respond([
-            'data' => $this->metadataTransformer->transformCollection($metadata->all()),
-            'pagination' => (string) $metadata->appends(Request::only('search'))->links()
-        ]);
+        $metadataCollection = $metadata->getCollection();
 
+        return fractal()
+            ->collection($metadataCollection)
+            ->transformWith(new MetadataTransformer)
+            ->paginateWith(new IlluminatePaginatorAdapter($metadata))
+            ->toArray();
     }
 
     /**
@@ -80,14 +83,17 @@ class MetadataController extends ApiController {
      */
     public function show($id)
     {
-        if( ! Metadata::find($id)->exists() )
+        $metadata = Metadata::find($id);
+
+        if( ! $metadata )
         {
             return $this->respondNotFound('Metadata does not exist');
         }
 
-        return $this->respond([
-            'data' => $this->metadataTransformer->transform(Metadata::find($id))
-        ]);
+        return fractal()
+            ->item($metadata)
+            ->transformWith(new MetadataTransformer)
+            ->toArray();
     }
 
     /**
@@ -127,5 +133,4 @@ class MetadataController extends ApiController {
             return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
         }
     }
-
 }

@@ -1,19 +1,21 @@
 <?php
 namespace LaravelIssueTracker\Metadata\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use League\Fractal\TransformerAbstract;
+use LaravelIssueTracker\Metadata\Models\Metadata;
 
-class MetadataTransformer extends Transformer {
+class MetadataTransformer extends TransformerAbstract
+{
 
     /**
      * Transformer function for the Metadata.
      *
-     * @param $item
+     * @param Metadata $metadata
      * @return mixed
      */
-    public function transform($item)
+    public function transform(Metadata $metadata)
     {
-        return $item;
+        return $metadata->toArray();
     }
 
 }
