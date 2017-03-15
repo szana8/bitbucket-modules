@@ -1,47 +1,47 @@
 <?php
 namespace LaravelIssueTracker\Issue\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use LaravelIssueTracker\Issue\Models\Issue;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class IssueTransformer
  * @package LaravelIssueTracker\Issue\Acme\Transformers
  */
-class IssueTransformer extends Transformer
+class IssueTransformer extends TransformerAbstract
 {
 
     /**
-     * @param $item
+     * @param Issue $issue
      * @return mixed
      */
-    public function transform($item)
+    public function transform(Issue $issue)
     {
-
         return [
-            'id'                     => $item['id'],
-            'issue_number'           => $item['issue_number'],
-            'issue_type'             => $item['issue_type'],
-            'summary'                => $item['summary'],
-            'description'            => $item['description'],
-            'enviroment'             => $item['enviroment'],
-            'priority'               => $item['priority'],
-            'score'                  => $item['score'],
-            'resolution'             => $item['resolution'],
-            'issue_status'           => $item['issue_status'],
-            'resolution_date'        => $item['resolution_date'],
-            'time_original_estimate' => $item['time_original_estimate'],
-            'time_estimate'          => $item['time_estimate'],
-            'time_spent'             => $item['time_spent'],
-            'workflow_id'            => $item['workflow_id'],
-            'created_at'             => $item['created_at'],
-            'updated_at'             => $item['updated_at'],
+            'id'                     => $issue->id,
+            'issue_number'           => $issue->issue_number,
+            'issue_type'             => $issue->issue_type,
+            'summary'                => $issue->summary,
+            'description'            => $issue->description,
+            'enviroment'             => $issue->enviroment,
+            'priority'               => $issue->priority,
+            'score'                  => $issue->score,
+            'resolution'             => $issue->resolution,
+            'issue_status'           => $issue->issue_status,
+            'resolution_date'        => $issue->resolution_date,
+            'time_original_estimate' => $issue->time_original_estimate,
+            'time_estimate'          => $issue->time_estimate,
+            'time_spent'             => $issue->time_spent,
+            'workflow_id'            => $issue->workflow_id,
+            'created_at'             => $issue->created_at,
+            'updated_at'             => $issue->updated_at,
             'assignee'               => [
-                'id'    => $item['assignee']['id'],
-                'email' => $item['assignee']['email'],
+                'id'    => $issue->assignee->id,
+                'email' => $issue->assignee->email,
             ],
             'reporter'               => [
-                'id'    => $item['reporter']['id'],
-                'email' => $item['reporter']['email'],
+                'id'    => $issue->reporter->id,
+                'email' => $issue->reporter->email,
             ],
         ];
     }

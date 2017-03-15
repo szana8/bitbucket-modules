@@ -1,11 +1,13 @@
 <?php
 namespace LaravelIssueTracker\Fileattachment\Acme\Transformers;
 
+use League\Fractal\TransformerAbstract;
+
 /**
  * Class FileattachmentTransformer
  * @package LaravelIssueTracker\Fileattachment\Acme\Transformers
  */
-class FileattachmentTransformer
+class FileattachmentTransformer extends TransformerAbstract
 {
 
     /**

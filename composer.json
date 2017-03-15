@@ -10,7 +10,8 @@
         "laravel/socialite": "^2.0",
         "alexsoft/laravel-socialite-bitbucket": "^1.0",
         "laravelcollective/html": "^5.4",
-        "lavary/laravel-menu": "dev-master"
+        "lavary/laravel-menu": "dev-master",
+        "spatie/laravel-fractal": "^3.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -184,6 +184,7 @@ return [
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Lavary\Menu\ServiceProvider::class,
         ArtemSchander\L5Modular\ModuleServiceProvider::class,
+        Spatie\Fractal\FractalServiceProvider::class,
 
         /*
          * Laravel Issue Packages...
@@ -248,6 +249,7 @@ return [
         'Html'         => Collective\Html\HtmlFacade::class,
 
         'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
+        'Fractal'      => Spatie\Fractal\FractalFacade::class,
         'Menu'         => Lavary\Menu\Facade::class,
     ],
 

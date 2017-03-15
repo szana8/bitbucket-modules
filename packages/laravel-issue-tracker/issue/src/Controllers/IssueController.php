@@ -1,11 +1,14 @@
 <?php
 namespace LaravelIssueTracker\Issue\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Issue\Models\Issue;
 use LaravelIssueTracker\Core\Controller\ApiController;
 use LaravelIssueTracker\Issue\Acme\Services\IssueCreatorService;
 use LaravelIssueTracker\Issue\Acme\Transformers\IssueTransformer;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
 
 /**
  * Class IssueController
@@ -44,11 +47,13 @@ class IssueController extends ApiController
     {
         //, 'comments', 'watchers', 'attachments', 'transitions'
         $issue = Issue::with('reporter', 'assignee')->paginate($this->limit);
+        $issueCollection = $issue->getCollection();
 
-        return $this->respond([
-            'data' => $this->issueTransformer->transformCollection($issue->all())
-        ]);
-
+        return fractal()
+            ->collection($issueCollection)
+            ->transformWith(new IssueTransformer)
+            ->paginateWith(new IlluminatePaginatorAdapter($issue))
+            ->toArray();
     }
 
     /**
@@ -84,9 +89,10 @@ class IssueController extends ApiController
             return $this->respondNotFound('Issue does not exist');
         }
 
-        return $this->respond([
-            'data' => $this->issueTransformer->transform($issue)
-        ]);
+        return fractal()
+            ->item($issue)
+            ->transformWith(new IssueTransformer)
+            ->toArray();
     }
 
     /**
@@ -124,5 +130,4 @@ class IssueController extends ApiController
             return $this->respondUnprocessable($e->getMessage());
         }
     }
-
 }
