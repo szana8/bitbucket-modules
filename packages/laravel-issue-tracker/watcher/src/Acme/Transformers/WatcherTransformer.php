@@ -1,21 +1,22 @@
 <?php
 namespace LaravelIssueTracker\Watcher\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use League\Fractal\TransformerAbstract;
+use LaravelIssueTracker\Watcher\Models\Watcher;
 
 /**
  * Class WatcherTransformer
  * @package LaravelIssueTracker\Watcher\Acme\Transformers
  */
-class WatcherTransformer extends Transformer
+class WatcherTransformer extends TransformerAbstract
 {
 
     /**
-     * @param $item
-     * @return mixed
+     * @param Watcher $watcher
+     * @return Watcher
      */
-    public function transform($item)
+    public function transform(Watcher $watcher)
     {
-        return $item;
+        return $watcher->toArray();
     }
 }

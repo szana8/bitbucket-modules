@@ -3,6 +3,7 @@ namespace LaravelIssueTracker\Watcher\Acme\Services;
 
 use LaravelIssueTracker\Watcher\Models\Watcher;
 use LaravelIssueTracker\Watcher\Acme\Validators\WatcherValidator;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
 /**
  * Class WatcherCreatorService

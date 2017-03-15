@@ -1,21 +1,22 @@
 <?php
 namespace LaravelIssueTracker\Project\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use LaravelIssueTracker\Project\Models\Project;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class ProjectTransformer
  * @package LaravelIssueTracker\Project\Acme\Transformers
  */
-class ProjectTransformer extends Transformer
+class ProjectTransformer extends TransformerAbstract
 {
 
     /**
-     * @param $item
+     * @param Project $project
      * @return mixed
      */
-    public function transform($item)
+    public function transform(Project $project)
     {
-        return $item;
+        return $project;
     }
 }

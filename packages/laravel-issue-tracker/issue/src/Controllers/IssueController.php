@@ -46,13 +46,13 @@ class IssueController extends ApiController
     public function index()
     {
         //, 'comments', 'watchers', 'attachments', 'transitions'
-        $issue = Issue::with('reporter', 'assignee')->paginate($this->limit);
-        $issueCollection = $issue->getCollection();
+        $issues = Issue::with('reporter', 'assignee')->paginate($this->limit);
+        $issuesCollection = $issues->getCollection();
 
         return fractal()
-            ->collection($issueCollection)
+            ->collection($issuesCollection)
             ->transformWith(new IssueTransformer)
-            ->paginateWith(new IlluminatePaginatorAdapter($issue))
+            ->paginateWith(new IlluminatePaginatorAdapter($issues))
             ->toArray();
     }
 

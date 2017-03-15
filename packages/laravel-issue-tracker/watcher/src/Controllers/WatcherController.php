@@ -1,9 +1,12 @@
 <?php
 namespace LaravelIssueTracker\Watcher\Controllers;
 
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Watcher\Models\Watcher;
 use LaravelIssueTracker\Core\Controller\ApiController;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Watcher\Acme\Services\WatcherCreatorService;
 use LaravelIssueTracker\Watcher\Acme\Transformers\WatcherTransformer;
 
@@ -43,12 +46,14 @@ class WatcherController extends ApiController
      */
     public function index($issueId)
     {
-        $watcher = Watcher::where('issue_id', $issueId)->paginate($this->limit);
+        $watchers = Watcher::where('issue_id', $issueId)->paginate($this->limit);
+        $watchersCollection = $watchers->getCollection();
 
-        return $this->respond([
-            'data' => $this->watcherTransformer->transformCollection($watcher->all())
-        ]);
-
+        return fractal()
+            ->collection($watchersCollection)
+            ->transformWith(new WatcherTransformer)
+            ->paginateWith(new IlluminatePaginatorAdapter($watchers))
+            ->toArray();
     }
 
     /**

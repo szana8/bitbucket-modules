@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Project\Models\Project;
 use LaravelIssueTracker\Core\Controller\ApiController;
+use League\Fractal\Pagination\IlluminatePaginatorAdapter;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Project\Acme\Services\ProjectCreatorService;
 use LaravelIssueTracker\Project\Acme\Transformers\ProjectTransformer;
 
@@ -44,11 +46,14 @@ class ProjectController extends ApiController
      */
     public function index()
     {
-        $project = Project::paginate($this->limit);
+        $projects = Project::paginate($this->limit);
+        $projectCollection = $projects->getCollection();
 
-        return $this->respond([
-            'data' => $this->projectTransformer->transformCollection($project->all())
-        ]);
+        return fractal()
+            ->collection($projectCollection)
+            ->transformWith(new ProjectTransformer)
+            ->paginateWith(new IlluminatePaginatorAdapter($projects))
+            ->toArray();
     }
 
     /**
@@ -83,9 +88,10 @@ class ProjectController extends ApiController
             return $this->respondNotFound('Project does not exist');
         }
 
-        return $this->respond([
-            'data' => $this->projectTransformer->transform($project)
-        ]);
+        return fractal()
+            ->item($project)
+            ->transformWith(new ProjectTransformer)
+            ->toArray();
     }
 
     /**
@@ -123,5 +129,4 @@ class ProjectController extends ApiController
             return $this->respondUnprocessable($e->getMessage());
         }
     }
-
 }
