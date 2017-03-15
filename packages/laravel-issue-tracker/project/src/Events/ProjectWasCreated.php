@@ -10,7 +10,7 @@ class ProjectWasCreated
     use SerializesModels;
 
     /**
-     * @var Profile
+     * @var Project
      */
     protected $project;
 

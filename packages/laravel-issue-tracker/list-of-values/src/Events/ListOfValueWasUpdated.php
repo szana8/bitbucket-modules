@@ -1,6 +1,7 @@
 <?php
 namespace App\Modules\ListOfValues\Events;
 
+use Illuminate\Queue\SerializesModels;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 
 /**
@@ -12,7 +13,7 @@ class ListOfValueWasUpdated
     use SerializesModels;
 
     /**
-     * @var
+     * @var ListOfValues
      */
     private $listOfValue;
 

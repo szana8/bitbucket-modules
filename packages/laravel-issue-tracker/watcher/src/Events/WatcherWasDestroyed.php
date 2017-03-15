@@ -7,8 +7,9 @@ use LaravelIssueTracker\Watcher\Models\Watcher;
 class WatcherWasDestroyed {
 
     use SerializesModels;
+
     /**
-     * @var metadata
+     * @var Watcher
      */
     protected $watcher;
 

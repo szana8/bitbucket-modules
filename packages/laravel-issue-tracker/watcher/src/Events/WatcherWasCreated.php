@@ -8,7 +8,7 @@ class WatcherWasCreated {
 
     use SerializesModels;
     /**
-     * @var metadata
+     * @var Watcher
      */
     protected $watcher;
 

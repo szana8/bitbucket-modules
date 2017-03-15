@@ -10,11 +10,10 @@ use LaravelIssueTracker\Issue\Models\Issue;
  */
 class IssueWasCreated
 {
-
     use SerializesModels;
 
     /**
-     * @var issue
+     * @var Issue
      */
     protected $issue;
 

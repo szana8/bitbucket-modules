@@ -10,7 +10,7 @@ class MetadataWasUpdated
     use SerializesModels;
 
     /**
-     * @var metadata
+     * @var Metadata
      */
     private $metadata;
 

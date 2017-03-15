@@ -14,7 +14,7 @@ class UserWasDestroyed
     use SerializesModels;
 
     /**
-     * @var Comment
+     * @var User
      */
     private $user;
 

@@ -14,7 +14,7 @@ class UserWasUpdated
     use SerializesModels;
 
     /**
-     * @var Comment
+     * @var User
      */
     private $user;
 

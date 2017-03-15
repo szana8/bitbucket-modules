@@ -10,7 +10,7 @@ class MetadataWasDestroyed
     use SerializesModels;
 
     /**
-     * @var metadata
+     * @var Metadata
      */
     public $metadata;
 
