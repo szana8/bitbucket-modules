@@ -2,24 +2,24 @@
 namespace LaravelIssueTracker\Authentication\Acme\Transformers;
 
 use Laravel\Socialite\Contracts\User;
-use LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface\SocialiteTransformerInterface;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class FacebookAuthTransformer
  * @package LaravelIssueTracker\Authentication\Acme\Transformers
  */
-class FacebookAuthTransformer implements SocialiteTransformerInterface
+class FacebookAuthTransformer extends TransformerAbstract
 {
     /**
-     * @param User $facebookUser
-     * @return \stdClass
+     * @param User $user
+     * @return mixed
      */
-    public function transform(User $facebookUser)
+    public function transform(User $user)
     {
         return [
-            'email' => $facebookUser->email,
+            'email' => $user->email,
             'profile' => [
-                'name' => $facebookUser->name,
+                'name' => $user->name,
                 'type' => 'facebook'
             ]
         ];

@@ -3,6 +3,7 @@ namespace LaravelIssueTracker\Issue\Acme\Services;
 
 use LaravelIssueTracker\Issue\Models\Issue;
 use LaravelIssueTracker\Issue\Acme\Validators\IssueValidator;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
 /**
  * Class IssueCreatorService

@@ -2,9 +2,9 @@
 namespace LaravelIssueTracker\Authentication\Acme\Transformers;
 
 use Laravel\Socialite\Contracts\User;
-use LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface\SocialiteTransformerInterface;
+use League\Fractal\TransformerAbstract;
 
-class DatabaseAuthTransformer implements SocialiteTransformerInterface
+class DatabaseAuthTransformer extends TransformerAbstract
 {
     /**
      * @param User $user

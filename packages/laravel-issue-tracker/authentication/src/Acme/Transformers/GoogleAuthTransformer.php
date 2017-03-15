@@ -2,24 +2,24 @@
 namespace LaravelIssueTracker\Authentication\Acme\Transformers;
 
 use Laravel\Socialite\Contracts\User;
-use LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface\SocialiteTransformerInterface;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class GoogleAuthTransformer
  * @package LaravelIssueTracker\Authentication\Acme\Transformers
  */
-class GoogleAuthTransformer implements SocialiteTransformerInterface
+class GoogleAuthTransformer extends TransformerAbstract
 {
     /**
-     * @param User $googleUser
-     * @return \stdClass
+     * @param User $user
+     * @return mixed
      */
-    public function transform(User $googleUser)
+    public function transform(User $user)
     {
         return [
-            'email' => $googleUser->email,
+            'email' => $user->email,
             'profile' => [
-                'name' => $googleUser->nickname,
+                'name' => $user->nickname,
                 'type' => 'google'
             ]
         ];

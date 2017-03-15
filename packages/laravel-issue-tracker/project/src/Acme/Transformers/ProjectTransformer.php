@@ -1,8 +1,8 @@
 <?php
 namespace LaravelIssueTracker\Project\Acme\Transformers;
 
-use LaravelIssueTracker\Project\Models\Project;
 use League\Fractal\TransformerAbstract;
+use LaravelIssueTracker\Project\Models\Project;
 
 /**
  * Class ProjectTransformer

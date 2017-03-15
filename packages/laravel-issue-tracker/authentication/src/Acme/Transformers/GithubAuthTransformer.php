@@ -2,24 +2,24 @@
 namespace LaravelIssueTracker\Authentication\Acme\Transformers;
 
 use Laravel\Socialite\Contracts\User;
-use LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface\SocialiteTransformerInterface;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class GithubAuthTransformer
  * @package LaravelIssueTracker\Authentication\Acme\Transformers
  */
-class GithubAuthTransformer implements SocialiteTransformerInterface
+class GithubAuthTransformer extends TransformerAbstract
 {
     /**
-     * @param User $githubUser
-     * @return \stdClass
+     * @param User $user
+     * @return mixed
      */
-    public function transform(User $githubUser)
+    public function transform(User $user)
     {
         return [
-            'email' => $githubUser->email,
+            'email' => $user->email,
             'profile' => [
-                'name' => $githubUser->nickname,
+                'name' => $user->nickname,
                 'type' => 'github'
             ]
         ];

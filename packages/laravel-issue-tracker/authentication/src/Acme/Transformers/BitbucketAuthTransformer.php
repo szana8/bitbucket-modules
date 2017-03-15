@@ -2,24 +2,24 @@
 namespace LaravelIssueTracker\Authentication\Acme\Transformers;
 
 use Laravel\Socialite\Contracts\User;
-use LaravelIssueTracker\Authentication\Acme\Transformers\SocialiteInterface\SocialiteTransformerInterface;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class BitbucketAuthTransformer
  * @package LaravelIssueTracker\Authentication\Acme\Transformers
  */
-class BitbucketAuthTransformer implements SocialiteTransformerInterface
+class BitbucketAuthTransformer extends TransformerAbstract
 {
     /**
-     * @param User $bitbucketUser
-     * @return \stdClass
+     * @param User $user
+     * @return mixed
      */
-    public function transform(User $bitbucketUser)
+    public function transform(User $user)
     {
         return [
-            'email' => $bitbucketUser->email,
+            'email' => $user->email,
             'profile' => [
-                'name' => $bitbucketUser->name,
+                'name' => $user->name,
                 'type' => 'bitbucket'
             ]
         ];

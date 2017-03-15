@@ -4,6 +4,7 @@ namespace LaravelIssueTracker\Project\Acme\Services;
 use LaravelIssueTracker\User\Models\Profile;
 use LaravelIssueTracker\Project\Models\Project;
 use LaravelIssueTracker\Project\Acme\Validators\ProjectValidator;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
 /**
  * Class ProjectCreatorService

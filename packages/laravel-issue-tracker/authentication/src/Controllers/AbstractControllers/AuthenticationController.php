@@ -2,16 +2,15 @@
 namespace LaravelIssueTracker\Authentication\Controllers\AbstractControllers;
 
 use Illuminate\Http\Request;
-use LaravelIssueTracker\Core\Controller\ApiController;
+use Illuminate\Routing\Controller;
 use LaravelIssueTracker\Authentication\Listeners\AuthenticateUserListener;
-use LaravelIssueTracker\Authentication\Acme\Services\AuthenticationService;
 use LaravelIssueTracker\Authentication\Acme\Services\AbstractServices\AuthenticationInterface;
 
 /**
  * Class AuthenticationController
  * @package LaravelIssueTracker\Authentication\Controllers\AbstractControllers
  */
-abstract class AuthenticationController extends ApiController implements AuthenticateUserListener
+abstract class AuthenticationController extends Controller implements AuthenticateUserListener
 {
     /**
      * Authenticate the user.

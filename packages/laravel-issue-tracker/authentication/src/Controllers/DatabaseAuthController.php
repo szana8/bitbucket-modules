@@ -33,13 +33,10 @@ class DatabaseAuthController extends AuthenticationController
     {
         $respond = $this->databaseAuthService->authenticate($request);
 
-        if( $respond === true)
-        {
-            return $this->respondCreated('User successfully logged in!');
-        }
-        else
-        {
-            return $this->setStatusCode(401)->respond($respond);
+        if( $respond === true) {
+            return response('User successfully logged in!', 201);
+        } else {
+            return response($respond, 401);
         }
     }
 
