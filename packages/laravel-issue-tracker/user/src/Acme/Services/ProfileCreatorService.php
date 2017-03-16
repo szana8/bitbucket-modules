@@ -2,6 +2,7 @@
 namespace LaravelIssueTracker\User\Acme\Services;
 
 use LaravelIssueTracker\User\Models\Profile;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\User\Acme\Validators\ProfileValidator;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
@@ -9,7 +10,7 @@ use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
  * Class ProfileCreatorService
  * @package LaravelIssueTracker\User\Acme\Services
  */
-class ProfileCreatorService
+class ProfileCreatorService extends ApiService
 {
 
     /**

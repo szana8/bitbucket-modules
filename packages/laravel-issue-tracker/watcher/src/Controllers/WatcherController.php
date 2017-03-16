@@ -1,12 +1,9 @@
 <?php
 namespace LaravelIssueTracker\Watcher\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Watcher\Models\Watcher;
 use LaravelIssueTracker\Core\Controller\ApiController;
-use League\Fractal\Pagination\IlluminatePaginatorAdapter;
-use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
+use LaravelIssueTracker\Watcher\Acme\Validators\WatcherValidator;
 use LaravelIssueTracker\Watcher\Acme\Services\WatcherCreatorService;
 use LaravelIssueTracker\Watcher\Acme\Transformers\WatcherTransformer;
 
@@ -16,97 +13,33 @@ use LaravelIssueTracker\Watcher\Acme\Transformers\WatcherTransformer;
  */
 class WatcherController extends ApiController
 {
-
     /**
-     * @var WatcherTransformer
-     */
-    protected $watcherTransformer;
-
-    /**
-     * @var WatcherCreatorService
-     */
-    protected $watcherCreatorService;
-
-    /**
-     * WatcherController constructor.
-     * @param WatcherTransformer $watcherTransformer
-     * @param WatcherCreatorService $watcherCreatorService
-     */
-    public function __construct(WatcherTransformer $watcherTransformer, WatcherCreatorService $watcherCreatorService)
-    {
-        $this->watcherTransformer = $watcherTransformer;
-        $this->watcherCreatorService = $watcherCreatorService;
-    }
-
-
-    /**
-     * Display a listing of the resource.
+     * Eloquent model.
      *
-     * @return Response
+     * @return \Illuminate\Database\Eloquent\Model
      */
-    public function index($issueId)
+    protected function model()
     {
-        $watchers = Watcher::where('issue_id', $issueId)->paginate($this->limit);
-        $watchersCollection = $watchers->getCollection();
-
-        return fractal()
-            ->collection($watchersCollection)
-            ->transformWith(new WatcherTransformer)
-            ->paginateWith(new IlluminatePaginatorAdapter($watchers))
-            ->toArray();
+        return new Watcher;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Transformer for the current model.
      *
-     * @return Response
+     * @return \League\Fractal\TransformerAbstract
      */
-    public function store()
+    protected function transformer()
     {
-        try {
-            //$this->authorize('store');
-            $this->watcherCreatorService->make(Input::all());
-            return $this->respondCreated('Watcher successfully created!');
-        }
-        catch (ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
-        }
+        return new WatcherTransformer;
     }
 
     /**
-     * Update the specified resource in storage.
+     * Service for the REST actions.
      *
-     * @param Request $request
-     * @param  int $id
-     * @return Response
+     * @return \LaravelIssueTracker\Core\Acme\Services\ApiService
      */
-    public function update(Request $request, $id)
+    protected function service()
     {
-        try {
-            //$this->authorize('update', Metadata::find($id));
-            $this->watcherCreatorService->update(Input::all(), $id);
-            return $this->respondCreated('Watcher successfully updated!');
-        }
-        catch(ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
-        }
+        return new WatcherCreatorService(new WatcherValidator);
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
-    {
-        try {
-            $this->watcherCreatorService->destroy($id);
-            return $this->respondCreated('Watcher successfully destroyed!');
-        }
-        catch(ValidationException $e) {
-            return $this->respondUnprocessable($e->getMessage());
-        }
-    }
-
 }

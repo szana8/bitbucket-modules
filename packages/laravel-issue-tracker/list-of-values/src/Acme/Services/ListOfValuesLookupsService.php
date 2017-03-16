@@ -1,6 +1,7 @@
 <?php
 namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidator;
@@ -9,7 +10,7 @@ use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidato
  * Class ListOfValuesLookupsService
  * @package LaravelIssueTracker\ListOfValues\Acme\Services
  */
-class ListOfValuesLookupsService
+class ListOfValuesLookupsService extends ApiService
 {
     /**
      * @var ListOfValuesLookupsValidator

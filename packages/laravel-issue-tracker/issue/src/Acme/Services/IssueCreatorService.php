@@ -2,6 +2,7 @@
 namespace LaravelIssueTracker\Issue\Acme\Services;
 
 use LaravelIssueTracker\Issue\Models\Issue;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\Issue\Acme\Validators\IssueValidator;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
@@ -9,7 +10,7 @@ use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
  * Class IssueCreatorService
  * @package LaravelIssueTracker\Issue\Acme\Services
  */
-class IssueCreatorService
+class IssueCreatorService extends ApiService
 {
 
     /**

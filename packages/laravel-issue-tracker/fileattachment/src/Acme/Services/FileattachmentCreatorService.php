@@ -1,14 +1,16 @@
 <?php
 namespace LaravelIssueTracker\Fileattachment\Acme\Services;
 
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\Fileattachment\Models\Fileattachment;
+use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Fileattachment\Acme\Validators\FileattachmentValidator;
 
 /**
  * Class FileattachmentCreatorService
  * @package LaravelIssueTracker\Fileattachment\Acme\Services
  */
-class FileattachmentCreatorService
+class FileattachmentCreatorService extends ApiService
 {
 
     /**

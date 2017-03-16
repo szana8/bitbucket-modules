@@ -1,13 +1,13 @@
 <?php
 namespace LaravelIssueTracker\User\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class ProfileTransformer
  * @package LaravelIssueTracker\User\Acme\Transformers
  */
-class ProfileTransformer extends Transformer
+class ProfileTransformer extends TransformerAbstract
 {
 
     /**

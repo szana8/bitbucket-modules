@@ -3,6 +3,7 @@ namespace LaravelIssueTracker\Project\Acme\Services;
 
 use LaravelIssueTracker\User\Models\Profile;
 use LaravelIssueTracker\Project\Models\Project;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\Project\Acme\Validators\ProjectValidator;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
@@ -10,7 +11,7 @@ use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
  * Class ProjectCreatorService
  * @package LaravelIssueTracker\Project\Acme\Services
  */
-class ProjectCreatorService
+class ProjectCreatorService extends ApiService
 {
 
     protected $validator;

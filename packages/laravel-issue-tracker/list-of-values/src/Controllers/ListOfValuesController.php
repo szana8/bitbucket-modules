@@ -3,6 +3,8 @@ namespace LaravelIssueTracker\ListOfValues\Controllers;
 
 use Illuminate\Support\Facades\Input;
 use LaravelIssueTracker\Core\Controller\ApiController;
+use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesLookupsValidator;
+use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesValidator;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\ListOfValues\Acme\Services\ListOfValuesService;
@@ -16,130 +18,32 @@ use LaravelIssueTracker\ListOfValues\Acme\Transformers\ListOfValuesTransformer;
 class ListOfValuesController extends ApiController
 {
     /**
-     * @var ListOfValuesTransformer
-     */
-    protected $listOfValuesTransformer;
-    /**
-     * @var ListOfValuesService
-     */
-    protected $listOfValuesService;
-    /**
-     * @var ListOfValuesLookupsService
-     */
-    protected $listOfValuesLookupsService;
-
-
-    /**
-     * ListOfValuesController constructor.
-     * @param ListOfValuesTransformer $listOfValuesTransformer
-     * @param ListOfValuesService $listOfValuesService
-     * @param ListOfValuesLookupsService $listOfValuesLookupsService
-     */
-    public function __construct(ListOfValuesTransformer $listOfValuesTransformer, ListOfValuesService $listOfValuesService, ListOfValuesLookupsService $listOfValuesLookupsService)
-    {
-        $this->listOfValuesService = $listOfValuesService;
-        $this->listOfValuesTransformer = $listOfValuesTransformer;
-        $this->listOfValuesLookupsService = $listOfValuesLookupsService;
-    }
-
-    /**
-     * Display a listing of the resource.
+     * Eloquent model.
      *
-     * @return mixed
+     * @return \Illuminate\Database\Eloquent\Model
      */
-    public function index()
+    protected function model()
     {
-        $listOfValues = ListOfValues::with('lookups')
-            ->where('name', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('table', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('column', 'like', '%' . \Request::get('search') . '%')
-            ->orWhere('datatype', 'like', '%' . \Request::get('search') . '%')
-            ->paginate($this->limit);
-
-        return $this->respond([
-            'data'       => $this->listOfValuesTransformer->transformCollection($listOfValues->all()),
-            'pagination' => (string) $listOfValues->appends(\Request::only('search'))->links(),
-        ]);
+        return new ListOfValues;
     }
 
     /**
-     * Display the specified resource.
+     * Transformer for the current model.
      *
-     * @param $id
-     * @return mixed
+     * @return \League\Fractal\TransformerAbstract
      */
-    public function show($id)
+    protected function transformer()
     {
-        $listOfValues = ListOfValues::with('lookups')->find($id);
-
-        if ( ! $listOfValues)
-        {
-            return $this->respondNotFound('List Of Value does not exist');
-        }
-
-        return $this->respond([
-            'data' => $this->listOfValuesTransformer->transform($listOfValues),
-        ]);
+        return new ListOfValuesTransformer;
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Service for the REST actions.
      *
-     * @return mixed
+     * @return \LaravelIssueTracker\Core\Acme\Services\ApiService
      */
-    public function store()
+    protected function service()
     {
-        try
-        {
-            $this->listOfValuesService->make(Input::all());
-            return $this->respondCreated('List Of Value successfully created!');
-        }
-        catch (ValidationException $e)
-        {
-            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
-        }
+        return new ListOfValuesService(new ListOfValuesValidator, new ListOfValuesLookupsService(new ListOfValuesLookupsValidator));
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param \Request $request
-     * @param $id
-     * @return mixed
-     */
-    public function update(\Request $request, $id)
-    {
-        try
-        {
-            // Store the original input of the request and then replace the input with your request instances input.
-            $this->listOfValuesService->update(Input::all(), $id);
-
-            return $this->respondCreated('List of Value successfully updated!');
-        }
-        catch ( ValidationException $e )
-        {
-            return $this->respondUnprocessable(['message' => $e->getMessage(), 'errors' => $e->getErrors()]);
-        }
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function destroy($id)
-    {
-        try
-        {
-            $this->listOfValuesService->destroy($id);
-
-            return $this->respondCreated('List of Value successfully destroyed!');
-        }
-        catch ( ValidationException $e )
-        {
-            return $this->respondUnprocessable($e->getMessage());
-        }
-    }
-
 }

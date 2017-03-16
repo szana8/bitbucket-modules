@@ -3,6 +3,7 @@ namespace LaravelIssueTracker\User\Acme\Services;
 
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\User\Acme\Validators\UserValidator;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
@@ -10,7 +11,7 @@ use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
  * Class UserCreatorService
  * @package LaravelIssueTracker\User\Acme\Services
  */
-class UserCreatorService
+class UserCreatorService extends ApiService
 {
 
     /**

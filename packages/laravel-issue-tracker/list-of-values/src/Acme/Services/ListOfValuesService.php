@@ -1,6 +1,7 @@
 <?php
 namespace LaravelIssueTracker\ListOfValues\Acme\Services;
 
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 use LaravelIssueTracker\ListOfValues\Models\ListOfValuesLookups;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
@@ -10,7 +11,7 @@ use LaravelIssueTracker\ListOfValues\Acme\Validators\ListOfValuesValidator;
  * Class ListOfValuesService
  * @package LaravelIssueTracker\ListOfValues\Acme\Services
  */
-class ListOfValuesService
+class ListOfValuesService extends ApiService
 {
     /**
      * Constant value for the query type list of value.

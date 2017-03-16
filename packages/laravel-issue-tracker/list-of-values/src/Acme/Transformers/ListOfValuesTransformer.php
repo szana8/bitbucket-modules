@@ -1,24 +1,25 @@
 <?php
 namespace LaravelIssueTracker\ListOfValues\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use League\Fractal\TransformerAbstract;
+use LaravelIssueTracker\ListOfValues\Models\ListOfValues;
 
 /**
  * Class ListOfValuesTransformer
  * @package LaravelIssueTracker\ListOfValues\Acme\Transformers
  */
-class ListOfValuesTransformer extends Transformer
+class ListOfValuesTransformer extends TransformerAbstract
 {
 
     /**
      * Transform the given array to the proper style.
      *
-     * @param $listOfValues
+     * @param ListOfValues $listOfValues
      * @return mixed
      */
-    public function transform($listOfValues)
+    public function transform(ListOfValues $listOfValues)
     {
-        return $listOfValues;
+        return $listOfValues->toArray();
     }
 
 }

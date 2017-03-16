@@ -2,6 +2,7 @@
 namespace LaravelIssueTracker\Watcher\Acme\Services;
 
 use LaravelIssueTracker\Watcher\Models\Watcher;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\Watcher\Acme\Validators\WatcherValidator;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 
@@ -9,7 +10,7 @@ use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
  * Class WatcherCreatorService
  * @package LaravelIssueTracker\Watcher\Acme\Services
  */
-class WatcherCreatorService
+class WatcherCreatorService extends ApiService
 {
 
     protected $validator;

@@ -1,42 +1,27 @@
 <?php
 namespace LaravelIssueTracker\User\Acme\Transformers;
 
-use LaravelIssueTracker\Core\Acme\Transformers\Transformer;
+use App\User;
+use League\Fractal\TransformerAbstract;
 
 /**
  * Class UserTransformer
  * @package LaravelIssueTracker\User\Acme\Transformers
  */
-class UserTransformer extends Transformer
+class UserTransformer extends TransformerAbstract
 {
-
-    /**
-     * @var ProfileTransformer
-     */
-    protected $profileTransformer;
-
-    /**
-     * UserTransformer constructor.
-     * @param ProfileTransformer $profileTransformer
-     */
-    public function __construct(ProfileTransformer $profileTransformer)
-    {
-        $this->profileTransformer = $profileTransformer;
-    }
-
-
     /**
      * @param $user
      * @return mixed
      */
-    public function transform($user)
+    public function transform(User $user)
     {
         return [
-            'id'       => $user['id'],
-            'email'    => $user['email'],
-            'password' => $user['password'],
-            'api_token' => $user['api_token'],
-            'profile'  => $this->profileTransformer->transform($user['profiles']),
+            'id'       => $user->id,
+            'email'    => $user->email,
+            'password' => $user->password,
+            'api_token' => $user->api_token,
+            //'profile'  => $this->profileTransformer->transform($user['profiles']),
         ];
     }
 }

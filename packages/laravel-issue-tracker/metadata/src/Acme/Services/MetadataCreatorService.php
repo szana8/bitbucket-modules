@@ -2,11 +2,12 @@
 namespace LaravelIssueTracker\Metadata\Acme\Services;
 
 use LaravelIssueTracker\Metadata\Models\Metadata;
+use LaravelIssueTracker\Core\Acme\Services\ApiService;
 use LaravelIssueTracker\Core\Acme\Validators\ValidationException;
 use LaravelIssueTracker\Metadata\Acme\Validators\MetadataValidator;
 
-class MetadataCreatorService {
-
+class MetadataCreatorService extends ApiService
+{
     /**
      * @var MetadataValidator
      */
@@ -29,15 +30,15 @@ class MetadataCreatorService {
 
 
     /**
-     * @param $requestArray
+     * @param array $attributes
      * @return bool
      * @throws ValidationException
      */
-    public function make($requestArray)
+    public function make(array $attributes)
     {
-        if( $this->validator->isValidForInsert($requestArray) )
+        if( $this->validator->isValidForInsert($attributes) )
         {
-            return Metadata::create($requestArray);
+            return Metadata::create($attributes);
         }
 
         throw new ValidationException(self::$validationFailedMessage, $this->validator->getErrors());
@@ -45,16 +46,16 @@ class MetadataCreatorService {
 
 
     /**
-     * @param array $requestArray
+     * @param array $attributes
      * @param $id
      * @return bool
      * @throws ValidationException
      */
-    public function update($requestArray, $id)
+    public function update(array $attributes, $id)
     {
-        if( $this->validator->isValidForUpdate($requestArray) )
+        if( $this->validator->isValidForUpdate($attributes) )
         {
-            return Metadata::findOrFail($id)->update($requestArray);
+            return Metadata::findOrFail($id)->update($attributes);
         }
 
         throw new ValidationException(self::$validationFailedMessage, $this->validator->getErrors());
